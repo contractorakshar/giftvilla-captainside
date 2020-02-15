@@ -7,6 +7,10 @@ import { FooterComponent } from './footer/footer.component';
 import { CartComponent } from './cart/cart.component';
 import { ProducthomeComponent } from './producthome/producthome.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { routingArr } from './app.routing';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    routingArr,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot([]),
+
   ],
   providers: [],
   bootstrap: [AppComponent]
