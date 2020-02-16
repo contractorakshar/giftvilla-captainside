@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { routingArr } from './app.routing';
+import { LoginpageComponent } from './loginpage/loginpage.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { routingArr } from './app.routing';
     HeaderComponent,
     FooterComponent,
     CartComponent,
-    ProducthomeComponent
+    ProducthomeComponent,
+    LoginpageComponent
   ],
   imports: [
     BrowserModule,

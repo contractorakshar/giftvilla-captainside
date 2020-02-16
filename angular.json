@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "CaptainGiftvilla"
+  "defaultProject": "CaptainGiftvilla",
+  "cli": {
+    "analytics": false
+  }
 }
