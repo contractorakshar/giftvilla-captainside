@@ -1,6 +1,6 @@
 /**
 Theme Name: GiftShop Bootstrap HTML5 eCommerce Template
-Theme URI: 
+Theme URI:
 Description: GiftShop Bootstrap HTML5 eCommerce Template!
 Author: CraftDzine
 Author URI: http://demo.craftdzine.com/
@@ -10,7 +10,7 @@ Version: 1.0
 */
 
 /**
-1. CSS RESET 
+1. CSS RESET
 
 /*------------------------------------------------*/
 /*-----------------[RESET]------------------------*/
@@ -137,6 +137,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0;
     line-height: 1.5em;
 }
+
 h1 { font-size: 30px; letter-spacing: 1px;}
 h2 { font-size: 24px; letter-spacing: 1px;}
 h3 { font-size: 22px; letter-spacing: 1px;}
@@ -243,7 +244,7 @@ ul.list-inline {
     color: #7dc50d;
 }
 .main-theme-color1{
-    background: #7dc50d;  
+    background: #7dc50d;
 }
 .animated-img {
     margin-right: 30px;
@@ -274,7 +275,7 @@ ul.list-inline {
 .item-img .img-responsive,
 .banner-coll2 .img-responsive,
 .post-image-block img,
-.topbar ul.topbarnav li ul.cart .cart-items .items li .product-image img, 
+.topbar ul.topbarnav li ul.cart .cart-items .items li .product-image img,
 .cat-pro .img-responsive {
     width: 100%;
 }
@@ -294,6 +295,10 @@ ul.list-inline {
     border-radius: 0;
     color: #fff;
     padding: 14px;
+}
+#img200{
+  height: 270px;
+  width: 220px;
 }
 .btn.cd-btn.coupon-btn{
     background: #7dc50d none repeat scroll 0 0;
@@ -447,7 +452,7 @@ ul.list-inline {
     opacity: 1;
     margin-top: 0; }
 .topbar a {
-    color: #222; 
+    color: #222;
 }
 .topbar a:hover, .topbar a:active, .topbar a:focus {
     color: #7dc50d; }
@@ -631,7 +636,7 @@ ul.list-inline {
     line-height: normal; }
 .cd-navbar li .dropdown-menu .cd-navbar-content ul li a:hover, .cd-navbar li .dropdown-menu .cd-navbar-content ul li a:active, .cd-navbar li .dropdown-menu .cd-navbar-content ul li a:focus,
 .cd-navbar li .dropdown-menu li a:hover, .cd-navbar li .dropdown-menu li a:active, .cd-navbar li .dropdown-menu li a:focus {
-    color: inherit; 
+    color: inherit;
 }
 .cd-navbar li .dropdown-menu .cd-navbar-content ul li.active a {
     background-color: transparent;
@@ -916,7 +921,7 @@ ul.list-inline {
     border-color:#ddd;
 }
 .pagination > li > a:focus, .pagination > li > a:hover, .pagination > li > span:focus, .pagination > li > span:hover{
-    background-color: #7dc50d;  
+    background-color: #7dc50d;
     color: #fff;
 
 }
@@ -1476,7 +1481,7 @@ ul.list-inline {
 .blog-dis, .blog-comments-block{
     padding: 20px;
     background: #f8f9f9 none repeat scroll 0 0;
-} 
+}
 .post-image-block > a{
     display: block;
     position: relative;
@@ -2092,7 +2097,7 @@ img.mfp-img {
     box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
 }
 .products.grid-product:hover .product-grid-atb {
-    opacity: 1;  
+    opacity: 1;
     transform: translate3d(0px, 0px, 0px);
     transition: all 0.3s ease 0s;
 }
@@ -2119,18 +2124,18 @@ img.mfp-img {
 .product-grid-img-thumbnail{
     display: block;
     overflow: hidden;
-    position: relative; 
+    position: relative;
 }
 .product-grid-img-thumbnail a:hover {
     color: inherit;
 }
 .product-grid-img-thumbnail, .product-grid-img-thumbnail img{
-    transition: all 0.25s ease-out 0s;   
+    transition: all 0.25s ease-out 0s;
 }
 
 .product-grid-img-thumbnail .primary-img{
     margin-bottom: 0;
-    margin-top: 0; 
+    margin-top: 0;
     top: 0;
     position: relative;
     display: block;
@@ -2142,7 +2147,7 @@ img.mfp-img {
     position: absolute;
     top: 100%;
     margin-bottom: 0;
-    margin-top: 0; 
+    margin-top: 0;
     display: block;
     height: auto;
     width: 100%;
@@ -2232,7 +2237,7 @@ display: flex;         /* NEW, Spec - Opera 12.1, Firefox 20+ */
 justify-content: center;
 -webkit-box-align: center;
 -webkit-flex-align: center;
--ms-flex-align: center; 
+-ms-flex-align: center;
     height: 100%;
     width: 100%;
 }
@@ -2374,10 +2379,10 @@ justify-content: center;
     border-radius: 50%;
 }
 .flex-direction-nav > li .flex-next{
-    padding-left: 14px; 
+    padding-left: 14px;
 }
 .flex-direction-nav > li .flex-prev{
-    padding-left: 11px;  
+    padding-left: 11px;
 }
 
 .shop-product .shop-product-heading {
@@ -3346,7 +3351,7 @@ input[type="radio"] .styled:checked + label::after {
         padding-bottom: 10px;
         line-height: 50px; }
             .cd-navbar .navbar-nav > li.active > a {
-        border-top: 2px solid #7dc50d; } 
+        border-top: 2px solid #7dc50d; }
         .cd-navbar .navbar-nav > li.active > a:hover, .cd-navbar .navbar-nav > li.active > a:active, .cd-navbar .navbar-nav > li.active > a:focus {
         border-top: 2px solid #7dc50d; }
            .cd-navbar .navbar-nav > li.dropdown.open > a {
@@ -3386,24 +3391,24 @@ input[type="radio"] .styled:checked + label::after {
         border-color: transparent;
         border-top-color: #7dc50d;
         border-width: 12px;
-        opacity: .2; } 
+        opacity: .2; }
 
   .navbar-vertical .nav li:hover .dropdown-menu {
         visibility: visible;
         opacity: 1;
-        display: block; } 
+        display: block; }
   .navbar-vertical .nav li .dropdown-menu {
         top: 0;
         left: 100%; }
     .navbar-vertical .nav .open .dropdown-menu {
         visibility: hidden;
         opacity: 0;
-        display: none; } 
+        display: none; }
     .cd-navbar li:hover > .dropdown-menu {
         display: block;
         visibility: visible;
         opacity: 1;
-        margin-top: 0; } 
+        margin-top: 0; }
          .style-banner1 {
         margin-bottom: 30px;
     }
@@ -3462,20 +3467,20 @@ input[type="radio"] .styled:checked + label::after {
     .cd-navbar .navbar-toggle .icon-bar {
         background-color: #f9f8f8; }
     .cd-navbar .dropdown-submenu > .dropdown-menu {
-        margin-left: 5px; } 
+        margin-left: 5px; }
     .cd-navbar .dropdown-submenu > .dropdown-menu {
         margin-top: -6px;
-        margin-left: -1px; } 
+        margin-left: -1px; }
         .cd-navbar div[class^="col-"] {
         margin-bottom: 20px; }
     .cd-navbar div[class^="col-"]:last-child {
-        margin-bottom: 0; } 
+        margin-bottom: 0; }
     .header-cat-block .form-control.input-lg, .btn.cd-btn.top-cat-search, .topbar {
         margin-bottom: 15px; }
     .comments .comment-content {
         margin-left: 0px; }
     .nav-pills.style1 li {
-        float: none; } 
+        float: none; }
        .portfolio-item {
         margin-bottom: 30px;
     }
@@ -3483,8 +3488,8 @@ input[type="radio"] .styled:checked + label::after {
 @media (min-width: 768px) and (max-width: 990px) {
         .style-banner1 {
         margin-bottom: 0;
-    } 
-    
+    }
+
     .navbar-vertical .nav li .dropdown-menu{
         left: 74%;
     }
@@ -3494,7 +3499,7 @@ input[type="radio"] .styled:checked + label::after {
         padding-right: 0;
         border-right: none;
     }
-    
+
 }
 @media (max-width: 990px) {
     .home-about-text2,.cat-pro ,
@@ -3503,9 +3508,9 @@ input[type="radio"] .styled:checked + label::after {
     .standard-post-thumbnail,
     .skills .col-sm-6.col-md-3.text-center,
     .box-icon.box-icon-side,.counter-item,
-    .portfolio-item,.clients-block, 
+    .portfolio-item,.clients-block,
     .col-style1,.product-quantity,
-    .single-contact-option,.single_feature, 
+    .single-contact-option,.single_feature,
     .footer .widget,.products.grid-product,
     .option-box-item{
         margin-bottom: 30px;
