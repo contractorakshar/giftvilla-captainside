@@ -1,0 +1,37 @@
+        <!-- START MAIN CONTAIN -->
+        <div class="main-contain">
+          <div class="container">
+             <ul class="portfolio-filter text-center list-inline" id="portfolio-filter">
+                 <li *ngFor="let item of CategoryArr">
+                   <a (click)="getItemByCategory(item.cat_id)" class="">{{item.cat_name}}</a>
+                  </li>
+             </ul>
+             <ul id="portfolio-list">
+                 <li *ngFor="let item of arr" class="col-md-3 col-sm-6 html bootstrap no-padding">
+                     <div class="portfolio-item">
+                         <div class="project-item">
+                             <img alt="" src="http://localhost:3000/{{item.pro_img}}" class="img-responsive">
+                             <div class="portfolio-hover">
+                                 <div class="overlay-folio">
+                                     <div class="hover-box">
+                                         <div class="hover-zoom">
+                                             <a href="http://localhost:3000/{{item.pro_img}}" class="mp-lightbox zoom">
+                                              <i class="fa fa-search-plus"></i></a>
+                                             <a href="portfolio-single-1.html" class="link">
+                                               <i class="fa fa-link"></i></a>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="portfolio-description text-center">
+                             <h6><a title="" class="popup-link" href="portfolio-single-1.html">GiftShop HTML5 Template</a></h6>
+                             <div class="cat">Web Design / Graphic</div>
+                         </div>
+                     </div>
+                 </li>
+
+             </ul>
+         </div>
+     </div>
+      <!-- END MAIN CONTAIN -->

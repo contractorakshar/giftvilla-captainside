@@ -22,8 +22,6 @@ export class LoginpageComponent implements OnInit {
     });
   }
 
-
-
   onLogin()
   {
     console.log(this.loginForm);

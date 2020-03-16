@@ -32,6 +32,9 @@ import { routingArr } from './app.routing';
 import { MaplocationComponent } from './maplocation/maplocation.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { WatchComponent } from './watch/watch.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { UserinformationComponent } from './userinformation/userinformation.component';
 
 
 @NgModule({
@@ -44,6 +47,9 @@ import { RegistrationFormComponent } from './registration-form/registration-form
     LoginpageComponent,
     RegistrationFormComponent,
     MaplocationComponent,
+    WatchComponent,
+    PagenotfoundComponent,
+    UserinformationComponent,
   ],
   imports: [
     BrowserModule,

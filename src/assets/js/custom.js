@@ -7,7 +7,7 @@
     });
 
     //sticky nav
-  
+
      $('.navbar').sticky({topSpacing:0});
 
     /*
@@ -17,21 +17,6 @@
     $('.beactive').addClass('active');
     $('.beactive').removeClass('beactive');
 
-    /*============================================
-     MagnificPopup Bar
-     ==============================================*/
-    $('.mp-lightbox').magnificPopup({
-        removalDelay: 300,
-        type: 'image',
-        closeOnContentClick: true,
-        mainClass: 'mfp-fade',
-        image: {
-            verticalFit: true
-        },
-        gallery: {
-            enabled: true
-        }
-    });
 
 
     /*============================================
@@ -74,24 +59,43 @@
         asNavFor: '#main_slider'
     });
 
-    $('.cd-lightbox-image').magnificPopup({
-        removalDelay: 300,
-        type: 'image',
-        closeOnContentClick: true,
-        mainClass: 'mfp-fade',
-        image: {
-            verticalFit: true
-        },
-        gallery: {
-            enabled: true
-        }
-    });
-    /*============================================
-     Portfolio
-     ==============================================*/
     $(document).ready(function () {
         $('#portfolio-list').filterable();
-    });
+
+    /*============================================
+     MagnificPopup Bar
+     ==============================================*/
+     $('.mp-lightbox').magnificPopup({
+      removalDelay: 300,
+      type: 'image',
+      closeOnContentClick: true,
+      mainClass: 'mfp-fade',
+      image: {
+          verticalFit: true
+      },
+      gallery: {
+          enabled: true
+      }
+  });
+
+  $('.cd-lightbox-image').magnificPopup({
+    removalDelay: 300,
+    type: 'image',
+    closeOnContentClick: true,
+    mainClass: 'mfp-fade',
+    image: {
+        verticalFit: true
+    },
+    gallery: {
+        enabled: true
+    }
+});
+/*============================================
+ Portfolio
+ ==============================================*/
+
+
+      });
 
 })(jQuery, window, document);
 
