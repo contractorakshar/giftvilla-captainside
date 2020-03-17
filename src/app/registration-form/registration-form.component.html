@@ -31,7 +31,8 @@
                 <label> Name <span class="text-danger">*</span></label>
                 <input type="text" formControlName="u_Name" required placeholder="Enter Name" name="u_Name"
                   class="form-control input-sm required"><br>
-                <mat-error *ngIf="SignupForm.get('u_Name').hasError('required')">Name is required</mat-error>
+                <mat-error *ngIf="SignupForm.get('u_Name').hasError('required') && !SignupForm.get('u_Name').pristine">
+                Name is required</mat-error>
                 <mat-error *ngIf="SignupForm.get('u_Name').hasError('minlength')">Name must be greater than 5 characters
                 </mat-error>
                 <mat-error *ngIf="SignupForm.get('u_Name').hasError('pattern')">Only characters are allowed</mat-error>
@@ -41,7 +42,10 @@
                 <label>Email Address <span class="text-danger">*</span></label>
                 <input type="email" formControlName="u_EmailId" required placeholder="Email Address" name="u_EmailId"
                   class="form-control input-sm required email"><br>
-                <mat-error *ngIf="SignupForm.get('u_EmailId').hasError('required')">Email is required</mat-error>
+                <mat-error
+                  *ngIf="SignupForm.get('u_EmailId').hasError('required') && !SignupForm.get('u_EmailId').pristine">
+                  Email is required</mat-error>
+
                 <mat-error *ngIf="SignupForm.get('u_EmailId').hasError('email')">Email is invalid</mat-error>
               </div>
 
@@ -49,73 +53,84 @@
                 <label> Address <span class="text-danger">*</span></label>
                 <input type="text" formControlName="u_Address" required placeholder="Enter Address" name="u_Address"
                   class="form-control input-sm required"><br>
-                <mat-error *ngIf="SignupForm.get('u_Address').hasError('required')">Address is required</mat-error>
+                <mat-error
+                  *ngIf="SignupForm.get('u_Address').hasError('required') && !SignupForm.get('u_Address').pristine">
+                Address is required</mat-error>
               </div>
 
               <div class="form-group">
                 <label> Mobile No <span class="text-danger">*</span></label>
-                <input type="text" formControlName="u_mobileno" placeholder="Enter Mobile No" name="u_mobileno"
+                <input type="text" formControlName="u_mobileno" required placeholder="Enter Mobile No" name="u_mobileno"
                   class="form-control input-sm required">
+                <mat-error
+                  *ngIf="SignupForm.get('u_mobileno').hasError('required') && !SignupForm.get('u_mobileno').pristine">
+                mobile number is required
+                </mat-error>
+                <mat-error *ngIf="SignupForm.get('u_mobileno').hasError('maxlength')">mobile number should be 10
+                  characters
+                </mat-error>
+                <mat-error *ngIf="SignupForm.get('u_mobileno').hasError('pattern')">Only numbers are allowed</mat-error>
               </div>
 
               <label>Date of Birth</label>
               <div class="form-group">
 
-                <input type="Date" formControlName="u_dob" name="u_dob" placeholder="Enter Date"
+                <input type="Date" formControlName="u_dob" required name="u_dob" placeholder="Enter Date"
                   class="form-control input-sm required">
                 <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                           <mat-datepicker #picker></mat-datepicker> -->
-
+                <mat-error *ngIf="SignupForm.get('u_dob').hasError('required') && !SignupForm.get('u_dob').pristine">Birthdate is required
+                </mat-error>
               </div>
 
               <!-- <div class="col-md-6"> -->
-                <div formGroupName="password_group">
-                  <div class="form-group">
-                    <label>Password <span class="text-danger">*</span></label>
-                    <input type="password" formControlName="u_password" [type]="hide ? 'password' : 'text'"
-                      placeholder="Password" name="u_password" class="form-control input-sm required">
-                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                  </div>
-
-                  <div class="form-group">
-                    <label>Confirm Password</label>
-                    <input type="password" formControlName="u_confirm_password" [type]="hide1 ? 'password' : 'text'"
-                      placeholder="Confirm Password" name="u_confirm_password" class="form-control input-sm required">
-                    <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
-                  </div>
+              <div formGroupName="password_group">
+                <div class="form-group">
+                  <label>Password <span class="text-danger">*</span></label>
+                  <input type="password" formControlName="u_password" [type]="hide ? 'password' : 'text'"
+                    placeholder="Password" name="u_password" class="form-control input-sm required">
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </div>
 
                 <div class="form-group">
-                  <label>Gender</label><br>
-                  <mat-radio-group aria-label="Select an option" formControlName="u_gender"
-                    class="form-control input-sm required">
-                    <mat-radio-button value="male">Male</mat-radio-button>
-                    <mat-radio-button value="female" >Female</mat-radio-button>
-                  </mat-radio-group>
-                </div>
-
-                <div class="form-group">
-                  <label>Image</label>
-                  <input type="file" class="form-control input-sm required" name="u_img" formControlName="u_img"
-                    (change)="onChange($event)">
+                  <label>Confirm Password</label>
+                  <input type="password" formControlName="u_confirm_password" [type]="hide1 ? 'password' : 'text'"
+                    placeholder="Confirm Password" name="u_confirm_password" class="form-control input-sm required">
+                  <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </div>
               </div>
-            </div>
-            <div class="form-group">
-              <div class="checkbox-input checkbox-primary">
-                <input id="newsletter" class="styled" type="checkbox" checked>
-                <label for="newsletter">
-                  Sign up for our newsletter!
-                </label>
+
+              <div class="form-group">
+                <label>Gender</label><br>
+                <mat-radio-group aria-label="Select an option" formControlName="u_gender"
+                  class="form-control input-sm required">
+                  <mat-radio-button value="male">Male</mat-radio-button>
+                  <mat-radio-button value="female">Female</mat-radio-button>
+                </mat-radio-group>
+              </div>
+
+              <div class="form-group">
+                <label>Image</label>
+                <input type="file" class="form-control input-sm required" name="u_img" formControlName="u_img"
+                  (change)="onChange($event)">
               </div>
             </div>
-
-            <div class="form-group">
-              <button type="submit" value="submit" class="btn cd-btn"><i class="fa fa-save mr5"></i>
-                Save</button><br /><br />
-              <button type="button" (click)="onSignupCancel()" class="btn cd-btn"><i class="fa fa-save mr5"></i>
-                Cancel</button>
+          </div>
+          <div class="form-group">
+            <div class="checkbox-input checkbox-primary">
+              <input id="newsletter" class="styled" type="checkbox" checked>
+              <label for="newsletter">
+                Sign up for our newsletter!
+              </label>
             </div>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" value="submit" class="btn cd-btn"><i class="fa fa-save mr5"></i>
+              Save</button><br /><br />
+            <button type="button" (click)="onSignupCancel()" class="btn cd-btn"><i class="fa fa-save mr5"></i>
+              Cancel</button>
+          </div>
           <!-- </div> -->
         </form>
       </div>
