@@ -80,5 +80,9 @@ export class ProducthomeComponent implements OnInit {
       //this._router.navigate['/cart']);
     }
   }
-
+  ImageViewMore(pro_id)
+  {
+    console.log(pro_id);
+    this._router.navigate(['/viewMoreProduct',pro_id]);
+  }
 }

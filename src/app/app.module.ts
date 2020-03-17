@@ -32,6 +32,8 @@ import { routingArr } from './app.routing';
 import { MaplocationComponent } from './maplocation/maplocation.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { ViewMoreProductComponent } from './view-more-product/view-more-product.component';
+import { SortedproductshowComponent } from './sortedproductshow/sortedproductshow.component';
 
 
 @NgModule({
@@ -44,6 +46,8 @@ import { RegistrationFormComponent } from './registration-form/registration-form
     LoginpageComponent,
     RegistrationFormComponent,
     MaplocationComponent,
+    ViewMoreProductComponent,
+    SortedproductshowComponent,
   ],
   imports: [
     BrowserModule,
