@@ -8,6 +8,9 @@ import { RegistrationFormComponent } from './registration-form/registration-form
 import { WatchComponent } from './watch/watch.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { UserinformationComponent } from './userinformation/userinformation.component';
+import { HelppageComponent } from './helppage/helppage.component';
+import { CategoryComponent } from './category/category.component';
+import { MyorderComponent } from './myorder/myorder.component';
 
 
 const arr: Routes = [
@@ -19,6 +22,9 @@ const arr: Routes = [
   { path: 'loginpage', component: LoginpageComponent },
   { path: 'userinfo', component: UserinformationComponent },
   { path: 'registration', component: RegistrationFormComponent },
+  { path: 'category', component: CategoryComponent },
+  { path: 'help', component: HelppageComponent },
+  { path: 'myorder', component: MyorderComponent },
   { path: 'pagenotfound', component: PagenotfoundComponent },
   { path: '**', redirectTo: '/pagenotfound' }
 ];

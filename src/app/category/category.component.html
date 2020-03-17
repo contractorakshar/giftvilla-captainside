@@ -1,0 +1,13 @@
+<div class="widget mb30">
+  <h6 class="text-uppercase bg-border">Categories</h6>
+  <div class="navbar-vertical">
+    <ul class="nav nav-stacked">
+
+
+      <li *ngFor="let item of categoryarr">
+        <a (click)="getItemByCategory(item.cat_id)" class="">{{item.cat_name}}</a>
+      </li>
+
+    </ul>
+  </div>
+</div>

@@ -31,8 +31,9 @@ export class LoginpageComponent implements OnInit {
         (x: logincla[]) => {
           if (x.length == 1) {
             console.log(x);
+            localStorage.setItem('u_EmailId',this.loginForm.get('u_EmailId').value);
             alert("You have successfully log in");
-            // localStorage.setItem('u_EmailId',this.loginForm.get('u_EmailId').value);
+
             this._rou.navigate(['']);
           }
           else{
