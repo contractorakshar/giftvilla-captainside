@@ -38,6 +38,7 @@ import { UserinformationComponent } from './userinformation/userinformation.comp
 import { HelppageComponent } from './helppage/helppage.component';
 import { CategoryComponent } from './category/category.component';
 import { MyorderComponent } from './myorder/myorder.component';
+import { SliderComponent } from './slider/slider.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { MyorderComponent } from './myorder/myorder.component';
     HelppageComponent,
     CategoryComponent,
     MyorderComponent,
+    SliderComponent,
   ],
   imports: [
     BrowserModule,

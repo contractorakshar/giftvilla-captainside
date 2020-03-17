@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 export class ProductServiceService {
   url = "http://localhost:3000/product/";
   public url3= "http://localhost:3000/category/";
+  public url4= "http://localhost:3000/productHome/";
   public url2="http://localhost:3000/categoryById/";
   constructor(private _http: HttpClient) { }
   getAllProducts() {
@@ -36,6 +37,9 @@ export class ProductServiceService {
     // let body = JSON.stringify(item);
     // let head = new HttpHeaders().set(environment.header,environment.value);
     return this._http.get(this.url2 + cat_id);
+  }
+  getHomeProduct(){
+    return this._http.get(this.url4);
   }
   updateproduct(item,pro_id){
     // let body = JSON.stringify(item);

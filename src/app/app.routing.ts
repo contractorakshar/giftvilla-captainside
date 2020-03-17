@@ -11,6 +11,7 @@ import { UserinformationComponent } from './userinformation/userinformation.comp
 import { HelppageComponent } from './helppage/helppage.component';
 import { CategoryComponent } from './category/category.component';
 import { MyorderComponent } from './myorder/myorder.component';
+import { SliderComponent } from './slider/slider.component';
 
 
 const arr: Routes = [
@@ -25,6 +26,7 @@ const arr: Routes = [
   { path: 'category', component: CategoryComponent },
   { path: 'help', component: HelppageComponent },
   { path: 'myorder', component: MyorderComponent },
+  { path: 'slider', component: SliderComponent },
   { path: 'pagenotfound', component: PagenotfoundComponent },
   { path: '**', redirectTo: '/pagenotfound' }
 ];
