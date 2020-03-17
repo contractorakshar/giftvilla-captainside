@@ -4,7 +4,7 @@ import { CartComponent } from './cart/cart.component';
 import { MaplocationComponent } from './maplocation/maplocation.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
-import { ContactusComponent } from './contactus/contactus.component';
+
 import { WatchComponent } from './watch/watch.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { UserinformationComponent } from './userinformation/userinformation.component';
