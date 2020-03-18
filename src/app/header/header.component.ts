@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
     this._productData.getAllCategory().subscribe(
       (data: productdisplay[]) => {
         this.category = data;
-        console.log(data);
+        // console.log(data);
       });
   }
 

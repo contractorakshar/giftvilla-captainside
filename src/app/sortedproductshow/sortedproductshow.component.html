@@ -58,7 +58,7 @@
               </div>
 
               <div class="category-products">
-                  <div class="products-list products-list-description-brd mb30">
+                  <div class="products-list products-list-description-brd mb30" *ngFor="let item of arr" >
                       <div class="row">
                           <div class="col-sm-4">
                               <div class="product-grid-img">
@@ -66,8 +66,8 @@
                                       <li>Sale</li>
                                   </ul>
                                   <a href="#" class="product-grid-img-thumbnail">
-                                      <img src="assets/img/products/pro1.jpg" alt="img" class="img-responsive primary-img" />
-                                      <img src="assets/img/products/pro2.jpg" alt="img" class="img-responsive socendary-img" />
+                                      <img src="http://localhost:3000/{{item.pro_img}}" alt="img" class="img-responsive primary-img" />
+                                      <!-- <img src="assets/img/products/pro2.jpg" alt="img" class="img-responsive socendary-img" /> -->
                                   </a>
                                   <div class="product-grid-atb text-center"><i class="fa fa-shopping-cart"></i><a class="" href="#">Add to Cart</a></div>
                               </div>
@@ -75,7 +75,7 @@
                           <div class="col-sm-8 products-list-description">
                               <div class="overflow-h">
                                   <ul class="list-inline overflow-h mb15">
-                                      <li><h4 class="title-price"><a href="shop-detail.html">Printed Summer Dress</a></h4></li>
+                                      <li><h4 class="title-price"><a href="shop-detail.html">{{item.pro_name}}</a></h4></li>
                                       <li class="pull-right">
                                           <ul class="list-inline product-ratings">
                                               <li><i class="rating-selected fa fa-star"></i></li>
@@ -87,115 +87,16 @@
                                       </li>
                                   </ul>
                                   <div class="mb10">
-                                      <span class="title-price">$20.00</span>
-                                      <span class="title-price line-through">$35.00</span>
+                                      <span class="title-price">{{item.pro_price | currency:'INR'}}</span>
+
                                   </div>
-                                  <p class="mb15">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sollicitudin erat nec ornarevolu tpat. Etiam ut felis nec nisl eleifend lobortis. Aenean nibh est, hendrerit non conva.</p>
+                                  <p class="mb15">{{item.pro_info}}</p>
                                   <ul class="list-inline add-to-wishlist mb15">
                                       <li class="product-wishlist">
                                           <i class="fa fa-heart"></i>
                                           <a href="#">Add to Wishlist</a>
                                       </li>
-                                      <li class="product-wishlist">
-                                          <i class="fa fa-exchange"></i>
-                                          <a href="#">Add to Compare</a>
-                                      </li>
-                                  </ul>
-                                  <button type="button" class="btn btn-product">Add to Cart</button>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="products-list products-list-description-brd mb30">
-                      <div class="row">
-                          <div class="col-sm-4">
-                              <div class="product-grid-img">
-                                  <ul class="product-labels">
-                                      <li>Sale</li>
-                                  </ul>
-                                  <a href="#" class="product-grid-img-thumbnail">
-                                      <img src="assets/img/products/pro3.jpg" alt="img" class="img-responsive primary-img" />
-                                      <img src="assets/img/products/pro4.jpg" alt="img" class="img-responsive socendary-img" />
-                                  </a>
-                                  <div class="product-grid-atb text-center"><i class="fa fa-shopping-cart"></i><a class="" href="#">Add to Cart</a></div>
-                              </div>
-                          </div>
-                          <div class="col-sm-8 products-list-description">
-                              <div class="overflow-h">
-                                  <ul class="list-inline overflow-h mb15">
-                                      <li><h4 class="title-price"><a href="shop-detail.html">Printed Summer Dress</a></h4></li>
-                                      <li class="pull-right">
-                                          <ul class="list-inline product-ratings">
-                                              <li><i class="rating-selected fa fa-star"></i></li>
-                                              <li><i class="rating-selected fa fa-star"></i></li>
-                                              <li><i class="rating-selected fa fa-star"></i></li>
-                                              <li><i class="rating fa fa-star"></i></li>
-                                              <li><i class="rating fa fa-star"></i></li>
-                                          </ul>
-                                      </li>
-                                  </ul>
-                                  <div class="mb10">
-                                      <span class="title-price">$50.00</span>
-                                      <span class="title-price line-through">$60.00</span>
-                                  </div>
-                                  <p class="mb15">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sollicitudin erat nec ornarevolu tpat. Etiam ut felis nec nisl eleifend lobortis. Aenean nibh est, hendrerit non conva.</p>
-                                  <ul class="list-inline add-to-wishlist mb15">
-                                      <li class="product-wishlist">
-                                          <i class="fa fa-heart"></i>
-                                          <a href="#">Add to Wishlist</a>
-                                      </li>
-                                      <li class="product-wishlist">
-                                          <i class="fa fa-exchange"></i>
-                                          <a href="#">Add to Compare</a>
-                                      </li>
-                                  </ul>
-                                  <button type="button" class="btn btn-product">Add to Cart</button>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="products-list products-list-description-brd mb30">
-                      <div class="row">
-                          <div class="col-sm-4">
-                              <div class="product-grid-img">
-                                  <ul class="product-labels">
-                                      <li>Sale</li>
-                                  </ul>
-                                  <a href="#" class="product-grid-img-thumbnail">
-                                      <img src="assets/img/products/pro5.jpg" alt="img" class="img-responsive primary-img" />
-                                      <img src="assets/img/products/pro6.jpg" alt="img" class="img-responsive socendary-img" />
-                                  </a>
-                                  <div class="product-grid-atb text-center"><i class="fa fa-shopping-cart"></i><a class="" href="#">Add to Cart</a></div>
-                              </div>
-                          </div>
-                          <div class="col-sm-8 products-list-description">
-                              <div class="overflow-h">
-                                  <ul class="list-inline overflow-h mb15">
-                                      <li><h4 class="title-price"><a href="shop-detail.html">Printed Summer Dress</a></h4></li>
-                                      <li class="pull-right">
-                                          <ul class="list-inline product-ratings">
-                                              <li><i class="rating-selected fa fa-star"></i></li>
-                                              <li><i class="rating-selected fa fa-star"></i></li>
-                                              <li><i class="rating-selected fa fa-star"></i></li>
-                                              <li><i class="rating fa fa-star"></i></li>
-                                              <li><i class="rating fa fa-star"></i></li>
-                                          </ul>
-                                      </li>
-                                  </ul>
-                                  <div class="mb10">
-                                      <span class="title-price">$60.00</span>
-                                      <span class="title-price line-through">$70.00</span>
-                                  </div>
-                                  <p class="mb15">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sollicitudin erat nec ornarevolu tpat. Etiam ut felis nec nisl eleifend lobortis. Aenean nibh est, hendrerit non conva.</p>
-                                  <ul class="list-inline add-to-wishlist mb15">
-                                      <li class="product-wishlist">
-                                          <i class="fa fa-heart"></i>
-                                          <a href="#">Add to Wishlist</a>
-                                      </li>
-                                      <li class="product-wishlist">
-                                          <i class="fa fa-exchange"></i>
-                                          <a href="#">Add to Compare</a>
-                                      </li>
+
                                   </ul>
                                   <button type="button" class="btn btn-product">Add to Cart</button>
                               </div>
@@ -203,103 +104,6 @@
                       </div>
                   </div>
 
-                  <div class="products-list products-list-description-brd mb30">
-                      <div class="row">
-                          <div class="col-sm-4">
-                              <div class="product-grid-img">
-                                  <ul class="product-labels">
-                                      <li>Sale</li>
-                                  </ul>
-                                  <a href="#" class="product-grid-img-thumbnail">
-                                      <img src="assets/img/products/pro7.jpg" alt="img" class="img-responsive primary-img" />
-                                      <img src="assets/img/products/pro8.jpg" alt="img" class="img-responsive socendary-img" />
-                                  </a>
-                                  <div class="product-grid-atb text-center"><i class="fa fa-shopping-cart"></i><a class="" href="#">Add to Cart</a></div>
-                              </div>
-                          </div>
-                          <div class="col-sm-8 products-list-description">
-                              <div class="overflow-h">
-                                  <ul class="list-inline overflow-h mb15">
-                                      <li><h4 class="title-price"><a href="shop-detail.html">Printed Summer Dress</a></h4></li>
-                                      <li class="pull-right">
-                                          <ul class="list-inline product-ratings">
-                                              <li><i class="rating-selected fa fa-star"></i></li>
-                                              <li><i class="rating-selected fa fa-star"></i></li>
-                                              <li><i class="rating-selected fa fa-star"></i></li>
-                                              <li><i class="rating fa fa-star"></i></li>
-                                              <li><i class="rating fa fa-star"></i></li>
-                                          </ul>
-                                      </li>
-                                  </ul>
-                                  <div class="mb10">
-                                      <span class="title-price">$40.00</span>
-                                      <span class="title-price line-through">$45.00</span>
-                                  </div>
-                                  <p class="mb15">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sollicitudin erat nec ornarevolu tpat. Etiam ut felis nec nisl eleifend lobortis. Aenean nibh est, hendrerit non conva.</p>
-                                  <ul class="list-inline add-to-wishlist mb15">
-                                      <li class="product-wishlist">
-                                          <i class="fa fa-heart"></i>
-                                          <a href="#">Add to Wishlist</a>
-                                      </li>
-                                      <li class="product-wishlist">
-                                          <i class="fa fa-exchange"></i>
-                                          <a href="#">Add to Compare</a>
-                                      </li>
-                                  </ul>
-                                  <button type="button" class="btn btn-product">Add to Cart</button>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="products-list products-list-description-brd mb30">
-                      <div class="row">
-                          <div class="col-sm-4">
-                              <div class="product-grid-img">
-                                  <ul class="product-labels">
-                                      <li>Sale</li>
-                                  </ul>
-                                  <a href="#" class="product-grid-img-thumbnail">
-                                      <img src="assets/img/products/pro9.jpg" alt="img" class="img-responsive primary-img" />
-                                      <img src="assets/img/products/pro10.jpg" alt="img" class="img-responsive socendary-img" />
-                                  </a>
-                                  <div class="product-grid-atb text-center"><i class="fa fa-shopping-cart"></i><a class="" href="#">Add to Cart</a></div>
-                              </div>
-                          </div>
-                          <div class="col-sm-8 products-list-description">
-                              <div class="overflow-h">
-                                  <ul class="list-inline overflow-h mb15">
-                                      <li><h4 class="title-price"><a href="shop-detail.html">Printed Summer Dress</a></h4></li>
-                                      <li class="pull-right">
-                                          <ul class="list-inline product-ratings">
-                                              <li><i class="rating-selected fa fa-star"></i></li>
-                                              <li><i class="rating-selected fa fa-star"></i></li>
-                                              <li><i class="rating-selected fa fa-star"></i></li>
-                                              <li><i class="rating fa fa-star"></i></li>
-                                              <li><i class="rating fa fa-star"></i></li>
-                                          </ul>
-                                      </li>
-                                  </ul>
-                                  <div class="mb10">
-                                      <span class="title-price">$60.00</span>
-                                      <span class="title-price line-through">$112.00</span>
-                                  </div>
-                                  <p class="mb15">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sollicitudin erat nec ornarevolu tpat. Etiam ut felis nec nisl eleifend lobortis. Aenean nibh est, hendrerit non conva.</p>
-                                  <ul class="list-inline add-to-wishlist mb15">
-                                      <li class="product-wishlist">
-                                          <i class="fa fa-heart"></i>
-                                          <a href="#">Add to Wishlist</a>
-                                      </li>
-                                      <li class="product-wishlist">
-                                          <i class="fa fa-exchange"></i>
-                                          <a href="#">Add to Compare</a>
-                                      </li>
-                                  </ul>
-                                  <button type="button" class="btn btn-product">Add to Cart</button>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
               </div>
 
           </div>

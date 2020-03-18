@@ -31,7 +31,7 @@ export class ProductServiceService {
   }
   getSortedProducts()
   {
-    return this._http.get(this.url3);
+    return this._http.get(this.url31);
   }
   getViewmoreRelatedProducts (fk_cat_id : number)
   {
