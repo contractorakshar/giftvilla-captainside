@@ -21,7 +21,7 @@ export class ProducthomeComponent implements OnInit {
   constructor(private _productData: ProductServiceService, private _cartService: CartoperationsService, private _router: Router) { }
 
   ngOnInit() {
-    this._productData.getAllProducts().subscribe((data: productdisplay[]) => {
+    this._productData.getHomeProduct().subscribe((data: productdisplay[]) => {
       this.arr = data;
     });
   }

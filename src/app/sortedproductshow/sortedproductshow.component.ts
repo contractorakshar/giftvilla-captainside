@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductServiceService } from '../product-service.service';
 import { Router } from '@angular/router';
-import { productdisplay } from '../productdisplay';
+import { orders } from '../order_bill';
 
 @Component({
   selector: 'app-sortedproductshow',
@@ -9,10 +9,15 @@ import { productdisplay } from '../productdisplay';
   styleUrls: ['./sortedproductshow.component.css']
 })
 export class SortedproductshowComponent implements OnInit {
-  arr: productdisplay[] = [];
-  constructor() { }
+  arr: orders[] = [];
+  constructor(private _productData: ProductServiceService, private _router: Router) { }
 
   ngOnInit(): void {
+    this._productData.getSortedProducts().subscribe((data : orders[])=>{
+      this.arr = data;
+      console.log("Sorted");
+      console.log(this.arr);
+    });
   }
 
 }
