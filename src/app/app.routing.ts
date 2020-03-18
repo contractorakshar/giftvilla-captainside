@@ -4,7 +4,8 @@ import { CartComponent } from './cart/cart.component';
 import { MaplocationComponent } from './maplocation/maplocation.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
-
+import { ViewMoreProductComponent } from './view-more-product/view-more-product.component';
+import { SortedproductshowComponent } from './sortedproductshow/sortedproductshow.component';
 import { WatchComponent } from './watch/watch.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { UserinformationComponent } from './userinformation/userinformation.component';
@@ -23,6 +24,11 @@ const arr: Routes = [
   { path: 'loginpage', component: LoginpageComponent },
   { path: 'userinfo', component: UserinformationComponent },
   { path: 'registration', component: RegistrationFormComponent },
+  {path : 'sortedproductlist' , component : SortedproductshowComponent },
+  {path :'viewMoreProduct/:pro_id' ,component : ViewMoreProductComponent},
+  { path: 'category', component: CategoryComponent },
+  { path: 'help', component: HelppageComponent },
+  { path: 'myorder', component: MyorderComponent },
   { path: 'category', component: CategoryComponent },
   { path: 'help', component: HelppageComponent },
   { path: 'myorder', component: MyorderComponent },

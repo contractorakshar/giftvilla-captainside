@@ -35,6 +35,49 @@
         autoPlay: true
     });
     /* ---------------------------------------------------------------- */
+    $('.cd-lightbox-image').magnificPopup({
+        removalDelay: 300,
+        type: 'image',
+        closeOnContentClick: true,
+        mainClass: 'mfp-fade',
+        image: {
+            verticalFit: true
+        },
+        gallery: {
+            enabled: true
+        }
+    });
+    /*============================================
+     Portfolio
+     ==============================================*/
+    $(document).ready(function () {
+        $('#portfolio-list').filterable();
+    /* Flexslider
+     /* ---------------------------------------------------------------- */
+     $('#main_slider').flexslider({
+      animation: 'slide',
+      useCSS: false,
+      controlNav: false,
+      animationLoop: false,
+      slideshow: false,
+      sync: '#main_thumbs'
+  });
+
+  $('#main_thumbs').flexslider({
+      animation: 'slide',
+      useCSS: false,
+      controlNav: false,
+      animationLoop: false,
+      slideshow: false,
+      minItems: 1,
+      maxItems: 15,
+      itemWidth: 103.75,
+      itemMargin: 10,
+      asNavFor: '#main_slider'
+  });
+
+
+    });
     /* Flexslider
      /* ---------------------------------------------------------------- */
     $('#main_slider').flexslider({
