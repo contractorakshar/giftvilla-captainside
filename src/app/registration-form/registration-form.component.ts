@@ -34,8 +34,8 @@ export class RegistrationFormComponent implements OnInit {
         u_password: new FormControl(null, [Validators.required]),
         u_confirm_password: new FormControl(null)
       }, [this.passwordMatch.bind(this)]),
-      u_mobileno: new FormControl(null),
-      u_dob: new FormControl(null),
+      u_mobileno: new FormControl(null,[Validators.required,Validators.maxLength(10),Validators.pattern('[0-9]*')]),
+      u_dob: new FormControl(null,[Validators.required]),
       u_img: new FormControl(null),
     });
   }
@@ -64,7 +64,7 @@ export class RegistrationFormComponent implements OnInit {
       (x: any) => {
         console.log(x)
         alert('Your Detalis Are Saved');
-        // this._router.navigate(['/nav/user']);
+       this._rou.navigate(['/']);
       }
     );
   }
@@ -81,5 +81,6 @@ export class RegistrationFormComponent implements OnInit {
 
   onSignupCancel() {
     alert("Data Is Not Save...");
+    this._rou.navigate(['/']);
   }
 }

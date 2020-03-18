@@ -1,296 +1,137 @@
-  <!-- Start Breadcrumb -->
-  <div class="page-heading">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 text-center">
-                <h1 class="title"><span>User Information</span></h1>
-                <div class="breadcrumb">
-                    <a href="index-2.html">Home</a>
-                    <span class="delimeter">/</span>
-                    <span class="current">User Information</span>
-                </div>
-            </div>
+<!-- Start Breadcrumb -->
+<div class="page-heading">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h1 class="title"><span>User Information</span></h1>
+        <div class="breadcrumb">
+          <a href="index-2.html">Home</a>
+          <span class="delimeter">/</span>
+          <span class="current">User Information</span>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <!-- End Breadcrumb -->
 
 
-        <div class="main-contain">
-               <div class="container">
-            <div class="row">
+<div class="main-contain">
+  <div class="container">
+    <div class="row">
 
-              <div class="home-main col-md-9 col-sm-12 clo-xs-12 main-contant-right">
-                <div class="widget">
-                  <h6 class="text-uppercase bottom-line"><strong>My personal information</strong></h6>
-                </div>
-              <form [formGroup]="SignupForm" (ngSubmit)="onSignup()" >
-              <div class="row">
-                <div class="col-md-6">
-                <div class="form-group">
-                    <label > Name <span class="text-danger">*</span></label>
-                    <input  type="text" formControlName="u_Name" required placeholder="Enter Name" name="u_Name" class="form-control input-sm required"><br>
-                    <mat-error *ngIf="SignupForm.get('u_Name').hasError('required')">Name is required</mat-error>
-                    <mat-error *ngIf="SignupForm.get('u_Name').hasError('minlength')">Name must be greater than 5 characters
-                    </mat-error>
-                    <mat-error *ngIf="SignupForm.get('u_Name').hasError('pattern')">Only characters are allowed</mat-error>
-                </div>
+      <div class="home-main col-md-9 col-sm-12 clo-xs-12 main-contant-right">
+        <div class="widget">
+          <h6 class="text-uppercase bottom-line"><strong>My personal information</strong></h6>
+        </div>
+        <form [formGroup]="SignupForm" (ngSubmit)="onSignup()">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label> Name <span class="text-danger">*</span></label>
+                <input type="text" formControlName="u_Name" required placeholder="Enter Name" name="u_Name"
+                  class="form-control input-sm required"><br>
+                <mat-error *ngIf="SignupForm.get('u_Name').hasError('required') && !SignupForm.get('u_Name').pristine">
+                Name is required</mat-error>
+                <mat-error *ngIf="SignupForm.get('u_Name').hasError('minlength')">Name must be greater than 5 characters
+                </mat-error>
+                <mat-error *ngIf="SignupForm.get('u_Name').hasError('pattern')">Only characters are allowed</mat-error>
+              </div>
 
-                <div class="form-group">
-                  <label >Email Address <span class="text-danger">*</span></label>
-                  <input type="email" formControlName="u_EmailId" required  placeholder="Email Address" name="u_EmailId" class="form-control input-sm required email"><br>
-                  <mat-error *ngIf="SignupForm.get('u_EmailId').hasError('required')">Email is required</mat-error>
-                  <mat-error *ngIf="SignupForm.get('u_EmailId').hasError('email')">Email is invalid</mat-error>
-                </div>
+              <div class="form-group">
+                <label>Email Address <span class="text-danger">*</span></label>
+                <input type="email" formControlName="u_EmailId" required placeholder="Email Address" name="u_EmailId"
+                  class="form-control input-sm required email"><br>
+                <mat-error
+                  *ngIf="SignupForm.get('u_EmailId').hasError('required') && !SignupForm.get('u_EmailId').pristine">
+                  Email is required</mat-error>
 
-                <div class="form-group">
-                    <label> Address <span class="text-danger">*</span></label>
-                    <input  type="text" formControlName="u_Address" required placeholder="Enter Address" name="u_Address" class="form-control input-sm required"><br>
-                    <mat-error *ngIf="SignupForm.get('u_Address').hasError('required')">Address is required</mat-error>
-                </div>
+                <mat-error *ngIf="SignupForm.get('u_EmailId').hasError('email')">Email is invalid</mat-error>
+              </div>
 
-                <div class="form-group">
-                  <label > Mobile No <span class="text-danger">*</span></label>
-                  <input  type="text" formControlName="u_mobileno" placeholder="Enter Mobile No" name="u_mobileno" class="form-control input-sm required">
-                </div>
+              <div class="form-group">
+                <label> Address <span class="text-danger">*</span></label>
+                <input type="text" formControlName="u_Address" required placeholder="Enter Address" name="u_Address"
+                  class="form-control input-sm required"><br>
+                <mat-error
+                  *ngIf="SignupForm.get('u_Address').hasError('required') && !SignupForm.get('u_Address').pristine">
+                Address is required</mat-error>
+              </div>
 
-                <label>Date of Birth</label>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                          <input  type="text" formControlName="u_dob" name="u_dob" placeholder="Enter Date" class="form-control input-sm required" >
-                          <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <div class="form-group">
+                <label> Mobile No <span class="text-danger">*</span></label>
+                <input type="text" formControlName="u_mobileno" required placeholder="Enter Mobile No" name="u_mobileno"
+                  class="form-control input-sm required">
+                <mat-error
+                  *ngIf="SignupForm.get('u_mobileno').hasError('required') && !SignupForm.get('u_mobileno').pristine">
+                mobile number is required
+                </mat-error>
+                <mat-error *ngIf="SignupForm.get('u_mobileno').hasError('maxlength')">mobile number should be 10
+                  characters
+                </mat-error>
+                <mat-error *ngIf="SignupForm.get('u_mobileno').hasError('pattern')">Only numbers are allowed</mat-error>
+              </div>
+
+              <label>Date of Birth</label>
+              <div class="form-group">
+
+                <input type="Date" formControlName="u_dob" required name="u_dob" placeholder="Enter Date"
+                  class="form-control input-sm required">
+                <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                           <mat-datepicker #picker></mat-datepicker> -->
-                        </div>
-                    </div>
+                <mat-error *ngIf="SignupForm.get('u_dob').hasError('required') && !SignupForm.get('u_dob').pristine">Birthdate is required
+                </mat-error>
+              </div>
+
+              <!-- <div class="col-md-6"> -->
+              <div formGroupName="password_group">
+                <div class="form-group">
+                  <label>Password <span class="text-danger">*</span></label>
+                  <input type="password" formControlName="u_password" [type]="hide ? 'password' : 'text'"
+                    placeholder="Password" name="u_password" class="form-control input-sm required">
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </div>
 
                 <div class="form-group">
-                    <div class="checkbox-input checkbox-primary">
-                        <input id="newsletter" class="styled" type="checkbox" checked>
-                        <label for="newsletter">
-                            Sign up for our newsletter!
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <button type="submit" value="submit" class="btn cd-btn"><i class="fa fa-save mr5"></i> Save</button>
-                    <button type="button"  (click)="onSignupCancel()"  class="btn cd-btn"><i class="fa fa-save mr5"></i> Cancel</button>
+                  <label>Confirm Password</label>
+                  <input type="password" formControlName="u_confirm_password" [type]="hide1 ? 'password' : 'text'"
+                    placeholder="Confirm Password" name="u_confirm_password" class="form-control input-sm required">
+                  <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div formGroupName="password_group">
-                <div class="form-group">
-                    <label >Password <span class="text-danger">*</span></label>
-                    <input  type="password" formControlName="u_password"  [type]="hide ? 'password' : 'text'"  placeholder="Password" name="u_password" class="form-control input-sm required">
-                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </div>
 
-                <div class="form-group">
-                    <label >Confirm Password</label>
-                    <input  type="password" formControlName="u_confirm_password" [type]="hide1 ? 'password' : 'text'" placeholder="Confirm Password" name="u_confirm_password" class="form-control input-sm required">
-                    <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </div>
-                </div>
-
-                <div class="form-group">
-                  <label>Gender</label><br>
-                  <mat-radio-group aria-label="Select an option" formControlName="u_gender"  class="form-control input-sm required">
-                    <mat-radio-button value="male">Male</mat-radio-button>
-                    <mat-radio-button value="female">Female</mat-radio-button>
-                  </mat-radio-group>
-                </div>
-
-                <div class="form-group">
-                  <label >Image</label>
-                  <input type="file"  class="form-control input-sm required" name="u_img" formControlName="u_img" (change)="onChange($event)" >
-                </div>
+              <div class="form-group">
+                <label>Gender</label><br>
+                <mat-radio-group aria-label="Select an option" formControlName="u_gender"
+                  class="form-control input-sm required">
+                  <mat-radio-button value="male">Male</mat-radio-button>
+                  <mat-radio-button value="female">Female</mat-radio-button>
+                </mat-radio-group>
               </div>
-                </div>
 
-            </form>
+              <div class="form-group">
+                <label>Image</label>
+                <input type="file" class="form-control input-sm required" name="u_img" formControlName="u_img"
+                  (change)="onChange($event)">
+              </div>
             </div>
-               <aside>
-            <div class="col-md-3 col-sm-12 clo-xs-12 home-side-bar sied-bar-left">
-
-                                                <!-- CATEGORIES WIDGET -->
-                    <div class="widget mb30">
-                        <h6 class="text-uppercase bg-border">Categories</h6>
-                        <div class="navbar-vertical">
-                            <ul class="nav nav-stacked">
-                                <li>
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                        Mens <i class="fa fa-angle-right pull-right"></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Shirts</a></li>
-                                        <li><a href="#">Coats & Jackets</a></li>
-                                        <li><a href="#">Underwear</a></li>
-                                        <li><a href="#">Sunglasses</a></li>
-                                        <li><a href="#">Socks</a></li>
-                                        <li><a href="#">Belts</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                        Womens <i class="fa fa-angle-right pull-right"></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Dresses</a></li>
-                                        <li><a href="#">T-shirts</a></li>
-                                        <li><a href="#">Skirts</a></li>
-                                        <li><a href="#">Jeans</a></li>
-                                        <li><a href="#">Pullover</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Kids</a></li>
-                                <li><a href="#">Fashion</a></li>
-                                <li>
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
-                                        SportWear <i class="fa fa-angle-right pull-right"></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Shoes</a></li>
-                                        <li><a href="#">Bags</a></li>
-                                        <li><a href="#">Pants</a></li>
-                                        <li><a href="#">Swimwear</a></li>
-                                        <li><a href="#">Bicycles</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Bags</a></li>
-                                <li><a href="#">Shoes</a></li>
-                                <li><a href="#">HouseHolds</a></li>
-                                <li>
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
-                                        Technology <i class="fa fa-angle-right pull-right"></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Television</a></li>
-                                        <li><a href="#">Camera</a></li>
-                                        <li><a href="#">Speakers</a></li>
-                                        <li><a href="#">Mobile</a></li>
-                                        <li><a href="#">PC</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- END CATEGORIES WIDGET -->
-
-
-                    <!-- SIDE-BAR PRODUCT WIDGET -->
-                    <div class="">
-                        <div class="widget mb30">
-                            <h6 class="text-uppercase bg-border">Top Rated</h6>
-                        </div>
-                        <div class="small-thumb-proudct mb30">
-                            <div class="thumb-product">
-                                <img class="thumb-product-img img-responsive" src="img/products/pro1.jpg" alt="">
-                                <div class="thumb-product-inner">
-                                    <h6><a href="shop-detail.html">Printed Su..</a></h6>
-                                    <span class="thumb-product-cat">Fashion</span>
-                                </div>
-                                <ul class="list-inline overflow-h">
-                                    <li class="thumb-product-price line-through">$60.00</li>
-                                    <li class="thumb-product-price">$30.00</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="small-thumb-proudct mb30">
-                            <div class="thumb-product">
-                                <img class="thumb-product-img img-responsive" src="img/products/pro2.jpg" alt="">
-                                <div class="thumb-product-inner">
-                                    <h6><a href="shop-detail.html">Printed Su..</a></h6>
-                                    <span class="thumb-product-cat">Fashion</span>
-                                </div>
-                                <ul class="list-inline overflow-h">
-                                    <li class="thumb-product-price">$65.00</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="small-thumb-proudct mb30">
-                            <div class="thumb-product">
-                                <img class="thumb-product-img img-responsive" src="img/products/pro3.jpg" alt="">
-                                <div class="thumb-product-inner">
-                                    <h6><a href="shop-detail.html">Printed Su..</a></h6>
-                                    <span class="thumb-product-cat">Fashion</span>
-                                </div>
-                                <ul class="list-inline overflow-h">
-                                    <li class="thumb-product-price line-through">$75.00</li>
-                                    <li class="thumb-product-price">$65.00</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END SIDE-BAR PRODUCT WIDGET -->
-
-
-                    <div class="mb30">
-                        <div class="widget mb30">
-                            <h6 class="text-uppercase bg-border">Twitter</h6>
-                        </div>
-                        <ul class="twitter-posts">
-                            <li>
-                                <img class="rounded-x" src="img/blog/comment.png" alt="">
-                                <div class="twitter-posts-in">
-                                    <strong>John Doe</strong>
-                                    <span><a href="#">@Themeforest/</a></span>
-                                    <span>4h</span>
-                                    <p>Lorem ipsum dolor sit amet, Nunc aliquam justo et nibh venenatis.</p>
-                                    <a class="link" href="#">http://craftdzine.com/</a>
-                                </div>
-                            </li>
-                            <li>
-                                <img class="rounded-x" src="img/blog/comment.png" alt="">
-                                <div class="twitter-posts-in">
-                                    <strong>John Doe</strong>
-                                    <span><a href="#">@Craftdzine</a></span>
-                                    <span>5m</span>
-                                    <p>Lorem ipsum dolor sit amet, Nunc aliquam justo et nibh venenatis.</p>
-                                    <a class="link" href="#">http://craftdzine.com/</a>
-                                </div>
-                            </li>
-                            <li>
-                                <img class="rounded-x" src="img/blog/comment.png" alt="">
-                                <div class="twitter-posts-in">
-                                    <strong>John Doe</strong>
-                                    <span><a href="#">@Themeforest</a></span>
-                                    <span>7h</span>
-                                    <p>Lorem ipsum dolor sit amet, Nunc aliquam justo et nibh venenatis.</p>
-                                    <a class="link" href="#">http://craftdzine.com/</a>
-                                </div>
-                            </li>
-
-                        </ul>
-                    </div>
-
-
-
-                    <!-- TAGS WIDGET -->
-                    <div class="">
-   <div class="widget mb30">
-                            <h6 class="text-uppercase bg-border">Tags</h6>
-                        </div>
-  <div class="tags">
-    <a href="#">bootstrap</a>
-    <a href="#">business</a>
-    <a href="#">corporate</a>
-    <a href="#">e-commerce</a>
-    <a href="#">portfolio</a>
-    <a href="#">responsive</a>
-  </div>
-
-<!-- END TAGS WIDGET -->
-</div>
-                    </div>
-            </aside>
+          </div>
+          <div class="form-group">
+            <div class="checkbox-input checkbox-primary">
+              <input id="newsletter" class="styled" type="checkbox" checked>
+              <label for="newsletter">
+                Sign up for our newsletter!
+              </label>
             </div>
-             </div>
-              </div>
+          </div>
 
-
-
-
-
-
+          <div class="form-group">
+            <button type="submit" value="submit" class="btn cd-btn"><i class="fa fa-save mr5"></i>
+              Save</button><br /><br />
+            <button type="button" (click)="onSignupCancel()" class="btn cd-btn"><i class="fa fa-save mr5"></i>
+              Cancel</button>
+          </div>
+          <!-- </div> -->
+        </form>
+      </div>
+      <aside>

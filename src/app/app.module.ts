@@ -34,6 +34,12 @@ import { LoginpageComponent } from './loginpage/loginpage.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { ViewMoreProductComponent } from './view-more-product/view-more-product.component';
 import { SortedproductshowComponent } from './sortedproductshow/sortedproductshow.component';
+import { WatchComponent } from './watch/watch.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { UserinformationComponent } from './userinformation/userinformation.component';
+import { HelppageComponent } from './helppage/helppage.component';
+import { CategoryComponent } from './category/category.component';
+import { MyorderComponent } from './myorder/myorder.component';
 
 
 @NgModule({
@@ -48,6 +54,12 @@ import { SortedproductshowComponent } from './sortedproductshow/sortedproductsho
     MaplocationComponent,
     ViewMoreProductComponent,
     SortedproductshowComponent,
+    WatchComponent,
+    PagenotfoundComponent,
+    UserinformationComponent,
+    HelppageComponent,
+    CategoryComponent,
+    MyorderComponent,
   ],
   imports: [
     BrowserModule,

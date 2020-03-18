@@ -1,0 +1,58 @@
+<div class="page-heading">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h1 class="title"><span>Order List</span></h1>
+        <div class="breadcrumb">
+          <a href="index-2.html">Home</a>
+          <span class="delimeter">/</span>
+          <span class="current">Order List</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Breadcrumb -->
+
+
+<div class="main-contain">
+  <div class="container">
+    <div class="row">
+      <div class="home-main col-md-9 col-sm-12 clo-xs-12 main-contant-right">
+        <div class="widget">
+          <h6 class="text-uppercase bottom-line"><strong>My Order</strong></h6>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th colspan="2">Products</th>
+                <th>Price</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of arr">
+                <td>
+                  <a href="#">
+                    <img src="http://localhost:3000/{{item.pro_img}}" height="50px" width="50px" alt="product" class="img-resopnsive">
+                  </a>
+                </td>
+                <td>
+                  <h6 class="regular"><a href="#">{{item.pro_name}}</a></h6>
+                  <!-- <p>Sed aliquam tincidunt tempus</p> -->
+                </td>
+                <td>
+                  <span>{{item.pro_price}}</span>
+                </td>
+                <td >{{item.bill_date}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <a href="#" class="btn cd-btn pull-left">
+          <i class="fa fa-arrow-left mr5" routerLink="/"></i> Continue shopping
+        </a>
+      </div>
+      <aside>
