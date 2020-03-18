@@ -41,6 +41,7 @@ import { HelppageComponent } from './helppage/helppage.component';
 import { CategoryComponent } from './category/category.component';
 import { MyorderComponent } from './myorder/myorder.component';
 import { SliderComponent } from './slider/slider.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 
 @NgModule({
@@ -62,9 +63,12 @@ import { SliderComponent } from './slider/slider.component';
     CategoryComponent,
     MyorderComponent,
     SliderComponent,
+    WishlistComponent,
   ],
   imports: [
+
     BrowserModule,
+
     routingArr,
     HttpClientModule,
     FormsModule,
@@ -92,6 +96,8 @@ import { SliderComponent } from './slider/slider.component';
 
   ],
   providers: [],
+
+  // providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

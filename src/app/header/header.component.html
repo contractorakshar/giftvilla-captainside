@@ -105,7 +105,7 @@
                 </div>
                 <div class="col-sm-3">
                   <select class="form-control input-lg" name="fk_cat_id" #fk_cat_id (change)="onWatchClick(fk_cat_id.value)" placeholder="select">
-
+                    <option [selected]="true">All Category</option>
                     <option *ngFor="let item of category" [value]="item.cat_id">{{item.cat_name}}</option>
 
                     <!-- <optgroup label="Mens">
@@ -152,7 +152,7 @@
           </div>
           <div class="col-sm-2 vertical-align header-items hidden-xs">
             <div class="header-item mr5">
-              <a href="#" data-toggle="tooltip" data-placement="top" title="Wishlist">
+              <a routerLink="/wishlist" data-toggle="tooltip" data-placement="top" title="Wishlist">
                 <i class="fa fa-heart-o"></i>
                 <!-- <sub></sub> -->
               </a>
@@ -184,7 +184,7 @@
       <div id="navbar-collapse-3" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <!-- Home -->
-          <li class="active"><a href="index-2.html">Home</a></li>
+          <li class="active"><a routerLink="/">Home</a></li>
           <li class="dropdown left"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Shop</a>
           <li><a routerLink="map">Contact Us</a></li>
           <li><a routerLink="userinfo">My Account</a></li>
