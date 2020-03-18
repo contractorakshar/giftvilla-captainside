@@ -26,6 +26,7 @@ export class HeaderComponent implements OnInit {
       (data: productdisplay[]) => {
         this.category = data;
         // console.log(data);
+        //console.log(data);
       });
   }
 

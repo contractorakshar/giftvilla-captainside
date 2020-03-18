@@ -9,6 +9,7 @@ export class ProductServiceService {
   url21 = "http://localhost:3000/viewmorerelatedproducts/";
   url31 = "http://localhost:3000/sortedProduct/";
   public url3= "http://localhost:3000/category/";
+  public url4= "http://localhost:3000/productHome/";
   public url2="http://localhost:3000/categoryById/";
   constructor(private _http: HttpClient) { }
   getAllProducts() {
@@ -16,7 +17,7 @@ export class ProductServiceService {
   }
   getAllCategory()
   {
-    return this._http.get(this.url31);
+    return this._http.get(this.url3);
   }
   getproductBycategory(cat_id:number){
     return this._http.get(this.url2+cat_id);
@@ -47,6 +48,9 @@ export class ProductServiceService {
     // let body = JSON.stringify(item);
     // let head = new HttpHeaders().set(environment.header,environment.value);
     return this._http.get(this.url2 + cat_id);
+  }
+  getHomeProduct(){
+    return this._http.get(this.url4);
   }
   updateproduct(item,pro_id){
     // let body = JSON.stringify(item);
