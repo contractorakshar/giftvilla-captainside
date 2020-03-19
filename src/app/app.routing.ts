@@ -13,6 +13,8 @@ import { HelppageComponent } from './helppage/helppage.component';
 import { CategoryComponent } from './category/category.component';
 import { MyorderComponent } from './myorder/myorder.component';
 import { SliderComponent } from './slider/slider.component';
+import { SearchingComponent } from './searching/searching.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 
 const arr: Routes = [
@@ -21,15 +23,17 @@ const arr: Routes = [
   { path: 'productdrop/:cat_id', component: WatchComponent },
   { path: 'shoppingcart', component: CartComponent },
   { path: 'map', component: MaplocationComponent },
+  { path: 'wishlist', component: WishlistComponent },
   { path: 'loginpage', component: LoginpageComponent },
   { path: 'userinfo', component: UserinformationComponent },
   { path: 'registration', component: RegistrationFormComponent },
   {path : 'sortedproductlist' , component : SortedproductshowComponent },
-  {path :'viewMoreProduct/:pro_id' ,component : ViewMoreProductComponent},
+  {path : 'viewMoreProduct/:pro_id' ,component : ViewMoreProductComponent},
   { path: 'category', component: CategoryComponent },
   { path: 'help', component: HelppageComponent },
   { path: 'myorder', component: MyorderComponent },
   { path: 'category', component: CategoryComponent },
+  {path : 'searchingproducts/:cat_name' , component : SearchingComponent},
   { path: 'help', component: HelppageComponent },
   { path: 'myorder', component: MyorderComponent },
   { path: 'slider', component: SliderComponent },

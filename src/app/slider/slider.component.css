@@ -1,0 +1,45 @@
+#btn {
+  width: 8%;
+  height: 6%;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-style: none;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.silde {
+  height: 60%;
+  width: 90%;
+  background-color: lavender;
+  margin-top: 30px;
+  margin-left: 70px;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+#prew {
+  padding: 15px;
+  background: blue;
+  color: white;
+  border: none;
+  position: absolute;
+  top: 200px;
+  font-size: 20px;
+  border-radius: 0px 10px 10px 0px;
+  cursor: pointer;
+}
+#nxt {
+  padding: 15px;
+  background: blue;
+  color: white;
+  border: none;
+  position: absolute;
+  top: 200px;
+  left: 1390px;
+  font-size: 20px;
+  border-radius: 10px 0px 0px 10px;
+  cursor: pointer;
+}

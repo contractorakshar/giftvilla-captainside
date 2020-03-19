@@ -16,8 +16,9 @@ export class HeaderComponent implements OnInit {
   category: productdisplay[] = [];
   arrwatch: productdisplay[] = [];
   GrandTotal: number = 0;
+  cat_name : string;
   cart: Maincart = JSON.parse(localStorage.getItem('cart')) as Maincart;
-  constructor(public router: Router, private _cartService: CartoperationsService, private _productData: ProductServiceService) { }
+  constructor(public router: Router, private _cartService: CartoperationsService, private _productData: ProductServiceService,private _rou : Router) { }
 
   ngOnInit() {
     // this.arrcartItems = this.cart.CartItems;
@@ -28,6 +29,12 @@ export class HeaderComponent implements OnInit {
         // console.log(data);
         //console.log(data);
       });
+  }
+
+  onsearching(cat_name)
+  {
+    console.log(cat_name);
+    this._rou.navigate(['/searchingproducts',cat_name]);
   }
 
   onWatchClick(cat_id) {

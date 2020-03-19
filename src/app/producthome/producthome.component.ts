@@ -7,7 +7,7 @@ import { CartoperationsService } from '../cart/cartoperations.service';
 import { Maincart } from '../cart/maincart';
 
 @Component({
-  selector: 'app-producthome',
+  selector: 'app- ProducthomeComponent',
   templateUrl: './producthome.component.html',
   styleUrls: ['./producthome.component.css']
 })
