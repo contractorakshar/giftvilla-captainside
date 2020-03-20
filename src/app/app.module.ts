@@ -32,6 +32,8 @@ import { routingArr } from './app.routing';
 import { MaplocationComponent } from './maplocation/maplocation.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { EmailpopupComponent } from './loginpage/emailpopup/emailpopup.component';
+import { CheckComponent } from './check/check.component';
 
 
 @NgModule({
@@ -44,6 +46,8 @@ import { RegistrationFormComponent } from './registration-form/registration-form
     LoginpageComponent,
     RegistrationFormComponent,
     MaplocationComponent,
+    EmailpopupComponent,
+    CheckComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +76,10 @@ import { RegistrationFormComponent } from './registration-form/registration-form
     GoogleMapsModule,
     RouterModule.forRoot([]),
 
+  ],
+  entryComponents:
+  [
+    // EmailpopupComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

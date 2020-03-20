@@ -11,14 +11,18 @@ import { CartDetails } from '../cart/cart-details';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-arrcartItems:CartDetails[]=[];
-GrandTotal: number = 0;
-cart: Maincart = JSON.parse(localStorage.getItem('cart')) as Maincart;
-  constructor(public router:Router,private _cartService: CartoperationsService) { }
+  arrcartItems: CartDetails[] = [];
+  GrandTotal: number = 0;
+  cart: Maincart = JSON.parse(localStorage.getItem('cart')) as Maincart;
+  constructor(public router: Router, private _cartService: CartoperationsService, private rout: Router) { }
 
   ngOnInit() {
-this.arrcartItems=this.cart.CartItems;
-this.GrandTotal=this.cart.GrandTotal;
+    //this.arrcartItems=this.cart.CartItems;
+    //this.GrandTotal=this.cart.GrandTotal;
+  }
+  onLogout() {
+    localStorage.clear();
+    this.router.navigate(['/']);
   }
 
 
