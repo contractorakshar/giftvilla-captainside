@@ -7,7 +7,7 @@ import { CartoperationsService } from '../cart/cartoperations.service';
 import { Maincart } from '../cart/maincart';
 
 @Component({
-  selector: 'app-producthome',
+  selector: 'app- ProducthomeComponent',
   templateUrl: './producthome.component.html',
   styleUrls: ['./producthome.component.css']
 })
@@ -21,7 +21,7 @@ export class ProducthomeComponent implements OnInit {
   constructor(private _productData: ProductServiceService, private _cartService: CartoperationsService, private _router: Router) { }
 
   ngOnInit() {
-    this._productData.getAllProducts().subscribe((data: productdisplay[]) => {
+    this._productData.getHomeProduct().subscribe((data: productdisplay[]) => {
       this.arr = data;
     });
   }
@@ -82,5 +82,9 @@ export class ProducthomeComponent implements OnInit {
       //this._router.navigate['/cart']);
     }
   }
-
+  ImageViewMore(pro_id)
+  {
+    console.log(pro_id);
+    this._router.navigate(['/viewMoreProduct',pro_id]);
+  }
 }

@@ -1,0 +1,14 @@
+.onbtnstyle
+{
+  background-color:#e7e7e7;
+  border: none;
+  color: rgb(109, 77, 224);
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}

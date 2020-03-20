@@ -34,6 +34,16 @@ import { LoginpageComponent } from './loginpage/loginpage.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { EmailpopupComponent } from './loginpage/emailpopup/emailpopup.component';
 import { CheckComponent } from './check/check.component';
+import { ViewMoreProductComponent } from './view-more-product/view-more-product.component';
+import { SortedproductshowComponent } from './sortedproductshow/sortedproductshow.component';
+import { WatchComponent } from './watch/watch.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { UserinformationComponent } from './userinformation/userinformation.component';
+import { HelppageComponent } from './helppage/helppage.component';
+import { CategoryComponent } from './category/category.component';
+import { MyorderComponent } from './myorder/myorder.component';
+import { SliderComponent } from './slider/slider.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 
 @NgModule({
@@ -48,9 +58,21 @@ import { CheckComponent } from './check/check.component';
     MaplocationComponent,
     EmailpopupComponent,
     CheckComponent,
+    ViewMoreProductComponent,
+    SortedproductshowComponent,
+    WatchComponent,
+    PagenotfoundComponent,
+    UserinformationComponent,
+    HelppageComponent,
+    CategoryComponent,
+    MyorderComponent,
+    SliderComponent,
+    WishlistComponent,
   ],
   imports: [
+
     BrowserModule,
+
     routingArr,
     HttpClientModule,
     FormsModule,
@@ -82,6 +104,8 @@ import { CheckComponent } from './check/check.component';
     // EmailpopupComponent,
   ],
   providers: [],
+
+  // providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
