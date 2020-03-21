@@ -17,7 +17,7 @@ export class ProducthomeComponent implements OnInit {
   currentCartItem: CartDetails = null;
   SubTotal = 0;
   GrandTotal = 0;
-  UserId: string = '1';
+  UserId: string = localStorage.getItem('u_EmailId');
   constructor(private _productData: ProductServiceService, private _cartService: CartoperationsService, private _router: Router) { }
 
   ngOnInit() {
@@ -30,6 +30,8 @@ export class ProducthomeComponent implements OnInit {
     console.log(item);
     if (this.UserId == null) {
       alert('Go to Login');
+      //console.log(this.UserId);
+      this._router.navigate(['/loginpage']);
     }
     else {
       this.cartProductItem = item;
@@ -53,7 +55,7 @@ export class ProducthomeComponent implements OnInit {
         if (index == -1) {
           cart.CartItems.push(this.currentCartItem);
           cart.GrandTotal = this._cartService.doGrandTotal(cart.CartItems);
-          cart.UserId = this.UserId;
+          cart.u_EmailId = this.UserId;
           localStorage.setItem('cart', JSON.stringify(cart));
 
         }
@@ -64,7 +66,7 @@ export class ProducthomeComponent implements OnInit {
           cart.CartItems[index] = cartItem;
 
           cart.GrandTotal = this._cartService.doGrandTotal(cart.CartItems);
-          cart.UserId = this.UserId;
+          cart.u_EmailId = this.UserId;
 
           localStorage.setItem('cart', JSON.stringify(cart));
         }
@@ -72,7 +74,7 @@ export class ProducthomeComponent implements OnInit {
 
       }
     }
-    alert(item.pro_name + " added");
+    //alert(item.pro_name + " added");
   }
   onRemoveFromCart(SelectedProductID) {
     if (this.UserId != null) {

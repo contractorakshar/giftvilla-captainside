@@ -4,7 +4,7 @@ export class Maincart {
   public constructor(
     public CartItems: CartDetails[],
     public GrandTotal: number,
-    public UserId: string
+    public u_EmailId: string
   ) { }
 }
 

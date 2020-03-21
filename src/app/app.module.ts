@@ -32,6 +32,8 @@ import { routingArr } from './app.routing';
 import { MaplocationComponent } from './maplocation/maplocation.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { EmailpopupComponent } from './loginpage/emailpopup/emailpopup.component';
+import { CheckComponent } from './check/check.component';
 import { ViewMoreProductComponent } from './view-more-product/view-more-product.component';
 import { SortedproductshowComponent } from './sortedproductshow/sortedproductshow.component';
 import { WatchComponent } from './watch/watch.component';
@@ -55,6 +57,8 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     LoginpageComponent,
     RegistrationFormComponent,
     MaplocationComponent,
+    EmailpopupComponent,
+    CheckComponent,
     ViewMoreProductComponent,
     SortedproductshowComponent,
     WatchComponent,
@@ -96,6 +100,10 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     GoogleMapsModule,
     RouterModule.forRoot([]),
 
+  ],
+  entryComponents:
+  [
+    // EmailpopupComponent,
   ],
   providers: [],
 

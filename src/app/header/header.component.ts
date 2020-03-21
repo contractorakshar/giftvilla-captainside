@@ -37,9 +37,13 @@ export class HeaderComponent implements OnInit {
     this._rou.navigate(['/searchingproducts',cat_name]);
   }
 
+  onLogout() {
+    localStorage.clear();
+    this.router.navigate(['/']);
+  }
   onWatchClick(cat_id) {
     console.log(cat_id);
-    this.router.navigate(['/productdrop',cat_id]);
+    this.router.navigate(['/productdrop', cat_id]);
     // this._productData.getproductBycategory(cat_id).subscribe(
     //   (data: productdisplay[]) => {
     //     console.log(data);

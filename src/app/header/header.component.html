@@ -42,8 +42,10 @@
             </span>
           </a>
           <ul class="cd-link">
-            <li><a href="#">Wishlist</a></li>
-            <li><a routerLink="/shoppingcart">My Cart</a></li>
+
+
+            <li><a (click)="onLogout()">Log Out</a></li>
+
             <li><a routerLink="/checkout">Checkout</a></li>
             <li><a routerLink="/loginpage">Login</a></li>
             <li><a routerLink="/registration">Register</a></li>
@@ -105,11 +107,49 @@
                   <!-- <label>Search :- </label> -->
                 </div>
                 <div class="col-sm-3">
-                  <select class="form-control input-lg" name="fk_cat_id" #fk_cat_id (change)="onWatchClick(fk_cat_id.value)" placeholder="select">
-                    <option [selected]="true">All Category</option>
-                    <option *ngFor="let item of category" [value]="item.cat_id">{{item.cat_name}}</option>
+                  <<<<<<< HEAD <select class="form-control input-lg" name="category">
+                    <option value="all">All Categories</option>
+                    <optgroup label="Mens">
+                      <option value="shirts">Shirts</option>
+                      <option value="coats-jackets">Coats & Jackets</option>
+                      <option value="underwear">Underwear</option>
+                      <option value="sunglasses">Sunglasses</option>
+                      <option value="socks">Socks</option>
+                      <option value="belts">Belts</option>
+                    </optgroup>
+                    <optgroup label="Womens">
+                      <option value="bresses">Bresses</option>
+                      <option value="t-shirts">T-shirts</option>
+                      <option value="skirts">Skirts</option>
+                      <option value="jeans">Jeans</option>
+                      <option value="pullover">Pullover</option>
+                    </optgroup>
+                    <option value="kids">Kids</option>
+                    <option value="fashion">Fashion</option>
+                    <optgroup label="Sportwear">
+                      <option value="shoes">Shoes</option>
+                      <option value="bags">Bags</option>
+                      <option value="pants">Pants</option>
+                      <option value="swimwear">Swimwear</option>
+                      <option value="bicycles">Bicycles</option>
+                    </optgroup>
+                    <option value="bags">Bags</option>
+                    <option value="shoes">Shoes</option>
+                    <option value="hoseholds">HoseHolds</option>
+                    <optgroup label="Technology">
+                      <option value="tv">TV</option>
+                      <option value="camera">Camera</option>
+                      <option value="speakers">Speakers</option>
+                      <option value="mobile">Mobile</option>
+                      <option value="pc">PC</option>
+                    </optgroup>
+                    =======
+                    <select class="form-control input-lg" name="fk_cat_id" #fk_cat_id
+                      (change)="onWatchClick(fk_cat_id.value)" placeholder="select">
+                      <option [selected]="true">All Category</option>
+                      <option *ngFor="let item of category" [value]="item.cat_id">{{item.cat_name}}</option>
 
-                    <!-- <optgroup label="Mens">
+                      <!-- <optgroup label="Mens">
                                         <option value="shirts">Shirts</option>
                                         <option value="coats-jackets">Coats & Jackets</option>
                                         <option value="underwear">Underwear</option>
@@ -143,7 +183,8 @@
                                         <option value="mobile">Mobile</option>
                                         <option value="pc">PC</option>
                                     </optgroup> -->
-                  </select>
+                      >>>>>>> 4476c522c50331d1d25e501280e057bdf6a9dc57
+                    </select>
                 </div>
                 <div class="col-sm-3">
                   <input type="submit" (click)="onsearching(cat_name.value)" class="btn cd-btn top-cat-search btn-block" value="Search">
@@ -153,10 +194,13 @@
           </div>
           <div class="col-sm-2 vertical-align header-items hidden-xs">
             <div class="header-item mr5">
-              <a routerLink="/wishlist" data-toggle="tooltip" data-placement="top" title="Wishlist">
-                <i class="fa fa-heart-o"></i>
-                <!-- <sub></sub> -->
-              </a>
+              <<<<<<< HEAD <a href="#" data-toggle="tooltip" data-placement="top" title="Wishlist">
+                =======
+                <a routerLink="/wishlist" data-toggle="tooltip" data-placement="top" title="Wishlist">
+                  >>>>>>> 4476c522c50331d1d25e501280e057bdf6a9dc57
+                  <i class="fa fa-heart-o"></i>
+                  <!-- <sub></sub> -->
+                </a>
             </div>
             <div class="header-item">
               <a href="#" data-toggle="tooltip" data-placement="top" title="Compare">
@@ -185,18 +229,151 @@
       <div id="navbar-collapse-3" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <!-- Home -->
-          <li class="active"><a routerLink="/">Home</a></li>
-          <li class="dropdown left"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Shop</a>
-          <li><a routerLink="map">Contact Us</a></li>
-          <li><a routerLink="userinfo">My Account</a></li>
-          <li><a routerLink="help">Help</a></li>
-          <li><a routerLink="myorder">MY Order</a></li>
+          <<<<<<< HEAD <li class="active"><a href="index-2.html">Home</a></li>
+
+            <!-- Pages -->
+            <!-- <li class="dropdown cd-navbar-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Fashion<i class="fa fa-angle-down ml5"></i></a>
+                  <ul class="dropdown-menu menu-bg-image-style2">
+                      <li>
+                          <div class="cd-navbar-content">
+                              <div class="row"> -->
+            <!-- <ul class="col-sm-3">
+                                      <li><h6 class="text-uppercase">Women</h6></li>
+                                      <li><a href="#">Heels</a></li>
+                                      <li><a href="#">Sandals</a></li>
+                                      <li><a href="#">Sports</a></li>
+                                      <li><a href="#">Socks</a></li>
+                                      <li><a href="#">Tights</a></li>
+                                  </ul> -->
+            <!-- <ul class="col-sm-3">
+                                      <li><h6 class="text-uppercase">Men</h6></li>
+                                      <li><a href="#">Shorts</a></li>
+                                      <li><a href="#">Skirts</a></li>
+                                      <li><a href="#">T-shirts</a></li>
+                                      <li><a href="#">Boots</a></li>
+                                      <li><a href="#">Flats</a></li>
+
+                                  </ul>
+                                  <ul class="col-sm-3">
+                                   <li><h6 class="text-uppercase">Jewellery</h6></li>
+                                      <li><a href="#">Boots</a></li>
+                                      <li><a href="#">Flats</a></li>
+                                      <li><a href="#">Heels</a></li>
+                                      <li><a href="#">Sandals</a></li>
+                                      <li><a href="#">Sports</a></li>
+                                  </ul>
+                                  <ul class="col-sm-3">
+                                      <li><h6 class="text-uppercase">Sports</h6></li>
+                                      <li><a href="#">All accessories</a></li>
+                                      <li><a href="#">Bags &amp; Purses</a></li>
+                                      <li><a href="#">Scarvs &amp; Hats</a></li>
+                                      <li><a href="#">Jewellery</a></li>
+                                      <li><a href="#">Fragrance &amp; Beauty</a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </li>
+                  </ul>
+              </li>-->
+
+            <!-- <li class="dropdown left"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Pages</a> -->
+            <!-- <ul class="dropdown-menu menu-bg-image-style3">
+                      <li><a href="cart.html">Cart</a></li>
+                      <li><a href="checkout.html">Checkout</a></li>
+                      <li><a href="faq.html">FAQ</a></li>
+                      <li><a href="login.html">Login</a></li>
+                      <li><a href="register.html">Register</a></li>
+                      <li><a href="login-register.html">Login / Register</a></li>
+                      <li><a href="my-account.html">My Account</a></li>
+                      <li><a href="order-confirmation.html">Order Confirmation</a></li>
+                      <li><a href="order-list.html">Order List</a></li>
+                      <li><a href="page-404.html">Page 404</a></li>
+                      <li><a href="user-information.html">User Information</a></li>
+                      <li><a href="wishlist.html">Wishlist</a></li>
+                  </ul>
+              </li> -->
+            <li class="dropdown left"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Shop</a>
+              <!-- <ul class="dropdown-menu menu-bg-image-style4">
+                      <li><a href="shop-2col.html">2 Columns</a></li>
+                      <li><a href="shop-3col.html">3 Columns</a></li>
+                      <li><a href="shop-4col.html">4 Columns</a></li>
+                      <li><a href="shop-grid-left.html">Shop Grid Left Sidebar</a></li>
+                      <li><a href="shop-gird-right.html">Shop Grid Right Sidebar</a></li>
+                      <li><a href="shop-list-left.html">Shop List Left Sidebar</a></li>
+                      <li><a href="shop-list-right.html">Shop List Right Sidebar</a></li>
+                      <li><a href="shop-detail.html">Shop Details</a></li>
+                  </ul> -->
+              <!-- </li> -->
+
+
+              <!-- <li class="dropdown cd-navbar-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Portfolio<i class="fa fa-angle-down ml5"></i></a> -->
+
+              <!--<ul class="dropdown-menu menu-bg-image">
+                      <li>
+                          <div class="cd-navbar-content">
+                              <div class="row">
+                                   <ul class="col-sm-3">
+                               <li><a href="portfolio-grid-2col.html">2 Columns</a></li>
+                              <li><a href="portfolio-grid-2col-no_spacing.html">2 Columns no-Spacing</a></li>
+                              <li><a href="portfolio-grid-3col.html">3 Columns</a></li>
+                              <li><a href="portfolio-grid-3col-no_spacing.html">3 Columns no-Spacing</a></li>
+
+                                  </ul>
+                                  <ul class="col-sm-3">
+                                      <li><a href="portfolio-grid-4col.html">4 Columns</a></li>
+                              <li><a href="portfolio-grid-4col-no_spacing.html">4 Columns no-Spacing</a></li>
+                                      <li><a href="portfolio-wide-grid.html">Wide Grid</a></li>
+                              <li><a href="portfolio-wide-grid-no_spacing.html">Wide Grid no-Spacing</a></li>
+
+                                  </ul>
+                                    <ul class="col-sm-3">
+                                       <li><a href="portfolio-single-1.html">Single 1</a></li>
+                              <li><a href="portfolio-single-2-video.html">Single 2 - Video</a></li>
+                              <li><a href="portfolio-single-3-youtube.html">Single 3 - Youtube</a></li>
+                              <li><a href="portfolio-single-4-vimeo.html">Single 4 - Vimeo</a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </li>
+                  </ul>-->
+              <!-- </li> -->
+              =======
+            <li class="active"><a routerLink="/">Home</a></li>
+            <li class="dropdown left"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Shop</a>
+            <li><a routerLink="map">Contact Us</a></li>
+            <li><a routerLink="userinfo">My Account</a></li>
+            <li><a routerLink="help">Help</a></li>
+            <li><a routerLink="myorder">MY Order</a></li>
         </ul><!-- end navbar-nav -->
+        >>>>>>> 4476c522c50331d1d25e501280e057bdf6a9dc57
 
       </div>
 
-    </div>
+      <<<<<<< HEAD <!-- <li class="dropdown left"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Blog<i
+            class="fa fa-angle-down ml5"></i></a> -->
+        <!-- <ul class="dropdown-menu menu-bg-image-style5">
+                      <li><a href="blog-grid-2col.html">2 Columns</a></li>
+                              <li><a href="blog-grid-2col-sidebar.html">2 Columns - Sidebar</a></li>
+                              <li><a href="blog-grid-3col.html">3 Columns</a></li>
+                               <li><a href="blog-1col.html">no-sidebar</a></li>
+                              <li><a href="blog-1col-sidebar.html">with sidebar</a></li>
+                               <li><a href="blog-single-image.html">Image Post</a></li>
+                              <li><a href="blog-single-video.html">Video Post</a></li>
+                              <li><a href="blog-single-youtube.html">Youtube Post</a></li>
+                              <li><a href="blog-single-vimeo.html">Vimeo Post</a></li>
+                  </ul> -->
+        <!-- </li> -->
+        <li><a routerLink="shoppingcart">My Cart</a></li>
+        <li><a routerLink="map">Contact Us</a></li>
 
+        </ul><!-- end navbar-nav -->
+
+    </div>
+  </div>
+  =======
+  </div>
+
+  >>>>>>> 4476c522c50331d1d25e501280e057bdf6a9dc57
   </div>
   <!-- end navbar -->
   <!--End Header -->
