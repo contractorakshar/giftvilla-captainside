@@ -35,6 +35,8 @@ import { routingArr } from './app.routing';
 import { MaplocationComponent } from './maplocation/maplocation.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { EmailpopupComponent } from './loginpage/emailpopup/emailpopup.component';
+import { CheckComponent } from './check/check.component';
 import { ViewMoreProductComponent } from './view-more-product/view-more-product.component';
 import { SortedproductshowComponent } from './sortedproductshow/sortedproductshow.component';
 import { WatchComponent } from './watch/watch.component';
@@ -44,6 +46,7 @@ import { HelppageComponent } from './helppage/helppage.component';
 import { CategoryComponent } from './category/category.component';
 import { MyorderComponent } from './myorder/myorder.component';
 import { SliderComponent } from './slider/slider.component';
+import { SearchingComponent } from './searching/searching.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 import { TermsComponent } from './terms/terms.component';
@@ -60,6 +63,8 @@ import { EdituserimageComponent } from './edituserimage/edituserimage.component'
     LoginpageComponent,
     RegistrationFormComponent,
     MaplocationComponent,
+    EmailpopupComponent,
+    CheckComponent,
     ViewMoreProductComponent,
     SortedproductshowComponent,
     WatchComponent,
@@ -69,6 +74,7 @@ import { EdituserimageComponent } from './edituserimage/edituserimage.component'
     CategoryComponent,
     MyorderComponent,
     SliderComponent,
+    SearchingComponent,
     WishlistComponent,
     PrivacypolicyComponent,
     TermsComponent,
@@ -103,6 +109,10 @@ import { EdituserimageComponent } from './edituserimage/edituserimage.component'
     GoogleMapsModule,
     RouterModule.forRoot([]),
 
+  ],
+  entryComponents:
+  [
+    // EmailpopupComponent,
   ],
   providers: [],
 

@@ -1,14 +1,21 @@
 .onbtnstyle
 {
-  background-color:#e7e7e7;
-  border: none;
-  color: rgb(109, 77, 224);
-  padding: 20px;
+  background-color:#59eb3c;
+  color: black;
+  padding: 10px;
+  border : 1px solid black;
   text-align: center;
   text-decoration: none;
+  width:260px;
+  height: 40px;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 16px;;
+  margin-bottom: 20px;
   cursor: pointer;
-  border-radius: 12px;
+  /* border-radius: 12px; */
+}
+.onbtnstyle:hover
+{
+  background-color: blue;
+  color:white;
 }

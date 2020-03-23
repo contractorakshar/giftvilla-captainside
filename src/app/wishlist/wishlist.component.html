@@ -23,60 +23,20 @@
           <h6 class="text-uppercase bottom-line"><strong>My Wishlist</strong></h6>
         </div>
         <div class="table-responsive">
-          <table class="table table-striped">
+          <table class="table table-striped" *ngFor="let item of arr">
             <tbody>
               <tr>
                 <td>
                   <a href="#">
-                    <img src="assets/img/products/cart1.jpg" alt="product" class="img-resopnsive">
+                    <img src="http://localhost:3000/{{item.pro_img}}" alt="product" class="img-resopnsive">
                   </a>
                 </td>
                 <td>
-                  <h6 class="regular"><a href="#">Lorem Ipsum</a></h6>
-                  <p>Sed aliquam tincidunt tempus</p>
+                  <h6 class="regular"><a href="#">{{item.pro_name}}</a></h6>
+                  <!-- <p>Sed aliquam tincidunt tempus</p> -->
                 </td>
                 <td>
-                  <span>$59.99</span>
-                </td>
-                <td>
-                  <a href="#" class="btn cd-btn"><i class="fa fa-cart-plus mr5"></i> Add to cart</a>
-                </td>
-                <td>
-                  <button type="button" class="close">×</button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="#">
-                    <img src="assets/img/products/cart2.jpg" alt="product" class="img-resopnsive">
-                  </a>
-                </td>
-                <td>
-                  <h6 class="regular"><a href="#">Lorem Ipsum</a></h6>
-                  <p>Sed aliquam tincidunt tempus</p>
-                </td>
-                <td>
-                  <span>$59.99</span>
-                </td>
-                <td>
-                  <a href="#" class="btn cd-btn"><i class="fa fa-cart-plus mr5"></i> Add to cart</a>
-                </td>
-                <td>
-                  <button type="button" class="close">×</button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <a href="#">
-                    <img src="assets/img/products/cart3.jpg" alt="product" class="img-resopnsive">
-                  </a>
-                </td>
-                <td>
-                  <h6 class="regular"><a href="#">Lorem Ipsum</a></h6>
-                  <p>Sed aliquam tincidunt tempus</p>
-                </td>
-                <td>
-                  <span>$59.99</span>
+                  <span>{{item.pro_price | currency : 'INR'}}</span>
                 </td>
                 <td>
                   <a href="#" class="btn cd-btn"><i class="fa fa-cart-plus mr5"></i> Add to cart</a>
@@ -88,7 +48,6 @@
             </tbody>
           </table>
         </div>
-
         <a routerLink="/" class="btn cd-btn pull-left">
           <i class="fa fa-arrow-left mr5"></i> Continue shopping
         </a>

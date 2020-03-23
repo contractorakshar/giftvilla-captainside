@@ -33,6 +33,12 @@ export class WatchComponent implements OnInit {
     this.getItemByCategory(cat_id);
   }
 
+  ImageViewMore(pro_id)
+  {
+    console.log(pro_id);
+    this._router.navigate(['/viewMoreProduct',pro_id]);
+  }
+
   getItemByCategory(CatID:number) {
     this._productData.updateproductcategory(CatID).subscribe(
       (data: productdisplay[]) => {

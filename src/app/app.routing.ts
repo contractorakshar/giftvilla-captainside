@@ -13,6 +13,7 @@ import { HelppageComponent } from './helppage/helppage.component';
 import { CategoryComponent } from './category/category.component';
 import { MyorderComponent } from './myorder/myorder.component';
 import { SliderComponent } from './slider/slider.component';
+import { SearchingComponent } from './searching/searching.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 import { TermsComponent } from './terms/terms.component';
@@ -38,6 +39,7 @@ const arr: Routes = [
   { path: 'privacypolicy', component: PrivacypolicyComponent },
   { path: 'myorder', component: MyorderComponent },
   { path: 'category', component: CategoryComponent },
+  {path : 'searchingproducts/:cat_name' , component : SearchingComponent},
   { path: 'help', component: HelppageComponent },
   { path: 'editImage/:u_EmailId', component: EdituserimageComponent },
   { path: 'myorder', component: MyorderComponent },
