@@ -1,0 +1,203 @@
+<header>
+  <!-- start topbar -->
+  <div class="topbar">
+    <div class="container">
+      <ul class="list-inline pull-left hidden-sm hidden-xs">
+        <li><span class="text-primary color">Have a question?</span> Call 910 4610 020</li>
+      </ul>
+
+      <ul class="topbarnav pull-right">
+
+        <!-- <li class="linkdown">
+                  <a href="#">
+                      <i class="fa fa-usd mr5"></i>
+                      USD
+                      <i class="fa fa-angle-down ml5"></i>
+                  </a>
+                  <ul class="link-list">
+                      <li class="active"><a href="#"><i class="fa fa-eur mr5"></i>EUR</a></li>
+                      <li><a href="#"><i class="fa fa-usd mr5"></i>USD</a></li>
+                      <li><a href="#"><i class="fa fa-gbp mr5"></i>GBP</a></li>
+                  </ul>
+              </li> -->
+        <li class="linkdown">
+          <a href="#">
+            <img src="assets/img/flags/us.png" class="mr5" alt="">
+            <span class="hidden-xs"> English
+            </span>
+          </a>
+          <!-- <ul class="link-list">
+                      <li class="active"><a href="#"><img src="assets/img/flags/us.png" class="mr5" alt=""> English</a></li>
+                      <li><a href="#"><img src="assets/img/flags/de.png" class="mr5" alt=""> German</a></li>
+                      <li><a href="#"><img src="assets/img/flags/ru.png" class="mr5" alt=""> Russian</a></li>
+                      <li><a href="#"><img src="assets/img/flags/it.png" class="mr5" alt=""> Italian</a></li>
+                  </ul> -->
+        </li>
+        <li class="linkdown">
+          <a href="#">
+            <i class="fa fa-user mr5"></i>
+            <span class="hidden-xs">
+              My Account
+              <i class="fa fa-angle-down ml5"></i>
+            </span>
+          </a>
+          <ul class="cd-link">
+            <li><a href="#">Wishlist</a></li>
+            <li><a routerLink="/shoppingcart">My Cart</a></li>
+            <li><a routerLink="/checkout">Checkout</a></li>
+            <li><a routerLink="/loginpage">Login</a></li>
+            <li><a routerLink="/registration">Register</a></li>
+          </ul>
+        </li>
+        <li class="linkdown">
+          <a href="#" class="cart-item-number">
+            <i class="fa fa-shopping-bag mr5"></i>
+            <span class="hidden-xs">
+              Cart
+              <i class="fa fa-angle-down ml5"></i>
+            </span>
+          </a>
+          <ul class="cart cd-link-2">
+            <li>
+              <div class="cart-items">
+                <ol class="items">
+                  <li *ngFor="let item of arrcartItems">
+                    <a href="#" class="product-image">
+                      <img src="http://localhost:3000/{{item.Product.pro_img}}" alt="">
+                    </a>
+                    <div class="product-details">
+                      <p class="product-name">
+                        <a href="#">{{item.Product.pro_name.toUpperCase()}}</a>
+                      </p>
+                      <strong>{{item.Quantuty}}</strong> <span class="price">
+                        {{item.Product.pro_price | currency : 'INR'}}</span>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </li>
+            <li>
+              <div class="cart-btn-block">
+                <a routerLink="shoppingcart" class="pull-left"><i class="fa fa-cart-plus mr5"></i>View Cart</a>
+                <a href="#" class="pull-right"><i class="fa fa-shopping-bag mr5"></i>Checkout</a>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- start middlebar -->
+  <div class="middlebar">
+    <div class="container">
+      <div class="row">
+        <div class="display-table">
+          <div class="col-sm-3 vertical-align text-left hidden-xs">
+            <a href="index-2.html">
+              <img width="150px" height="" src="../../assets/img/giftvilla_logo.jpg" alt="" />
+            </a>
+          </div>
+          <div class="col-sm-7 vertical-align text-center">
+            <form>
+              <div class="header-cat-block">
+                <div class="col-sm-6">
+                  <input type="text" name="keyword" class="form-control input-lg" placeholder="Search">
+                </div>
+                <div class="col-sm-3">
+                  <select class="form-control input-lg" name="fk_cat_id" #fk_cat_id (change)="onWatchClick(fk_cat_id.value)" placeholder="select">
+                    <option [selected]="true">All Category</option>
+                    <option *ngFor="let item of category" [value]="item.cat_id">{{item.cat_name}}</option>
+
+                    <!-- <optgroup label="Mens">
+                                        <option value="shirts">Shirts</option>
+                                        <option value="coats-jackets">Coats & Jackets</option>
+                                        <option value="underwear">Underwear</option>
+                                        <option value="sunglasses">Sunglasses</option>
+                                        <option value="socks">Socks</option>
+                                        <option value="belts">Belts</option>
+                                    </optgroup>
+                                    <optgroup label="Womens">
+                                        <option value="bresses">Bresses</option>
+                                        <option value="t-shirts">T-shirts</option>
+                                        <option value="skirts">Skirts</option>
+                                        <option value="jeans">Jeans</option>
+                                        <option value="pullover">Pullover</option>
+                                    </optgroup>
+                                    <option value="kids">Kids</option>
+                                    <option value="fashion">Fashion</option>
+                                    <optgroup label="Sportwear">
+                                        <option value="shoes">Shoes</option>
+                                        <option value="bags">Bags</option>
+                                        <option value="pants">Pants</option>
+                                        <option value="swimwear">Swimwear</option>
+                                        <option value="bicycles">Bicycles</option>
+                                    </optgroup>
+                                    <option value="bags">Bags</option>
+                                    <option value="shoes">Shoes</option>
+                                    <option value="hoseholds">HoseHolds</option>
+                                    <optgroup label="Technology">
+                                        <option value="tv">TV</option>
+                                        <option value="camera">Camera</option>
+                                        <option value="speakers">Speakers</option>
+                                        <option value="mobile">Mobile</option>
+                                        <option value="pc">PC</option>
+                                    </optgroup> -->
+                  </select>
+                </div>
+                <div class="col-sm-3">
+                  <input type="submit" class="btn cd-btn top-cat-search btn-block" value="Search">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-sm-2 vertical-align header-items hidden-xs">
+            <div class="header-item mr5">
+              <a routerLink="/wishlist" data-toggle="tooltip" data-placement="top" title="Wishlist">
+                <i class="fa fa-heart-o"></i>
+                <!-- <sub></sub> -->
+              </a>
+            </div>
+            <div class="header-item">
+              <a href="#" data-toggle="tooltip" data-placement="top" title="Compare">
+                <i class="fa fa-refresh"></i>
+                <!-- <sub></sub> -->
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end middlebar -->
+  <div class="navbar cd-navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" data-toggle="collapse" data-target="#navbar-collapse-3" class="navbar-toggle">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="index-2.html" class="navbar-brand visible-xs">
+          <img src="assets/img/logo-small.png" alt="logo">
+        </a>
+      </div>
+      <div id="navbar-collapse-3" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <!-- Home -->
+          <li class="active"><a routerLink="/">Home</a></li>
+          <li class="dropdown left"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Shop</a>
+          <li><a routerLink="map">Contact Us</a></li>
+          <li><a routerLink="userinfo">My Account</a></li>
+          <li><a routerLink="help">Help</a></li>
+          <li><a routerLink="myorder">MY Order</a></li>
+        </ul><!-- end navbar-nav -->
+
+      </div>
+
+    </div>
+
+  </div>
+  <!-- end navbar -->
+  <!--End Header -->
+</header>
+<!-- <app-category></app-category> -->
