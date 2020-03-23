@@ -14,6 +14,10 @@ import { CategoryComponent } from './category/category.component';
 import { MyorderComponent } from './myorder/myorder.component';
 import { SliderComponent } from './slider/slider.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
+import { TermsComponent } from './terms/terms.component';
+import { EdituserimageComponent } from './edituserimage/edituserimage.component';
+
 
 
 const arr: Routes = [
@@ -26,13 +30,16 @@ const arr: Routes = [
   { path: 'loginpage', component: LoginpageComponent },
   { path: 'userinfo', component: UserinformationComponent },
   { path: 'registration', component: RegistrationFormComponent },
-  {path : 'sortedproductlist' , component : SortedproductshowComponent },
-  {path : 'viewMoreProduct/:pro_id' ,component : ViewMoreProductComponent},
+  { path: 'sortedproductlist', component: SortedproductshowComponent },
+  { path: 'viewMoreProduct/:pro_id', component: ViewMoreProductComponent },
   { path: 'category', component: CategoryComponent },
   { path: 'help', component: HelppageComponent },
+  { path: 'terms&condition', component: TermsComponent },
+  { path: 'privacypolicy', component: PrivacypolicyComponent },
   { path: 'myorder', component: MyorderComponent },
   { path: 'category', component: CategoryComponent },
   { path: 'help', component: HelppageComponent },
+  { path: 'editImage/:u_EmailId', component: EdituserimageComponent },
   { path: 'myorder', component: MyorderComponent },
   { path: 'slider', component: SliderComponent },
   { path: 'pagenotfound', component: PagenotfoundComponent },

@@ -1,0 +1,40 @@
+<!-- Start Breadcrumb -->
+<div class="page-heading">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h1 class="title"><span>User Information</span></h1>
+        <div class="breadcrumb">
+          <a href="index-2.html">Home</a>
+          <span class="delimeter">/</span>
+          <span class="current">User Information</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Breadcrumb -->
+
+
+<div class="main-contain">
+  <div class="container">
+    <div class="row">
+
+      <div class="home-main col-md-9 col-sm-12 clo-xs-12 main-contant-right">
+        <div class="widget">
+          <h6 class="text-uppercase bottom-line"><strong>My personal information</strong></h6>
+        </div>
+        <form [formGroup]="updateuserpic" (ngSubmit)="onuserimageupdate()" >
+          <img mat-card-image width="50" height="50" src="{{userurl}}" >
+          <input type="file" name="u_img" (change)="onChange($event)"  ><br><br>
+          <button type="submit" mat-button  color="primary" > UPDATE </button>
+          <button routerLink="/userinfo"  type="submit" mat-button  color="primary" > Cancel </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

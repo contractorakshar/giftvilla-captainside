@@ -107,41 +107,6 @@
                   <select class="form-control input-lg" name="fk_cat_id" #fk_cat_id (change)="onWatchClick(fk_cat_id.value)" placeholder="select">
                     <option [selected]="true">All Category</option>
                     <option *ngFor="let item of category" [value]="item.cat_id">{{item.cat_name}}</option>
-
-                    <!-- <optgroup label="Mens">
-                                        <option value="shirts">Shirts</option>
-                                        <option value="coats-jackets">Coats & Jackets</option>
-                                        <option value="underwear">Underwear</option>
-                                        <option value="sunglasses">Sunglasses</option>
-                                        <option value="socks">Socks</option>
-                                        <option value="belts">Belts</option>
-                                    </optgroup>
-                                    <optgroup label="Womens">
-                                        <option value="bresses">Bresses</option>
-                                        <option value="t-shirts">T-shirts</option>
-                                        <option value="skirts">Skirts</option>
-                                        <option value="jeans">Jeans</option>
-                                        <option value="pullover">Pullover</option>
-                                    </optgroup>
-                                    <option value="kids">Kids</option>
-                                    <option value="fashion">Fashion</option>
-                                    <optgroup label="Sportwear">
-                                        <option value="shoes">Shoes</option>
-                                        <option value="bags">Bags</option>
-                                        <option value="pants">Pants</option>
-                                        <option value="swimwear">Swimwear</option>
-                                        <option value="bicycles">Bicycles</option>
-                                    </optgroup>
-                                    <option value="bags">Bags</option>
-                                    <option value="shoes">Shoes</option>
-                                    <option value="hoseholds">HoseHolds</option>
-                                    <optgroup label="Technology">
-                                        <option value="tv">TV</option>
-                                        <option value="camera">Camera</option>
-                                        <option value="speakers">Speakers</option>
-                                        <option value="mobile">Mobile</option>
-                                        <option value="pc">PC</option>
-                                    </optgroup> -->
                   </select>
                 </div>
                 <div class="col-sm-3">

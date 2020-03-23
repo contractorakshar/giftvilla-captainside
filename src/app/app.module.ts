@@ -7,6 +7,9 @@ import { FooterComponent } from './footer/footer.component';
 import { GoogleMapsModule } from "@angular/google-maps";
 import { CartComponent } from './cart/cart.component';
 
+import { SliderModule } from 'angular-image-slider';
+
+
 import { ProducthomeComponent } from './producthome/producthome.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
@@ -42,6 +45,9 @@ import { CategoryComponent } from './category/category.component';
 import { MyorderComponent } from './myorder/myorder.component';
 import { SliderComponent } from './slider/slider.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
+import { TermsComponent } from './terms/terms.component';
+import { EdituserimageComponent } from './edituserimage/edituserimage.component';
 
 
 @NgModule({
@@ -64,11 +70,14 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     MyorderComponent,
     SliderComponent,
     WishlistComponent,
+    PrivacypolicyComponent,
+    TermsComponent,
+    EdituserimageComponent,
   ],
   imports: [
 
     BrowserModule,
-
+    SliderModule,
     routingArr,
     HttpClientModule,
     FormsModule,
