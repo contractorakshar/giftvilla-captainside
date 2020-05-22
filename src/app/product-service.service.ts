@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductServiceService {
-  url = "http://localhost:3000/product/";
-  url1 = "http://localhost:3000/fkphotos/";
-  url21 = "http://localhost:3000/viewmorerelatedproducts/";
-  url31 = "http://localhost:3000/sortedProduct/";
-  public url3 = "http://localhost:3000/category/";
-  public url4 = "http://localhost:3000/productHome/";
-  public url2 = "http://localhost:3000/categoryById/";
+  public url = environment.url + "product/";
+  public url1 = environment.url + "fkphotos/";
+  public url21 = environment.url + "viewmorerelatedproducts/";
+  public url31 = environment.url + "sortedProduct/";
+  public url3 = environment.url + "category/";
+  public url4 = environment.url + "productHome/";
+  public url2 = environment.url + "categoryById/";
   constructor(private _http: HttpClient) { }
   getAllProducts() {
     return this._http.get(this.url);
@@ -38,6 +39,8 @@ export class ProductServiceService {
   addproduct(item: FormData) {
     //let body=JSON.stringify(item.pro_id);
     //let head=new HttpHeaders ().set(environment.header,environment.value);
+    let body = JSON.stringify(item);
+    let head = new HttpHeaders().set(environment.header, environment.value);
     console.log(item);
     return this._http.post(this.url, item);
   }
@@ -56,5 +59,9 @@ export class ProductServiceService {
   }
   getproductphoto(pro_id) {
     return this._http.get(this.url1 + pro_id);
+
   }
+  // getproductphoto(fk_pro_id) {
+  //   return this._http.get(this.url1 + fk_pro_id);
+  //}
 }

@@ -23,5 +23,6 @@ export class orders {
     public track_id?:number,
     public status?:string,
     public fk_detail_id?:string,
+    public cart_detail_id?:number,
   ) { }
 }

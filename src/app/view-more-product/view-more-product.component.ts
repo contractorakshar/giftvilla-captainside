@@ -11,6 +11,7 @@ import { productphotodisplay } from '../productphotodisplay';
 })
 export class ViewMoreProductComponent implements OnInit {
 
+  u_EmailId:string;
   arr: productdisplay[] = [];
   picarr: productphotodisplay[] = [];
   relatedpicarr: productdisplay[] = [];
@@ -27,10 +28,12 @@ export class ViewMoreProductComponent implements OnInit {
   pro_mfg: string;
   pro_info: string;
   i: number;
+
   constructor(public _proser: ProductServiceService, public _rou: Router, public _actRou: ActivatedRoute) { }
 
 
   ngOnInit(): void {
+    this.u_EmailId = localStorage.getItem('u_EmailId');
     this.fk_pro_id = this._actRou.snapshot.params['fk_pro_id'];
     this.pro_id = this._actRou.snapshot.params['pro_id'];
 
@@ -69,6 +72,13 @@ export class ViewMoreProductComponent implements OnInit {
       }
       console.log(this.relatedpicarr1);
     });
+
+  }
+
+  onwishlist()
+  {
+    alert("Product Is Added To Your WishList Table");
+    this._rou.navigate(['/wishlist']);
 
   }
 

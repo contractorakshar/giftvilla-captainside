@@ -28,7 +28,7 @@ export class OrderdataService {
     return this._http.get(this.url);
   }
   deleteOrder(order_id: number) {
-    let x = new HttpHeaders().set('Content-Type', 'application/json');
+    let x = new HttpHeaders().set(environment.header, environment.value);
     return this._http.delete(this.url + order_id, { headers: x });
   }
   getPtroductById(order_id: number) {

@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegistrationDataService {
 
-  public url:string="http://localhost:3000/signup/";
+  public url:string=environment.url+"/signup/";
   constructor( public _http:HttpClient ) { }
 
   signup(obj:FormData)

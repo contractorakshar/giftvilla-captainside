@@ -13,10 +13,15 @@ import { HelppageComponent } from './helppage/helppage.component';
 import { CategoryComponent } from './category/category.component';
 import { MyorderComponent } from './myorder/myorder.component';
 import { SliderComponent } from './slider/slider.component';
+import { SearchingComponent } from './searching/searching.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { ShippingDetailsComponent } from './checkout/shipping-details/shipping-details.component';
 import { PaymentComponent } from './payment/payment.component';
 import { MemberCustomerComponent } from './member-customer/member-customer.component';
+import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
+import { TermsComponent } from './terms/terms.component';
+import { EdituserimageComponent } from './edituserimage/edituserimage.component';
+
 
 
 const arr: Routes = [
@@ -34,9 +39,13 @@ const arr: Routes = [
   { path: 'viewMoreProduct/:pro_id', component: ViewMoreProductComponent },
   { path: 'category', component: CategoryComponent },
   { path: 'help', component: HelppageComponent },
-  // { path: 'myorder', component: MyorderComponent },
+  { path: 'terms&condition', component: TermsComponent },
+  { path: 'privacypolicy', component: PrivacypolicyComponent },
+  { path: 'myorder', component: MyorderComponent },
   { path: 'category', component: CategoryComponent },
+  {path : 'searchingproducts/:cat_name' , component : SearchingComponent},
   { path: 'help', component: HelppageComponent },
+  { path: 'editImage/:u_EmailId', component: EdituserimageComponent },
   { path: 'myorder', component: MyorderComponent },
   { path: 'slider', component: SliderComponent },
   { path: 'shipping', component: ShippingDetailsComponent },
