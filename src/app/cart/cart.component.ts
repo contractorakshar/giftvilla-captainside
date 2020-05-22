@@ -8,11 +8,13 @@ import { Router } from '@angular/router';
 declare var require: any;
 const dateFormat = require('dateformat');
 const now = new Date();
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
+
 export class CartComponent implements OnInit {
   proQty;
   demo = this.proQty;
@@ -43,10 +45,12 @@ export class CartComponent implements OnInit {
       this.GrandTotal = this.cart.GrandTotal;
     }
   }
+
   onRemoveFromCart(SelectedProductID, index) {
     this.GrandTotal = this._cartService.onRemoveFromCart(SelectedProductID);
     this.arrcartItems.splice(index, 1);
   }
+
   onQtyChange(item: CartDetails, txtQty: string, index: number) {
     // console.log("selected item ", item);
     // console.log("latest value ", txtQty);
@@ -85,7 +89,6 @@ export class CartComponent implements OnInit {
 
   // }
   btnCheckout() {
-
     console.log(this.cart);
     if (this.UserId == null) {
       alert('Go to Login');
@@ -175,5 +178,4 @@ export class CartComponent implements OnInit {
       // );
     }
   }
-
 }

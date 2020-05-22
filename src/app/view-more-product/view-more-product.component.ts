@@ -38,7 +38,6 @@ export class ViewMoreProductComponent implements OnInit {
     this.pro_id = this._actRou.snapshot.params['pro_id'];
 
     this._proser.getProductById(this.pro_id).subscribe((data: productdisplay[]) => {
-
       this.arr = data;
       this.pro_price = data[0].pro_price;
       this.pro_name = data[0].pro_name;
@@ -50,7 +49,8 @@ export class ViewMoreProductComponent implements OnInit {
       console.log(this.arr);
     });
 
-    this._proser.getproductphoto(this.pro_id).subscribe((data: productphotodisplay[]) => {
+    this._proser.getproductphoto(this.pro_id).subscribe(
+      (data: productphotodisplay[]) =>{
       this.picarr = data;
       // for(this.i=0;this.i<this.picarr.length;this.i++)
       // {
@@ -58,8 +58,6 @@ export class ViewMoreProductComponent implements OnInit {
       // }
       console.log(this.picarr);
     });
-
-
     // this.fk_cat_id = this.arr[0].fk_cat_id;
     console.log(this.fk_cat_id);
     this._proser.getViewmoreRelatedProducts(this.fk_cat_id).subscribe((data: productdisplay[]) => {

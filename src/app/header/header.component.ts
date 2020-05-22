@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Routes, Router } from '@angular/router';
-import { Maincart } from '../cart/maincart';
+import { productdisplay } from '../productdisplay';
+import { Router } from '@angular/router';
 import { CartoperationsService } from '../cart/cartoperations.service';
-import { CartDetails } from '../cart/cart-details';
+import { Maincart } from '../cart/maincart';
 import { ProductServiceService } from '../product-service.service';
-import { productdisplay } from '../productdisplay'
+import { CartDetails } from '../cart/cart-details';
 
 @Component({
   selector: 'app-header',
@@ -16,9 +16,8 @@ export class HeaderComponent implements OnInit {
   category: productdisplay[] = [];
   arrwatch: productdisplay[] = [];
   GrandTotal: number = 0;
-  cat_name : string;
   cart: Maincart = JSON.parse(localStorage.getItem('cart')) as Maincart;
-  constructor(public router: Router, private _cartService: CartoperationsService, private _productData: ProductServiceService,private _rou : Router) { }
+  constructor(public router: Router, private _cartService: CartoperationsService, private _productData: ProductServiceService) { }
 
   ngOnInit() {
     // this.arrcartItems = this.cart.CartItems;
@@ -30,13 +29,6 @@ export class HeaderComponent implements OnInit {
         //console.log(data);
       });
   }
-
-  onsearching(cat_name)
-  {
-    console.log(cat_name);
-    this._rou.navigate(['/searchingproducts',cat_name]);
-  }
-
   onLogout() {
     localStorage.clear();
     this.router.navigate(['/']);

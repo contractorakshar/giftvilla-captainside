@@ -8,7 +8,7 @@ import { GoogleMapsModule } from "@angular/google-maps";
 import { CartComponent } from './cart/cart.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-// import { SliderModule } from 'angular-image-slider';
+import { SliderModule } from 'angular-image-slider';
 
 
 import { ProducthomeComponent } from './producthome/producthome.component';
@@ -55,7 +55,7 @@ import { MemberCustomerComponent } from './member-customer/member-customer.compo
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 import { TermsComponent } from './terms/terms.component';
 import { EdituserimageComponent } from './edituserimage/edituserimage.component';
-
+import { PasswordchangeComponent } from './passwordchange/passwordchange.component';
 
 @NgModule({
   declarations: [
@@ -86,11 +86,13 @@ import { EdituserimageComponent } from './edituserimage/edituserimage.component'
     PrivacypolicyComponent,
     TermsComponent,
     EdituserimageComponent,
+    PaymentComponent,
+    PasswordchangeComponent,
   ],
   imports: [
 
     BrowserModule,
-    // SliderModule,
+    SliderModule,
     routingArr,
     HttpClientModule,
     FormsModule,
@@ -123,8 +125,6 @@ import { EdituserimageComponent } from './edituserimage/edituserimage.component'
       // EmailpopupComponent,
     ],
   providers: [],
-
-  // providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

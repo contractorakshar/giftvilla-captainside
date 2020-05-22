@@ -49,6 +49,43 @@
             <li><a routerLink="/loginpage">Login</a></li>
             <li><a routerLink="/registration">Register</a></li>
             <li><a (click)="onLogout()">LOGOUT</a></li>
+            <<<<<<< HEAD </ul>
+        </li>
+        <li class="linkdown">
+          <a href="#" class="cart-item-number">
+            <i class="fa fa-shopping-bag mr5"></i>
+            <span class="hidden-xs">
+              Cart
+              <i class="fa fa-angle-down ml5"></i>
+            </span>
+          </a>
+          <ul class="cart cd-link-2">
+            <li>
+              <div class="cart-items">
+                <ol class="items">
+                  <li *ngFor="let item of arrcartItems">
+                    <a href="#" class="product-image">
+                      <img src="http://localhost:3000/{{item.Product.pro_img}}" alt="">
+                    </a>
+                    <div class="product-details">
+                      <p class="product-name">
+                        <a href="#">{{item.Product.pro_name.toUpperCase()}}</a>
+                      </p>
+                      <strong>{{item.Quantuty}}</strong> <span class="price">
+                        {{item.Product.pro_price | currency : 'INR'}}</span>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </li>
+            <li>
+              <div class="cart-btn-block">
+                <a routerLink="shoppingcart" class="pull-left"><i class="fa fa-cart-plus mr5"></i>View Cart</a>
+                <a href="#" class="pull-right"><i class="fa fa-shopping-bag mr5"></i>Checkout</a>
+              </div>
+            </li>
+            =======
+            >>>>>>> d00f303dd76f63e6fa6785721d82fe5f1b22b785
           </ul>
         </li>
       </ul>
@@ -111,7 +148,7 @@
           <span class="icon-bar"></span>
         </button>
         <a href="index-2.html" class="navbar-brand visible-xs">
-          <img src="assets/img/logo-small.png" alt="logo">
+          <img src="img/logo-small.png" alt="logo">
         </a>
       </div> -->
       <div id="navbar-collapse-3" class="navbar-collapse collapse">
