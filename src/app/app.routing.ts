@@ -15,6 +15,9 @@ import { MyorderComponent } from './myorder/myorder.component';
 import { SliderComponent } from './slider/slider.component';
 import { SearchingComponent } from './searching/searching.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { ShippingDetailsComponent } from './checkout/shipping-details/shipping-details.component';
+import { PaymentComponent } from './payment/payment.component';
+import { MemberCustomerComponent } from './member-customer/member-customer.component';
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 import { TermsComponent } from './terms/terms.component';
 import { EdituserimageComponent } from './edituserimage/edituserimage.component';
@@ -29,6 +32,7 @@ const arr: Routes = [
   { path: 'productdrop/:cat_id', component: WatchComponent },
   { path: 'shoppingcart', component: CartComponent },
   { path: 'map', component: MaplocationComponent },
+  { path: 'member', component: MemberCustomerComponent },
   { path: 'wishlist', component: WishlistComponent },
   { path: 'loginpage', component: LoginpageComponent },
   { path: 'userinfo', component: UserinformationComponent },
@@ -47,7 +51,9 @@ const arr: Routes = [
   { path: 'editImage/:u_EmailId', component: EdituserimageComponent },
   { path: 'myorder', component: MyorderComponent },
   { path: 'slider', component: SliderComponent },
+  { path: 'shipping', component: ShippingDetailsComponent },
   { path: 'pagenotfound', component: PagenotfoundComponent },
+  { path: 'payment', component: PaymentComponent },
   { path: '**', redirectTo: '/pagenotfound' }
 ];
 export const routingArr = RouterModule.forRoot(arr);

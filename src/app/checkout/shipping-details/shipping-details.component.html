@@ -1,0 +1,78 @@
+<!-- <p>shipping-details works!</p> -->
+<!-- Start Breadcrumb -->
+<div class="page-heading">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h1 class="title"><span>Billing Address</span></h1>
+        <div class="breadcrumb">
+          <a href="index-2.html">Home</a>
+          <span class="delimeter">/</span>
+          <span class="current">Billing Address</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End Breadcrumb -->
+
+
+<div class="main-contain">
+  <div class="container">
+    <div class="row">
+
+      <div class="home-main col-md-9 col-sm-12 clo-xs-12 main-contant-right">
+        <div class="widget">
+          <h6 class="text-uppercase bottom-line"><strong>Billing Address</strong></h6>
+        </div>
+        <form [formGroup]="user_update" (ngSubmit)="onUserUpdate()">
+
+          <div class="row">
+            <div class="col-md-6">
+
+              <div class="form-group">
+                <label>Email Address </label>
+                <input type="email" disabled="true" formControlName="u_EmailId" required placeholder="Email Address"
+                  name="u_EmailId" class="form-control input-sm required email"><br>
+              </div>
+
+              <div class="form-group">
+                <label> Name </label>
+                <input type="text" formControlName="u_Name" required placeholder="Enter Name" name="u_Name"
+                  class="form-control input-sm required" disabled="true"><br>
+              </div>
+
+              <div class="form-group">
+                <label> Address <span class="text-danger">*</span></label>
+                <!-- <input type="text" formControlName="u_Address" required placeholder="Enter Address" name="u_Address"
+                  class="form-control input-sm required"> -->
+
+                <textarea rows="6" name="u_Address" class="form-control input-sm required"
+                  placeholder="Enter your Shipping Address" formControlName="u_Address" required></textarea>
+                <br>
+                <mat-error
+                  *ngIf="user_update.get('u_Address').hasError('required') && !user_update.get('u_Address').pristine">
+                  Address is required</mat-error>
+              </div>
+
+              <div class="form-group">
+                <label> Mobile No </label>
+                <input type="text" formControlName="u_mobileno" required placeholder="Enter Mobile No" name="u_mobileno"
+                  class="form-control input-sm required" disabled="true">
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn cd-btn" (click)="onUserUpdate()">
+                    <i></i>Proceed to Payment</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

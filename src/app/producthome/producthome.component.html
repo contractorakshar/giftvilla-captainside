@@ -1,4 +1,6 @@
-<app-slider></app-slider>
+<app-slider>
+
+</app-slider>
 <div class="main-contain col-grid-style">
   <div class="container">
     <div class="row clearfix">
@@ -18,6 +20,9 @@
                 <div class="item-inner-detail-cart">
                   <a class="btn btn-line-xs btn-white-line" (click)="onAddToCart(item)">
                     <i class="fa fa-shopping-cart"></i> Add To Cart</a>
+                  <br><br>
+                  <a class="btn btn-line-xs btn-white-line" (click)="ImageViewMore(item.pro_id)">
+                    <i class="fa fa-info-circle"></i> More...</a>
                 </div>
               </div>
             </div>
@@ -37,10 +42,8 @@
 
           </div>
         </div>
-        <!-- <a class="onbtnstyle"  (click)="ImageViewMore(item.pro_id)" >View More</a> -->
-        <a class="btn btn-product cd-cart-btn" (click)="ImageViewMore(item.pro_id)"  >Reed more</a>
-        </div>
-        </div>
-        </div>
-        </div>
 
+      </div>
+    </div>
+  </div>
+</div>

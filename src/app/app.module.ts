@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { GoogleMapsModule } from "@angular/google-maps";
 import { CartComponent } from './cart/cart.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { SliderModule } from 'angular-image-slider';
 
@@ -48,10 +49,12 @@ import { MyorderComponent } from './myorder/myorder.component';
 import { SliderComponent } from './slider/slider.component';
 import { SearchingComponent } from './searching/searching.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { ShippingDetailsComponent } from './checkout/shipping-details/shipping-details.component';
+import { PaymentComponent } from './payment/payment.component';
+import { MemberCustomerComponent } from './member-customer/member-customer.component';
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 import { TermsComponent } from './terms/terms.component';
 import { EdituserimageComponent } from './edituserimage/edituserimage.component';
-import { PaymentComponent } from './payment/payment.component';
 import { PasswordchangeComponent } from './passwordchange/passwordchange.component';
 
 @NgModule({
@@ -77,6 +80,9 @@ import { PasswordchangeComponent } from './passwordchange/passwordchange.compone
     SliderComponent,
     SearchingComponent,
     WishlistComponent,
+    ShippingDetailsComponent,
+    PaymentComponent,
+    MemberCustomerComponent,
     PrivacypolicyComponent,
     TermsComponent,
     EdituserimageComponent,
@@ -90,6 +96,7 @@ import { PasswordchangeComponent } from './passwordchange/passwordchange.compone
     routingArr,
     HttpClientModule,
     FormsModule,
+    MatSnackBarModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatCardModule,
@@ -114,8 +121,9 @@ import { PasswordchangeComponent } from './passwordchange/passwordchange.compone
 
   ],
   entryComponents:
-  [
-  ],
+    [
+      // EmailpopupComponent,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

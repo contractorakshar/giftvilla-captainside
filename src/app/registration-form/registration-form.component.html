@@ -75,8 +75,7 @@
               <label>Date of Birth</label>
               <div class="form-group">
 
-                <input type="Date" formControlName="u_dob" required name="u_dob" placeholder="Enter Date"
-                  class="form-control input-sm required">
+                <input type="Date" formControlName="u_dob" required name="u_dob" class="form-control input-sm required">
                 <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                           <mat-datepicker #picker></mat-datepicker> -->
                 <mat-error *ngIf="SignupForm.get('u_dob').hasError('required') && !SignupForm.get('u_dob').pristine">
@@ -111,20 +110,14 @@
               </div>
 
               <div class="form-group">
+
                 <label>Image</label>
                 <input type="file" class="form-control input-sm required" name="u_img" formControlName="u_img"
                   (change)="onChange($event)">
               </div>
             </div>
           </div>
-          <div class="form-group">
-            <div class="checkbox-input checkbox-primary">
-              <input id="newsletter" class="styled" type="checkbox" checked>
-              <label for="newsletter">
-                Sign up for our newsletter!
-              </label>
-            </div>
-          </div>
+
 
           <div class="form-group">
             <button type="submit" value="submit" class="btn cd-btn"><i class="fa fa-save mr5"></i>

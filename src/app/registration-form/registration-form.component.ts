@@ -29,7 +29,7 @@ export class RegistrationFormComponent implements OnInit {
       u_Name: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.pattern('[a-zA-Z]*')]),
       u_Address: new FormControl(null, [Validators.required]),
       u_gender: new FormControl(null),
-      u_Type: new FormControl('user'),
+      u_Type: new FormControl('Customer'),
       password_group: new FormGroup({
         u_password: new FormControl(null, [Validators.required]),
         u_confirm_password: new FormControl(null)

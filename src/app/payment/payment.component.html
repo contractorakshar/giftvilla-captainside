@@ -1,4 +1,4 @@
-<div class="tab-pane" id="payment">
+<!-- <div class="tab-pane" id="payment">
   <div class="widget">
     <h6 class="text-uppercase bottom-line"><strong>Choose a Payment Method</strong></h6>
   </div>
@@ -19,5 +19,17 @@
       </div>
       <button class="btn cd-btn coupon-btn" type="submit">Apply</button>
     </form>
-  </div>
+  </div> -->
+<div style="text-align: center;font-size: 20px;">
+  <label>Cart Total</label>: {{this.finalAmount}}<br /><br>
+  <label>Shipping Charge</label>:<br /><br>
+  <label>Total</label>:<br /><br>
+
 </div>
+<!-- <input type="number" [(ngModel)]="finalAmount"> -->
+<div>
+  <button id="cohbtn" (click)="abcd()">Cash on hand</button>
+</div>
+<br><br>
+
+<div #paypal></div>

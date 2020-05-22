@@ -49,7 +49,7 @@
             <li><a routerLink="/loginpage">Login</a></li>
             <li><a routerLink="/registration">Register</a></li>
             <li><a (click)="onLogout()">LOGOUT</a></li>
-          </ul>
+            <<<<<<< HEAD </ul>
         </li>
         <li class="linkdown">
           <a href="#" class="cart-item-number">
@@ -84,6 +84,8 @@
                 <a href="#" class="pull-right"><i class="fa fa-shopping-bag mr5"></i>Checkout</a>
               </div>
             </li>
+            =======
+            >>>>>>> d00f303dd76f63e6fa6785721d82fe5f1b22b785
           </ul>
         </li>
       </ul>
@@ -108,43 +110,8 @@
                 <div class="col-sm-3">
                   <select class="form-control input-lg" name="fk_cat_id" #fk_cat_id
                     (change)="onWatchClick(fk_cat_id.value)" placeholder="select">
-                    <option [selected]="true">All Category</option>
+                    <!-- <option [selected]="true">All Category</option> -->
                     <option *ngFor="let item of category" [value]="item.cat_id">{{item.cat_name}}</option>
-
-                    <!-- <optgroup label="Mens">
-                                          <option value="shirts">Shirts</option>
-                                          <option value="coats-jackets">Coats & Jackets</option>
-                                          <option value="underwear">Underwear</option>
-                                          <option value="sunglasses">Sunglasses</option>
-                                          <option value="socks">Socks</option>
-                                          <option value="belts">Belts</option>
-                                      </optgroup>
-                                      <optgroup label="Womens">
-                                          <option value="bresses">Bresses</option>
-                                          <option value="t-shirts">T-shirts</option>
-                                          <option value="skirts">Skirts</option>
-                                          <option value="jeans">Jeans</option>
-                                          <option value="pullover">Pullover</option>
-                                      </optgroup>
-                                      <option value="kids">Kids</option>
-                                      <option value="fashion">Fashion</option>
-                                      <optgroup label="Sportwear">
-                                          <option value="shoes">Shoes</option>
-                                          <option value="bags">Bags</option>
-                                          <option value="pants">Pants</option>
-                                          <option value="swimwear">Swimwear</option>
-                                          <option value="bicycles">Bicycles</option>
-                                      </optgroup>
-                                      <option value="bags">Bags</option>
-                                      <option value="shoes">Shoes</option>
-                                      <option value="hoseholds">HoseHolds</option>
-                                      <optgroup label="Technology">
-                                          <option value="tv">TV</option>
-                                          <option value="camera">Camera</option>
-                                          <option value="speakers">Speakers</option>
-                                          <option value="mobile">Mobile</option>
-                                          <option value="pc">PC</option>
-                                      </optgroup> -->
                   </select>
                 </div>
                 <div class="col-sm-3">
@@ -153,20 +120,20 @@
               </div>
             </form>
           </div>
-          <div class="col-sm-2 vertical-align header-items hidden-xs">
+          <!-- <div class="col-sm-2 vertical-align header-items hidden-xs">
             <div class="header-item mr5">
               <a routerLink="/wishlist" data-toggle="tooltip" data-placement="top" title="Wishlist">
                 <i class="fa fa-heart-o"></i>
-                <!-- <sub></sub> -->
+                <sub></sub>
               </a>
             </div>
             <div class="header-item">
               <a href="#" data-toggle="tooltip" data-placement="top" title="Compare">
                 <i class="fa fa-refresh"></i>
-                <!-- <sub></sub> -->
+                <sub></sub>
               </a>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -174,7 +141,7 @@
 
   <div class="navbar cd-navbar navbar-default">
     <div class="container">
-      <div class="navbar-header">
+      <!-- <div class="navbar-header">
         <button type="button" data-toggle="collapse" data-target="#navbar-collapse-3" class="navbar-toggle">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -183,11 +150,11 @@
         <a href="index-2.html" class="navbar-brand visible-xs">
           <img src="img/logo-small.png" alt="logo">
         </a>
-      </div>
+      </div> -->
       <div id="navbar-collapse-3" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <!-- Home -->
-          <li><a href="index-2.html">Home</a></li>
+          <li><a routerLink="/products">Home</a></li>
 
           <!-- <li class="active"><a href="contact.html">Contact Us</a></li> -->
           <!-- <li><a href="contact.html">Contact Us</a></li> -->
@@ -205,4 +172,3 @@
 
 
 </header>
-

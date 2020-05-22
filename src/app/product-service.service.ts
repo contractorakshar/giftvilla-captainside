@@ -37,6 +37,8 @@ export class ProductServiceService {
     return this._http.get(this.url21 + fk_cat_id);
   }
   addproduct(item: FormData) {
+    //let body=JSON.stringify(item.pro_id);
+    //let head=new HttpHeaders ().set(environment.header,environment.value);
     let body = JSON.stringify(item);
     let head = new HttpHeaders().set(environment.header, environment.value);
     console.log(item);
@@ -51,11 +53,15 @@ export class ProductServiceService {
     return this._http.get(this.url4);
   }
   updateproduct(item, pro_id) {
-    let body = JSON.stringify(item);
-    let head = new HttpHeaders().set(environment.header, environment.value);
+    // let body = JSON.stringify(item);
+    // let head = new HttpHeaders().set(environment.header,environment.value);
     return this._http.put(this.url + pro_id, item);
   }
-  getproductphoto(fk_pro_id) {
-    return this._http.get(this.url1 + fk_pro_id);
+  getproductphoto(pro_id) {
+    return this._http.get(this.url1 + pro_id);
+
   }
+  // getproductphoto(fk_pro_id) {
+  //   return this._http.get(this.url1 + fk_pro_id);
+  //}
 }
