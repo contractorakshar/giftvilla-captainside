@@ -6,11 +6,13 @@ import { EmailToUserService } from '../loginpage/email-to-user.service';
 declare var require: any;
 const dateFormat = require('dateformat');
 const now = new Date();
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
+
 export class CartComponent implements OnInit {
   UserId: string = localStorage.getItem('u_EmailId');
   arrcartItems: CartDetails[] = [];
@@ -18,6 +20,7 @@ export class CartComponent implements OnInit {
   quantityarr: number[] = [];
   GrandTotal: number = 0;
   cart: Maincart = JSON.parse(localStorage.getItem('cart')) as Maincart;
+
   constructor(private _cartService: CartoperationsService, private _mail: EmailToUserService) { }
 
   ngOnInit() {
@@ -29,10 +32,12 @@ export class CartComponent implements OnInit {
       this.GrandTotal = this.cart.GrandTotal;
     }
   }
+
   onRemoveFromCart(SelectedProductID, index) {
     this.GrandTotal = this._cartService.onRemoveFromCart(SelectedProductID);
     this.arrcartItems.splice(index, 1);
   }
+
   onQtyChange(item: CartDetails, txtQty: string, index: number) {
     // console.log("selected item ", item);
     // console.log("latest value ", txtQty);
@@ -50,9 +55,7 @@ export class CartComponent implements OnInit {
   }
 
   btnCheckout() {
-
     console.log(this.cart);
-
     let OrderID: number;
     let objOrder = {
       "fk_u_EmailId": this.cart.u_EmailId,
@@ -61,9 +64,6 @@ export class CartComponent implements OnInit {
       "order_payment": 'Cash',
       "order_spc_instruction": 'this is special instruction'
     };
-
-
-
     this._cartService.addOrder(objOrder).subscribe(
       (dataOrder: any) => {
         OrderID = dataOrder.insertId;
@@ -75,14 +75,6 @@ export class CartComponent implements OnInit {
           'fk_order_id': OrderID,
           'cartItems': this.cart.CartItems
         };
-
-        // let Bill = {
-        //   od: OrderID,
-        //   gt: this.cart.GrandTotal,
-        //   //product_name: this.cart.CartItems[0].Product,
-        //   //q: this.cart.CartItems[0].Quantuty,
-
-        // }
         for (let i = 0; i < this.cart.CartItems.length; i++) {
           this.productarr.push(this.cart.CartItems[i].Product.pro_name);
           this.quantityarr.push(this.cart.CartItems[i].Quantuty);
@@ -92,17 +84,12 @@ export class CartComponent implements OnInit {
             console.log(y);
             alert("data added");
             this._mail.getUserByEmail(this.cart.u_EmailId).subscribe((data) => {
-
-
               this._mail.passwordMail(this.cart.u_EmailId, "BILL", this.cart.GrandTotal + "\n" + OrderID + "\n " + this.productarr + "\n" + this.quantityarr).subscribe(() => {
                 console.log("mail sent");
-
               });
-
             });
           });
       }
     );
   }
-
 }

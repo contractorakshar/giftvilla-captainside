@@ -1,4 +1,5 @@
 <header>
+
   <!-- start topbar -->
   <div class="topbar">
     <div class="container">
@@ -9,17 +10,17 @@
       <ul class="topbarnav pull-right">
 
         <!-- <li class="linkdown">
-                  <a href="#">
-                      <i class="fa fa-usd mr5"></i>
-                      USD
-                      <i class="fa fa-angle-down ml5"></i>
-                  </a>
-                  <ul class="link-list">
-                      <li class="active"><a href="#"><i class="fa fa-eur mr5"></i>EUR</a></li>
-                      <li><a href="#"><i class="fa fa-usd mr5"></i>USD</a></li>
-                      <li><a href="#"><i class="fa fa-gbp mr5"></i>GBP</a></li>
-                  </ul>
-              </li> -->
+                    <a href="#">
+                        <i class="fa fa-usd mr5"></i>
+                        USD
+                        <i class="fa fa-angle-down ml5"></i>
+                    </a>
+                    <ul class="link-list">
+                        <li class="active"><a href="#"><i class="fa fa-eur mr5"></i>EUR</a></li>
+                        <li><a href="#"><i class="fa fa-usd mr5"></i>USD</a></li>
+                        <li><a href="#"><i class="fa fa-gbp mr5"></i>GBP</a></li>
+                    </ul>
+                </li> -->
         <li class="linkdown">
           <a href="#">
             <img src="assets/img/flags/us.png" class="mr5" alt="">
@@ -27,11 +28,11 @@
             </span>
           </a>
           <!-- <ul class="link-list">
-                      <li class="active"><a href="#"><img src="assets/img/flags/us.png" class="mr5" alt=""> English</a></li>
-                      <li><a href="#"><img src="assets/img/flags/de.png" class="mr5" alt=""> German</a></li>
-                      <li><a href="#"><img src="assets/img/flags/ru.png" class="mr5" alt=""> Russian</a></li>
-                      <li><a href="#"><img src="assets/img/flags/it.png" class="mr5" alt=""> Italian</a></li>
-                  </ul> -->
+                        <li class="active"><a href="#"><img src="assets/img/flags/us.png" class="mr5" alt=""> English</a></li>
+                        <li><a href="#"><img src="assets/img/flags/de.png" class="mr5" alt=""> German</a></li>
+                        <li><a href="#"><img src="assets/img/flags/ru.png" class="mr5" alt=""> Russian</a></li>
+                        <li><a href="#"><img src="assets/img/flags/it.png" class="mr5" alt=""> Italian</a></li>
+                    </ul> -->
         </li>
         <li class="linkdown">
           <a href="#">
@@ -47,6 +48,7 @@
             <li><a routerLink="/checkout">Checkout</a></li>
             <li><a routerLink="/loginpage">Login</a></li>
             <li><a routerLink="/registration">Register</a></li>
+            <li><a (click)="onLogout()">LOGOUT</a></li>
           </ul>
         </li>
         <li class="linkdown">
@@ -104,44 +106,45 @@
                   <input type="text" name="keyword" class="form-control input-lg" placeholder="Search">
                 </div>
                 <div class="col-sm-3">
-                  <select class="form-control input-lg" name="fk_cat_id" #fk_cat_id (change)="onWatchClick(fk_cat_id.value)" placeholder="select">
+                  <select class="form-control input-lg" name="fk_cat_id" #fk_cat_id
+                    (change)="onWatchClick(fk_cat_id.value)" placeholder="select">
                     <option [selected]="true">All Category</option>
                     <option *ngFor="let item of category" [value]="item.cat_id">{{item.cat_name}}</option>
 
                     <!-- <optgroup label="Mens">
-                                        <option value="shirts">Shirts</option>
-                                        <option value="coats-jackets">Coats & Jackets</option>
-                                        <option value="underwear">Underwear</option>
-                                        <option value="sunglasses">Sunglasses</option>
-                                        <option value="socks">Socks</option>
-                                        <option value="belts">Belts</option>
-                                    </optgroup>
-                                    <optgroup label="Womens">
-                                        <option value="bresses">Bresses</option>
-                                        <option value="t-shirts">T-shirts</option>
-                                        <option value="skirts">Skirts</option>
-                                        <option value="jeans">Jeans</option>
-                                        <option value="pullover">Pullover</option>
-                                    </optgroup>
-                                    <option value="kids">Kids</option>
-                                    <option value="fashion">Fashion</option>
-                                    <optgroup label="Sportwear">
-                                        <option value="shoes">Shoes</option>
-                                        <option value="bags">Bags</option>
-                                        <option value="pants">Pants</option>
-                                        <option value="swimwear">Swimwear</option>
-                                        <option value="bicycles">Bicycles</option>
-                                    </optgroup>
-                                    <option value="bags">Bags</option>
-                                    <option value="shoes">Shoes</option>
-                                    <option value="hoseholds">HoseHolds</option>
-                                    <optgroup label="Technology">
-                                        <option value="tv">TV</option>
-                                        <option value="camera">Camera</option>
-                                        <option value="speakers">Speakers</option>
-                                        <option value="mobile">Mobile</option>
-                                        <option value="pc">PC</option>
-                                    </optgroup> -->
+                                          <option value="shirts">Shirts</option>
+                                          <option value="coats-jackets">Coats & Jackets</option>
+                                          <option value="underwear">Underwear</option>
+                                          <option value="sunglasses">Sunglasses</option>
+                                          <option value="socks">Socks</option>
+                                          <option value="belts">Belts</option>
+                                      </optgroup>
+                                      <optgroup label="Womens">
+                                          <option value="bresses">Bresses</option>
+                                          <option value="t-shirts">T-shirts</option>
+                                          <option value="skirts">Skirts</option>
+                                          <option value="jeans">Jeans</option>
+                                          <option value="pullover">Pullover</option>
+                                      </optgroup>
+                                      <option value="kids">Kids</option>
+                                      <option value="fashion">Fashion</option>
+                                      <optgroup label="Sportwear">
+                                          <option value="shoes">Shoes</option>
+                                          <option value="bags">Bags</option>
+                                          <option value="pants">Pants</option>
+                                          <option value="swimwear">Swimwear</option>
+                                          <option value="bicycles">Bicycles</option>
+                                      </optgroup>
+                                      <option value="bags">Bags</option>
+                                      <option value="shoes">Shoes</option>
+                                      <option value="hoseholds">HoseHolds</option>
+                                      <optgroup label="Technology">
+                                          <option value="tv">TV</option>
+                                          <option value="camera">Camera</option>
+                                          <option value="speakers">Speakers</option>
+                                          <option value="mobile">Mobile</option>
+                                          <option value="pc">PC</option>
+                                      </optgroup> -->
                   </select>
                 </div>
                 <div class="col-sm-3">
@@ -168,7 +171,7 @@
       </div>
     </div>
   </div>
-  <!-- end middlebar -->
+
   <div class="navbar cd-navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
@@ -178,26 +181,28 @@
           <span class="icon-bar"></span>
         </button>
         <a href="index-2.html" class="navbar-brand visible-xs">
-          <img src="assets/img/logo-small.png" alt="logo">
+          <img src="img/logo-small.png" alt="logo">
         </a>
       </div>
       <div id="navbar-collapse-3" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <!-- Home -->
-          <li class="active"><a routerLink="/">Home</a></li>
-          <li class="dropdown left"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Shop</a>
-          <li><a routerLink="map">Contact Us</a></li>
+          <li><a href="index-2.html">Home</a></li>
+
+          <!-- <li class="active"><a href="contact.html">Contact Us</a></li> -->
+          <!-- <li><a href="contact.html">Contact Us</a></li> -->
+          <li><a routerLink="shoppingcart">My Cart</a></li>
+
           <li><a routerLink="userinfo">My Account</a></li>
           <li><a routerLink="help">Help</a></li>
           <li><a routerLink="myorder">MY Order</a></li>
+          <li><a routerLink="map">Contact Us</a></li>
         </ul><!-- end navbar-nav -->
 
       </div>
-
     </div>
-
   </div>
-  <!-- end navbar -->
-  <!--End Header -->
+
+
 </header>
-<!-- <app-category></app-category> -->
+

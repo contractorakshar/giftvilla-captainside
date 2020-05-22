@@ -51,7 +51,8 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 import { TermsComponent } from './terms/terms.component';
 import { EdituserimageComponent } from './edituserimage/edituserimage.component';
-
+import { PaymentComponent } from './payment/payment.component';
+import { PasswordchangeComponent } from './passwordchange/passwordchange.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,8 @@ import { EdituserimageComponent } from './edituserimage/edituserimage.component'
     PrivacypolicyComponent,
     TermsComponent,
     EdituserimageComponent,
+    PaymentComponent,
+    PasswordchangeComponent,
   ],
   imports: [
 
@@ -112,11 +115,8 @@ import { EdituserimageComponent } from './edituserimage/edituserimage.component'
   ],
   entryComponents:
   [
-    // EmailpopupComponent,
   ],
   providers: [],
-
-  // providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

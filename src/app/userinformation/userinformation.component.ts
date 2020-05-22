@@ -13,13 +13,12 @@ import { productdisplay } from '../productdisplay';
   styleUrls: ['./userinformation.component.css']
 })
 export class UserinformationComponent implements OnInit {
+
   list:productdisplay[]=[];
   u_EmailId: string;
   user_update: FormGroup;
   selectedFile: File = null;
-
   userurl: string = null;
-
 
   constructor(public _activated_routes: ActivatedRoute, public _route: Router, public ser: UserserviceService) { }
 
@@ -63,8 +62,14 @@ export class UserinformationComponent implements OnInit {
     this._route.navigate(['/editImage',u_EmailId]);
     console.log("data");
   }
+
   onChange(f) {
     this.selectedFile = <File>f.target.files[0];
+  }
+
+  changepassword(u_EmailId){
+    console.log('page call');
+    this._route.navigate(['/passwordchange',u_EmailId]);
   }
 
   formDataBind(item: User) {

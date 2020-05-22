@@ -1,0 +1,23 @@
+<div class="tab-pane" id="payment">
+  <div class="widget">
+    <h6 class="text-uppercase bottom-line"><strong>Choose a Payment Method</strong></h6>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingPayment2">
+      <h4 class="panel-title">
+        <input type="number" [(ngModel)]="finalAmount">
+        <div #paypal></div>
+      </h4>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-7 text-left">
+    <form class="form-inline">
+      <div class="form-group">
+        <input class="form-control input-md" type="text" placeholder="Coupon code">
+      </div>
+      <button class="btn cd-btn coupon-btn" type="submit">Apply</button>
+    </form>
+  </div>
+</div>

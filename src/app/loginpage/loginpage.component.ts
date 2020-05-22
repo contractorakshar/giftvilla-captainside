@@ -13,7 +13,7 @@ import { EmailToUserService } from './email-to-user.service';
   styleUrls: ['./loginpage.component.css']
 })
 export class LoginpageComponent implements OnInit {
-
+  hide = true;
   flag: Boolean = false;
   em: string;
   loginForm: FormGroup;
@@ -28,7 +28,6 @@ export class LoginpageComponent implements OnInit {
   }
 
   forgotPassword() {
-
     // let a = this.loginForm.get('u_EmailId');
     // console.log(a.value);
     //console.log(this.loginForm.value.u_EmailId);
@@ -37,12 +36,11 @@ export class LoginpageComponent implements OnInit {
       if (z != null) {
         console.log(z);
       }
-
     }
     let a = this.loginForm.get('u_EmailId').value;
     this._mail.getUserByEmail(a).subscribe((data) => {
       console.log(data[0].u_password);
-      this._mail.passwordMail(a, "Forgotten Password", data[0].u_password + "this is giftvilaa service").subscribe((data) => {
+      this._mail.passwordMail(a, "Forgotten Password", data[0].u_password + "this is giftvilla service").subscribe((data) => {
         console.log("mail sent");
       });
     });
@@ -57,7 +55,7 @@ export class LoginpageComponent implements OnInit {
         (x: logincla[]) => {
           if (x.length == 1) {
             console.log(x);
-            localStorage.setItem('u_EmailId',this.loginForm.get('u_EmailId').value);
+            localStorage.setItem('u_EmailId', this.loginForm.get('u_EmailId').value);
             alert("You have successfully log in");
 
             this._rou.navigate(['']);

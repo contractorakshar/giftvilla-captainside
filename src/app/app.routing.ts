@@ -18,6 +18,8 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 import { TermsComponent } from './terms/terms.component';
 import { EdituserimageComponent } from './edituserimage/edituserimage.component';
+import { PaymentComponent } from './payment/payment.component';
+import { PasswordchangeComponent } from './passwordchange/passwordchange.component';
 
 
 
@@ -38,7 +40,8 @@ const arr: Routes = [
   { path: 'terms&condition', component: TermsComponent },
   { path: 'privacypolicy', component: PrivacypolicyComponent },
   { path: 'myorder', component: MyorderComponent },
-  { path: 'category', component: CategoryComponent },
+  { path: 'payment', component: PaymentComponent },
+  { path: 'passwordchange/:u_EmailId', component: PasswordchangeComponent },
   {path : 'searchingproducts/:cat_name' , component : SearchingComponent},
   { path: 'help', component: HelppageComponent },
   { path: 'editImage/:u_EmailId', component: EdituserimageComponent },

@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class LogindataService {
-  public url:string= environment.url+"/login/";
+  public url:string= environment.url+"login/";
 
   constructor(public _http: HttpClient) { }
   login(obj: FormData) {
