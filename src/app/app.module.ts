@@ -8,9 +8,9 @@ import { GoogleMapsModule } from "@angular/google-maps";
 import { CartComponent } from './cart/cart.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-import { SliderModule } from 'angular-image-slider';
+// import { SliderModule } from 'angular-image-slider';
 
-
+import { GalleriaModule } from 'primeng/galleria';
 import { ProducthomeComponent } from './producthome/producthome.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
@@ -86,13 +86,14 @@ import { PasswordchangeComponent } from './passwordchange/passwordchange.compone
     PrivacypolicyComponent,
     TermsComponent,
     EdituserimageComponent,
-    PaymentComponent,
+    // PaymentComponent,
     PasswordchangeComponent,
   ],
   imports: [
 
     BrowserModule,
-    SliderModule,
+    // SliderModule,
+    GalleriaModule,
     routingArr,
     HttpClientModule,
     FormsModule,

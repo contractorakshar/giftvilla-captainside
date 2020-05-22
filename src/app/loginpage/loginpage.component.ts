@@ -15,7 +15,7 @@ import { EmailToUserService } from './email-to-user.service';
 export class LoginpageComponent implements OnInit {
   hide = true;
   flag: Boolean = false;
-  hide = true;
+  // hide = true;
   em: string;
   loginForm: FormGroup;
   error: string;

@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~9.0.1",
+    "@angular/animations": "^9.0.7",
     "@angular/cdk": "~9.0.0",
     "@angular/common": "~9.0.1",
     "@angular/compiler": "~9.0.1",
@@ -27,12 +27,14 @@
     "dateformat": "^3.0.3",
     "dateformate": "^1.1.0",
     "ng-image-slider": "^2.4.1",
+    "primeicons": "^3.0.0-rc.1",
+    "primeng": "^9.0.6",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.900.2",
+    "@angular-devkit/build-angular": "^0.901.7",
     "@angular/cli": "~9.0.2",
     "@angular/compiler-cli": "~9.0.1",
     "@angular/language-service": "~9.0.1",

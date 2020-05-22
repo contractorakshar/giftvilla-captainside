@@ -56,11 +56,11 @@
 
                     <li>
 
-                      <a class="cd-lightbox-image cd-lightbox-type-image" href="http://localhost:3000/{{item.photo}}"
-                        alt="not avilable" title="">
-                        <img title="" src="http://localhost:3000/{{item.photo}}" alt="not avilable">
-                        <i itemprop="image" class="fa fa-fw fa-expand"></i>
-                      </a>
+                      <!-- <a class="cd-lightbox-image cd-lightbox-type-image" href="http://localhost:3000/{{item.photo}}"
+                        alt="not avilable" title=""> -->
+                      <img title="" src="http://localhost:3000/{{item.photo}}" alt="not avilable">
+                      <i itemprop="image" class="fa fa-fw fa-expand"></i>
+                      <!-- </a> -->
                     </li>
 
                   </ul>
@@ -71,6 +71,8 @@
             </div>
           </div>
         </div>
+        <p-galleria [images]="images" panelWidth="500" panelHeight="313" [showCaption]="true"></p-galleria>
+
         <div class="col-md-6 col-sm-6 col-sm-12">
           <div class="shop-product-heading">
             <h2>{{pro_name}}</h2>

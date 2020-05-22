@@ -16,7 +16,8 @@ import { MyorderComponent } from './myorder/myorder.component';
 import { SearchingComponent } from './searching/searching.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { ShippingDetailsComponent } from './checkout/shipping-details/shipping-details.component';
-import { PaymentComponent } from './payment/payment.component';
+// import { PaymentComponent } from './payment/payment.component';
+
 import { MemberCustomerComponent } from './member-customer/member-customer.component';
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 import { TermsComponent } from './terms/terms.component';
