@@ -15,6 +15,7 @@ import { EmailToUserService } from './email-to-user.service';
 export class LoginpageComponent implements OnInit {
 
   flag: Boolean = false;
+  hide = true;
   em: string;
   loginForm: FormGroup;
   error: string;
@@ -57,7 +58,7 @@ export class LoginpageComponent implements OnInit {
         (x: logincla[]) => {
           if (x.length == 1) {
             console.log(x);
-            localStorage.setItem('u_EmailId',this.loginForm.get('u_EmailId').value);
+            localStorage.setItem('u_EmailId', this.loginForm.get('u_EmailId').value);
             alert("You have successfully log in");
 
             this._rou.navigate(['']);

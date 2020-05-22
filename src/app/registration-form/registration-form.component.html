@@ -32,7 +32,7 @@
                 <input type="text" formControlName="u_Name" required placeholder="Enter Name" name="u_Name"
                   class="form-control input-sm required"><br>
                 <mat-error *ngIf="SignupForm.get('u_Name').hasError('required') && !SignupForm.get('u_Name').pristine">
-                Name is required</mat-error>
+                  Name is required</mat-error>
                 <mat-error *ngIf="SignupForm.get('u_Name').hasError('minlength')">Name must be greater than 5 characters
                 </mat-error>
                 <mat-error *ngIf="SignupForm.get('u_Name').hasError('pattern')">Only characters are allowed</mat-error>
@@ -55,7 +55,7 @@
                   class="form-control input-sm required"><br>
                 <mat-error
                   *ngIf="SignupForm.get('u_Address').hasError('required') && !SignupForm.get('u_Address').pristine">
-                Address is required</mat-error>
+                  Address is required</mat-error>
               </div>
 
               <div class="form-group">
@@ -64,7 +64,7 @@
                   class="form-control input-sm required">
                 <mat-error
                   *ngIf="SignupForm.get('u_mobileno').hasError('required') && !SignupForm.get('u_mobileno').pristine">
-                mobile number is required
+                  mobile number is required
                 </mat-error>
                 <mat-error *ngIf="SignupForm.get('u_mobileno').hasError('maxlength')">mobile number should be 10
                   characters
@@ -75,11 +75,11 @@
               <label>Date of Birth</label>
               <div class="form-group">
 
-                <input type="Date" formControlName="u_dob" required name="u_dob" placeholder="Enter Date"
-                  class="form-control input-sm required">
+                <input type="Date" formControlName="u_dob" required name="u_dob" class="form-control input-sm required">
                 <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                           <mat-datepicker #picker></mat-datepicker> -->
-                <mat-error *ngIf="SignupForm.get('u_dob').hasError('required') && !SignupForm.get('u_dob').pristine">Birthdate is required
+                <mat-error *ngIf="SignupForm.get('u_dob').hasError('required') && !SignupForm.get('u_dob').pristine">
+                  Birthdate is required
                 </mat-error>
               </div>
 
@@ -110,20 +110,14 @@
               </div>
 
               <div class="form-group">
+
                 <label>Image</label>
                 <input type="file" class="form-control input-sm required" name="u_img" formControlName="u_img"
                   (change)="onChange($event)">
               </div>
             </div>
           </div>
-          <div class="form-group">
-            <div class="checkbox-input checkbox-primary">
-              <input id="newsletter" class="styled" type="checkbox" checked>
-              <label for="newsletter">
-                Sign up for our newsletter!
-              </label>
-            </div>
-          </div>
+
 
           <div class="form-group">
             <button type="submit" value="submit" class="btn cd-btn"><i class="fa fa-save mr5"></i>

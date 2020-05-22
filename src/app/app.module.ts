@@ -6,7 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { GoogleMapsModule } from "@angular/google-maps";
 import { CartComponent } from './cart/cart.component';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ProducthomeComponent } from './producthome/producthome.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
@@ -44,6 +44,9 @@ import { CategoryComponent } from './category/category.component';
 import { MyorderComponent } from './myorder/myorder.component';
 import { SliderComponent } from './slider/slider.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { ShippingDetailsComponent } from './checkout/shipping-details/shipping-details.component';
+import { PaymentComponent } from './payment/payment.component';
+import { MemberCustomerComponent } from './member-customer/member-customer.component';
 
 
 @NgModule({
@@ -68,6 +71,9 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     MyorderComponent,
     SliderComponent,
     WishlistComponent,
+    ShippingDetailsComponent,
+    PaymentComponent,
+    MemberCustomerComponent,
   ],
   imports: [
 
@@ -76,6 +82,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     routingArr,
     HttpClientModule,
     FormsModule,
+    MatSnackBarModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatCardModule,
@@ -100,9 +107,9 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 
   ],
   entryComponents:
-  [
-    // EmailpopupComponent,
-  ],
+    [
+      // EmailpopupComponent,
+    ],
   providers: [],
 
   // providers: [],

@@ -8,6 +8,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 })
 export class CartoperationsService {
 
+  // url: string = 'http://localhost:3000/';
   urlOrder: string = 'http://localhost:3000/order/';
 
   urlOrderDetail: string = 'http://localhost:3000/orderdetails/';
@@ -61,4 +62,8 @@ export class CartoperationsService {
     console.log(body);
     return this._http.post(this.urlOrderDetail, body, { headers: head });
   }
+  // updateProductQuantity(productObject) {
+  //   console.log(productObject);
+  //   return this._http.put(this.url, productObject);
+  // }
 }
