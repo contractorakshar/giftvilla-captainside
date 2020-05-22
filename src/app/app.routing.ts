@@ -12,7 +12,7 @@ import { UserinformationComponent } from './userinformation/userinformation.comp
 import { HelppageComponent } from './helppage/helppage.component';
 import { CategoryComponent } from './category/category.component';
 import { MyorderComponent } from './myorder/myorder.component';
-import { SliderComponent } from './slider/slider.component';
+// import { SliderComponent } from './slider/slider.component';
 import { SearchingComponent } from './searching/searching.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { ShippingDetailsComponent } from './checkout/shipping-details/shipping-details.component';
@@ -47,7 +47,7 @@ const arr: Routes = [
   { path: 'help', component: HelppageComponent },
   { path: 'editImage/:u_EmailId', component: EdituserimageComponent },
   { path: 'myorder', component: MyorderComponent },
-  { path: 'slider', component: SliderComponent },
+  // { path: 'slider', component: SliderComponent },
   { path: 'shipping', component: ShippingDetailsComponent },
   { path: 'pagenotfound', component: PagenotfoundComponent },
   { path: 'payment', component: PaymentComponent },
