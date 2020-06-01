@@ -7,10 +7,10 @@ import { FooterComponent } from './footer/footer.component';
 import { GoogleMapsModule } from "@angular/google-maps";
 import { CartComponent } from './cart/cart.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+// import { DialogModule } from 'primeng/dialog';
+// import { SliderModule } from 'angular-image-slider';
 
-import { SliderModule } from 'angular-image-slider';
-
-
+// import { GalleriaModule } from 'primeng/galleria';
 import { ProducthomeComponent } from './producthome/producthome.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
@@ -57,6 +57,9 @@ import { TermsComponent } from './terms/terms.component';
 import { EdituserimageComponent } from './edituserimage/edituserimage.component';
 import { PasswordchangeComponent } from './passwordchange/passwordchange.component';
 import { MenubarComponent } from './menubar/menubar.component';
+import { OfferPageComponent } from './offer-page/offer-page.component';
+import { SerachPageComponent } from './serach-page/serach-page.component';
+import { LeftcategoryComponent } from './leftcategory/leftcategory.component';
 
 @NgModule({
   declarations: [
@@ -87,14 +90,20 @@ import { MenubarComponent } from './menubar/menubar.component';
     PrivacypolicyComponent,
     TermsComponent,
     EdituserimageComponent,
-    PaymentComponent,
+    // PaymentComponent,
     PasswordchangeComponent,
     MenubarComponent,
+    OfferPageComponent,
+    SerachPageComponent,
+    LeftcategoryComponent,
   ],
   imports: [
 
+
     BrowserModule,
-    SliderModule,
+    // SliderModule,
+    // GalleriaModule,
+    // DialogModule,
     routingArr,
     HttpClientModule,
     FormsModule,

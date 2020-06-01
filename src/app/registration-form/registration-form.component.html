@@ -75,7 +75,7 @@
               <label>Date of Birth</label>
               <div class="form-group">
 
-                <input type="Date" formControlName="u_dob" required name="u_dob" class="form-control input-sm required">
+                <input type="date" formControlName="u_dob" required name="u_dob" class="form-control input-sm required">
                 <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                           <mat-datepicker #picker></mat-datepicker> -->
                 <mat-error *ngIf="SignupForm.get('u_dob').hasError('required') && !SignupForm.get('u_dob').pristine">
@@ -132,3 +132,4 @@
     </div>
   </div>
 </div>
+<button type="button" routerLink="/loginpage">Already Our Normal Customer...</button>

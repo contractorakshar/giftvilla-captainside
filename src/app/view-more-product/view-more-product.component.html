@@ -56,11 +56,11 @@
 
                     <li>
 
-                      <a class="cd-lightbox-image cd-lightbox-type-image" href="http://localhost:3000/{{item.photo}}"
-                        alt="not avilable" title="">
-                        <img title="" src="http://localhost:3000/{{item.photo}}" alt="not avilable">
-                        <i itemprop="image" class="fa fa-fw fa-expand"></i>
-                      </a>
+                      <!-- <a class="cd-lightbox-image cd-lightbox-type-image" href="http://localhost:3000/{{item.photo}}"
+                        alt="not avilable" title=""> -->
+                      <img title="" src="http://localhost:3000/{{item.photo}}" alt="not avilable">
+                      <i itemprop="image" class="fa fa-fw fa-expand"></i>
+                      <!-- </a> -->
                     </li>
 
                   </ul>
@@ -71,6 +71,21 @@
             </div>
           </div>
         </div>
+        <p-galleria [images]="images" panelWidth="500" panelHeight="313" [showCaption]="true"
+          [styleClass]="'homeCarousel'"></p-galleria>
+        <!-- <p-galleria value="images" responsiveOptions="responsiveOptions" containerStyle="{'max-width': '640px'}"
+          numVisible="5">
+          <ng-template pTemplate="item" let-item>
+            <img [src]="item.previewImageSrc" style="width: 100%;" />
+          </ng-template>
+          <ng-template pTemplate="thumbnail" let-item>
+            <div class="p-grid p-nogutter p-justify-center">
+              <img [src]="item.thumbnailImageSrc" />
+            </div>
+          </ng-template>
+        </p-galleria>
+ -->
+
         <div class="col-md-6 col-sm-6 col-sm-12">
           <div class="shop-product-heading">
             <h2>{{pro_name}}</h2>

@@ -14,6 +14,8 @@ export class ProductServiceService {
   public url2 = environment.url + "categoryById/";
   public urlSearch: string = environment.url + "search_Product/";
 
+  public urlTextBox = environment.url + 'SerachText/';
+  public urlMfgCat = environment.url + 'MfgCat/';
   constructor(private _http: HttpClient) { }
   getAllProducts() {
     return this._http.get(this.url);
@@ -27,6 +29,13 @@ export class ProductServiceService {
   }
   getproductBycategory(cat_id: number) {
     return this._http.get(this.url2 + cat_id);
+  }
+  SeacrchTextBox(pro_name) {
+    console.log(pro_name);
+    return this._http.get(this.urlTextBox + pro_name);
+  }
+  MfgCat(cat_id) {
+    return this._http.get(this.urlMfgCat + cat_id);
   }
 
   getProductById(pro_id: number) {
@@ -67,6 +76,10 @@ export class ProductServiceService {
     return this._http.get(this.url1 + pro_id);
 
   }
+  // getproductphoto123(pro_id) {
+  //   return this._http.get<any>(this.url1 + pro_id).toPromise().then(res => res.data).then(data => { return data; });
+
+  // }
   // getproductphoto(fk_pro_id) {
   //   return this._http.get(this.url1 + fk_pro_id);
   //}

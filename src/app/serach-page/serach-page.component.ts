@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { productdisplay } from '../productdisplay';
 import { ProductServiceService } from '../product-service.service';
-import { CartDetails } from '../cart/cart-details';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { productdisplay } from '../productdisplay';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { CartoperationsService } from '../cart/cartoperations.service';
 import { Maincart } from '../cart/maincart';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { CartDetails } from '../cart/cart-details';
 
 @Component({
-  selector: 'app- ProducthomeComponent',
-  templateUrl: './producthome.component.html',
-  styleUrls: ['./producthome.component.css']
+  selector: 'app-serach-page',
+  templateUrl: './serach-page.component.html',
+  styleUrls: ['./serach-page.component.css']
 })
-export class ProducthomeComponent implements OnInit {
+export class SerachPageComponent implements OnInit {
+  searchArray;
+  pro_name;
   arr: productdisplay[] = [];
   cartProductItem: productdisplay = null;
   currentCartItem: CartDetails = null;
@@ -20,12 +22,26 @@ export class ProducthomeComponent implements OnInit {
   GrandTotal = 0;
   seacrhArray: productdisplay[] = [];
   UserId: string = localStorage.getItem('u_EmailId');
-  constructor(private _productData: ProductServiceService, private _cartService: CartoperationsService, private _router: Router, private _snackBar: MatSnackBar) { }
+  constructor(private _searchOnj: ProductServiceService, private _actRoutes: ActivatedRoute, private _cartService: CartoperationsService, private _router: Router, private _snackBar: MatSnackBar) { }
 
-  ngOnInit() {
-    this._productData.getHomeProduct().subscribe((data: productdisplay[]) => {
-      this.arr = data;
+
+  ngOnInit(): void {
+
+    //    this.pro_name = this._actRoutes.snapshot.params['txtSearch'];
+    this._actRoutes.params.subscribe((data) => {
+      this.pro_name = data.txtSearch;
+
+      console.log(this.pro_name);
+      this._searchOnj.SeacrchTextBox(this.pro_name).subscribe(
+        (dataSearch: productdisplay[]) => {
+          console.log(dataSearch);
+          // this.arr = dataSearch;
+          this.searchArray = dataSearch;
+        }
+      );
+
     });
+
   }
   onAddToCart(item: productdisplay) {
 
@@ -83,15 +99,16 @@ export class ProducthomeComponent implements OnInit {
     });
     //alert(item.pro_name + " added");
   }
-  onRemoveFromCart(SelectedProductID) {
-    if (this.UserId != null) {
-      this._cartService.onRemoveFromCart(SelectedProductID);
-      //this._router.navigate['/cart']);
-    }
-  }
+  // onRemoveFromCart(SelectedProductID) {
+  //   if (this.UserId != null) {
+  //     this._cartService.onRemoveFromCart(SelectedProductID);
+  //     //this._router.navigate['/cart']);
+  //   }
+  // }
   ImageViewMore(pro_id) {
     console.log(pro_id);
     this._router.navigate(['/viewMoreProduct', pro_id]);
   }
 
 }
+

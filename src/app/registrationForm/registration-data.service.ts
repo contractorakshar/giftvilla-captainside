@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 })
 export class RegistrationDataService {
 
-  public url:string=environment.url+"/signup/";
+  public url:string=environment.url+"signup/";
   constructor( public _http:HttpClient ) { }
 
   signup(obj:FormData)

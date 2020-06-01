@@ -5,6 +5,9 @@ import { Maincart } from './maincart';
 import { EmailToUserService } from '../loginpage/email-to-user.service';
 import { isNgTemplate } from '@angular/compiler';
 import { Router } from '@angular/router';
+import { MemberOperationService } from '../member-operation.service';
+import { UserserviceService } from '../userservice.service';
+import { User } from '../user';
 declare var require: any;
 const dateFormat = require('dateformat');
 const now = new Date();
@@ -23,11 +26,17 @@ export class CartComponent implements OnInit {
   flag: Boolean = false;
   UserId: string = localStorage.getItem('u_EmailId');
   arrcartItems: CartDetails[] = [];
+  memberOfferPrice: number;
+  perDiscount: number;
   productarr: string[] = [];
   quantityarr: number[] = [];
   GrandTotal: number = 0;
+  userType: string;
+  divMember: boolean = false;
+  ans: number;
+  ansdic: number;
   cart: Maincart = JSON.parse(localStorage.getItem('cart')) as Maincart;
-  constructor(private _cartService: CartoperationsService, private _mail: EmailToUserService, private _router: Router) { }
+  constructor(private _cartService: CartoperationsService, private _mail: EmailToUserService, private _router: Router, private memberSerObj: MemberOperationService, private _usersrc: UserserviceService) { }
 
   ngOnInit() {
     // this.flag = true;
@@ -43,6 +52,34 @@ export class CartComponent implements OnInit {
         this.arrcartItems = this.cart.CartItems;
       }
       this.GrandTotal = this.cart.GrandTotal;
+    }
+    if (localStorage.getItem('u_EmailId') != null) {
+      // alert(localStorage.getItem('u_EmailId'));
+      this._usersrc.getuserbyemailid(localStorage.getItem('u_EmailId')).subscribe(
+        (dataUser: User[]) => {
+          console.log(dataUser);
+          this.userType = dataUser[0].u_Type;
+          if (this.userType == 'member') {
+            console.log(dataUser);
+            this.memberSerObj.OffersDetails(localStorage.getItem('u_EmailId')).subscribe(
+              (dataOfferDetails: any[]) => {
+                let offer_Price = dataOfferDetails[0].offer_Price;
+                console.log(offer_Price);
+                this.perDiscount = 6;
+                this.ans = this.cart.GrandTotal;
+                this.ansdic = this.ans * this.perDiscount / 100;
+                console.log(Math.round(this.ans - this.ansdic));
+                this.GrandTotal = Math.round(this.ans - this.ansdic);
+                this.divMember = true;
+              }
+            );
+          }
+          if (this.userType !='member') {
+            this.GrandTotal += 40;
+          }
+        }
+      );
+
     }
   }
 
@@ -154,7 +191,7 @@ export class CartComponent implements OnInit {
                   "\n" +
                   "\nQuantity Ordered " + this.quantityarr +
                   "\n----------------------------------------------------------------------------------------------" +
-                  "Total Amount:  " + this.cart.GrandTotal +
+                  "Total Amount:  " + this.GrandTotal +
                   "\n----------------------------------------------------------------------------------------------" +
                   "Your Order is Received, Thanks for chosing us,Your Product will be deilverd -n 1-2 Days"
                 ).subscribe(() => {

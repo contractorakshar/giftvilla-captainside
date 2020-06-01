@@ -84,6 +84,19 @@
             class="btn cd-btn pull-right">Grand Total:
             {{GrandTotal | currency : 'INR'}}</label>
         </div>
+        <div *ngIf="divMember">
+          <h1>Your Discount is {{this.perDiscount}} % </h1><br>
+          <h1> Your Discounted Amount is {{ansdic}} </h1> <br>
+        </div>
+        <div  *ngIf="!divMember" style="float: right;border: 1px solid black;margin-top: 0px;margin-bottom: 10px;">
+          <p>If you are member customer and to avail discount you must login</p>
+          <div>
+            <label>Shipping Charges :</label>40/- Rs
+          </div>
+        </div>
+
+
+        <br><br>
         <hr style="border-color:black;">
 
         <br />
@@ -97,75 +110,11 @@
         </button>
       </div>
       <aside>
-        <div class="col-md-3 col-sm-12 clo-xs-12 home-side-bar sied-bar-left">
-
-          <!-- CATEGORIES WIDGET -->
-          <div class="widget mb30">
-            <h6 class="text-uppercase bg-border">Categories</h6>
-            <div class="navbar-vertical">
-              <ul class="nav nav-stacked">
-                <li>
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    Mens <i class="fa fa-angle-right pull-right"></i>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Shirts</a></li>
-                    <li><a href="#">Coats & Jackets</a></li>
-                    <li><a href="#">Underwear</a></li>
-                    <li><a href="#">Sunglasses</a></li>
-                    <li><a href="#">Socks</a></li>
-                    <li><a href="#">Belts</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    Womens <i class="fa fa-angle-right pull-right"></i>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Dresses</a></li>
-                    <li><a href="#">T-shirts</a></li>
-                    <li><a href="#">Skirts</a></li>
-                    <li><a href="#">Jeans</a></li>
-                    <li><a href="#">Pullover</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Kids</a></li>
-                <li><a href="#">Fashion</a></li>
-                <li>
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
-                    SportWear <i class="fa fa-angle-right pull-right"></i>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Shoes</a></li>
-                    <li><a href="#">Bags</a></li>
-                    <li><a href="#">Pants</a></li>
-                    <li><a href="#">Swimwear</a></li>
-                    <li><a href="#">Bicycles</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Bags</a></li>
-                <li><a href="#">Shoes</a></li>
-                <li><a href="#">HouseHolds</a></li>
-                <li>
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
-                    Technology <i class="fa fa-angle-right pull-right"></i>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Television</a></li>
-                    <li><a href="#">Camera</a></li>
-                    <li><a href="#">Speakers</a></li>
-                    <li><a href="#">Mobile</a></li>
-                    <li><a href="#">PC</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- END CATEGORIES WIDGET -->
+        <!-- END CATEGORIES WIDGET -->
 
 
 
-        </div>
+
       </aside>
     </div>
   </div>

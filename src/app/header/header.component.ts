@@ -16,15 +16,11 @@ export class HeaderComponent implements OnInit {
   arrcartItems: CartDetails[] = [];
   category: productdisplay[] = [];
   arrwatch: productdisplay[] = [];
-  arr: string[] = [];
+  SearchText: productdisplay[] = [];
   GrandTotal: number = 0;
-  searchName: string = "";
-  cat_id: number;
-  search;
-  pro_id: number;
-
+  seacrhArray: productdisplay[] = [];
   cart: Maincart = JSON.parse(localStorage.getItem('cart')) as Maincart;
-  constructor(public router: Router, private act_rout: ActivatedRoute, private _cartService: CartoperationsService, private _productData: ProductServiceService) { }
+  constructor(public router: Router, private _cartService: CartoperationsService, private _productData: ProductServiceService, private _router: Router) { }
 
   ngOnInit() {
     // this.arrcartItems = this.cart.CartItems;
@@ -36,41 +32,23 @@ export class HeaderComponent implements OnInit {
         //console.log(data);
       });
   }
-  searchProduct() {
-    for (let i = 0; i < this.category.length; i++) {
-      if (this.category[i].cat_name == this.searchName) {
-        this.cat_id = this.category[i].cat_id;
 
-      }
+  SearchTextBox(txtSearch) {
+    console.log(txtSearch);
+    if (txtSearch != null) {
+      this._router.navigate(['/SearchText', txtSearch]);
     }
-
-    if (this.cat_id > 0) {
-      this._productData.getproductBycategory(this.cat_id).subscribe(
-        (data: any[]) => {
-          this.arr = data;
-          // this.router.navigate(['viewMoreProduct/:pro_id']);
-          this.router.navigate(['/productdrop', this.cat_id]);
-        }
-      );
-    }
-    else {
-      console.log("else ma avu");
-      // this.pro_id=this.act_rout.snapshot.params['pro_id'];
-      // console.log(this.pro_id);
-      this._productData.getDataByProductName(this.searchName).subscribe(
-        (data: any) => {
-          console.log(data);
-          this.arr = data;
-          this.pro_id = data[0].pro_id;
-          console.log(data[0].pro_id);
-          this.router.navigate(['viewMoreProduct',this.pro_id]);
-          // this.router.navigate(['/productdrop', this.cat_id]);
-        }
-      );
+  }
+  SearchTextBox1(txtSearch) {
+    location.reload();
+    console.log(txtSearch);
+    if (txtSearch != null) {
+      this._router.navigate(['/SearchText', txtSearch]);
     }
   }
   onLogout() {
-    localStorage.clear();
+    // localStorage.clear();
+    localStorage.removeItem('u_EmailId');
     this.router.navigate(['/']);
   }
   onChangePassword() {

@@ -4,7 +4,13 @@ import { Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { logincla } from './login';
 import { EmailToUserService } from './email-to-user.service';
+import { User } from '../user';
+import { UserserviceService } from '../userservice.service';
+import { MemberOperationService } from '../member-operation.service';
 
+declare var require: any;
+const dateFormat = require('dateformat');
+const now = new Date();
 
 
 @Component({
@@ -13,13 +19,15 @@ import { EmailToUserService } from './email-to-user.service';
   styleUrls: ['./loginpage.component.css']
 })
 export class LoginpageComponent implements OnInit {
+  todaysDate = dateFormat(now, 'yyyy-mm-dd');
   hide = true;
   flag: Boolean = false;
-
+  // hide = true;
   em: string;
   loginForm: FormGroup;
   error: string;
-  constructor(private _loginser: LogindataService, private _rou: Router, private _mail: EmailToUserService) { }
+  userType: string;
+  constructor(private _loginser: LogindataService, private _rou: Router, private _mail: EmailToUserService, private _userService: UserserviceService, private memObj: MemberOperationService) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -56,8 +64,30 @@ export class LoginpageComponent implements OnInit {
         (x: logincla[]) => {
           if (x.length == 1) {
             console.log(x);
+            this.userType = x[0].u_Type;
             localStorage.setItem('u_EmailId', this.loginForm.get('u_EmailId').value);
             alert("You have successfully log in");
+            if (this.userType == 'member') {
+              console.log('member');
+              this._userService.getuserbyemailid(localStorage.getItem('u_EmailId')).subscribe(
+                (dataType: User[]) => {
+                  console.log(dataType);
+                  this.memObj.OffersDetails(localStorage.getItem('u_EmailId')).subscribe(
+                    (dataMemberDetails: any[]) => {
+                      console.log(dataMemberDetails);
+                      if (this.todaysDate >= dataMemberDetails[0].End_date) {
+                        console.log(dataMemberDetails[0].End_date);
+                        this.memObj.updateCtoM(localStorage.getItem('u_EmailId')).subscribe(
+                          (dataTypeUpdate: any[]) => {
+                            console.log(dataTypeUpdate);
+                          }
+                        );
+                      }
+                    }
+                  );
+                }
+              );
+            }
 
             this._rou.navigate(['']);
           }

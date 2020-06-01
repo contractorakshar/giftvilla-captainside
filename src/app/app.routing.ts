@@ -12,11 +12,12 @@ import { UserinformationComponent } from './userinformation/userinformation.comp
 import { HelppageComponent } from './helppage/helppage.component';
 import { CategoryComponent } from './category/category.component';
 import { MyorderComponent } from './myorder/myorder.component';
-import { SliderComponent } from './slider/slider.component';
+// import { SliderComponent } from './slider/slider.component';
 import { SearchingComponent } from './searching/searching.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { ShippingDetailsComponent } from './checkout/shipping-details/shipping-details.component';
-import { PaymentComponent } from './payment/payment.component';
+// import { PaymentComponent } from './payment/payment.component';
+
 import { MemberCustomerComponent } from './member-customer/member-customer.component';
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 import { TermsComponent } from './terms/terms.component';
@@ -24,6 +25,10 @@ import { EdituserimageComponent } from './edituserimage/edituserimage.component'
 // import { PaymentComponent } from './payment/payment.component';
 import { PasswordchangeComponent } from './passwordchange/passwordchange.component';
 import { MenubarComponent } from './menubar/menubar.component';
+import { OfferPageComponent } from './offer-page/offer-page.component';
+import { SerachPageComponent } from './serach-page/serach-page.component';
+import { LeftcategoryComponent } from './leftcategory/leftcategory.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 
@@ -31,6 +36,7 @@ const arr: Routes = [
   { path: '', component: ProducthomeComponent, pathMatch: 'full' },
   { path: 'menu', component: MenubarComponent },
   { path: 'products', component: ProducthomeComponent },
+  { path: 'menubar', component: LeftcategoryComponent },
   { path: 'productdrop/:cat_id', component: WatchComponent },
   { path: 'shoppingcart', component: CartComponent },
   { path: 'map', component: MaplocationComponent },
@@ -42,20 +48,21 @@ const arr: Routes = [
   { path: 'sortedproductlist', component: SortedproductshowComponent },
   { path: 'viewMoreProduct/:pro_id', component: ViewMoreProductComponent },
   { path: 'category', component: CategoryComponent },
+  { path: 'SearchText/:txtSearch', component: SerachPageComponent },
   { path: 'help', component: HelppageComponent },
   { path: 'terms&condition', component: TermsComponent },
   { path: 'privacypolicy', component: PrivacypolicyComponent },
   { path: 'myorder', component: MyorderComponent },
-  // { path: 'payment', component: PaymentComponent },
   { path: 'passwordchange/:u_EmailId', component: PasswordchangeComponent },
   { path: 'searchingproducts/:cat_name', component: SearchingComponent },
   { path: 'help', component: HelppageComponent },
   { path: 'editImage/:u_EmailId', component: EdituserimageComponent },
   { path: 'myorder', component: MyorderComponent },
-  { path: 'slider', component: SliderComponent },
+  // { path: 'slider', component: SliderComponent },
   { path: 'shipping', component: ShippingDetailsComponent },
   { path: 'pagenotfound', component: PagenotfoundComponent },
   { path: 'payment', component: PaymentComponent },
+  { path: 'offers', component: OfferPageComponent },
   { path: '**', redirectTo: '/pagenotfound' }
 ];
 export const routingArr = RouterModule.forRoot(arr);
