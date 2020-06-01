@@ -3,6 +3,8 @@ import { ProductServiceService } from '../product-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { productdisplay } from '../productdisplay';
 import { productphotodisplay } from '../productphotodisplay';
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-view-more-product',
@@ -10,7 +12,7 @@ import { productphotodisplay } from '../productphotodisplay';
   styleUrls: ['./view-more-product.component.css']
 })
 export class ViewMoreProductComponent implements OnInit {
-
+  images: any[];
   u_EmailId: string;
   arr: productdisplay[] = [];
   picarr: productphotodisplay[] = [];
@@ -28,33 +30,20 @@ export class ViewMoreProductComponent implements OnInit {
   pro_mfg: string;
   pro_info: string;
   i: number;
-
+  imageUrl: string = environment.url;
+  images1 = [];
   constructor(public _proser: ProductServiceService, public _rou: Router, public _actRou: ActivatedRoute) { }
 
-  images: any[];
 
   ngOnInit(): void {
 
 
     this.images = [];
-    this.images.push({ source: 'assets/showcase/images/demo/galleria/galleria1.jpg', alt: 'Description for Image 1', title: 'Title 1' });
-    this.images.push({ source: 'assets/showcase/images/demo/galleria/galleria2.jpg', alt: 'Description for Image 2', title: 'Title 2' });
-    this.images.push({ source: 'assets/showcase/images/demo/galleria/galleria3.jpg', alt: 'Description for Image 3', title: 'Title 3' });
-    this.images.push({ source: 'assets/showcase/images/demo/galleria/galleria4.jpg', alt: 'Description for Image 4', title: 'Title 4' });
-    this.images.push({ source: 'assets/showcase/images/demo/galleria/galleria5.jpg', alt: 'Description for Image 5', title: 'Title 5' });
-    this.images.push({ source: 'assets/showcase/images/demo/galleria/galleria6.jpg', alt: 'Description for Image 6', title: 'Title 6' });
-    this.images.push({ source: 'assets/showcase/images/demo/galleria/galleria7.jpg', alt: 'Description for Image 7', title: 'Title 7' });
-    this.images.push({ source: 'assets/showcase/images/demo/galleria/galleria8.jpg', alt: 'Description for Image 8', title: 'Title 8' });
-    this.images.push({ source: 'assets/showcase/images/demo/galleria/galleria9.jpg', alt: 'Description for Image 9', title: 'Title 9' });
-    this.images.push({ source: 'assets/showcase/images/demo/galleria/galleria10.jpg', alt: 'Description for Image 10', title: 'Title 10' });
-    this.images.push({ source: 'assets/showcase/images/demo/galleria/galleria11.jpg', alt: 'Description for Image 11', title: 'Title 11' });
-    this.images.push({ source: 'assets/showcase/images/demo/galleria/galleria12.jpg', alt: 'Description for Image 12', title: 'Title 12' });
-
-
 
     this.u_EmailId = localStorage.getItem('u_EmailId');
     this.fk_pro_id = this._actRou.snapshot.params['fk_pro_id'];
     this.pro_id = this._actRou.snapshot.params['pro_id'];
+
 
     this._proser.getProductById(this.pro_id).subscribe((data: productdisplay[]) => {
       this.arr = data;
@@ -68,30 +57,46 @@ export class ViewMoreProductComponent implements OnInit {
       console.log(this.arr);
     });
 
+    // console.log(this.images);
     this._proser.getproductphoto(this.pro_id).subscribe(
       (data: productphotodisplay[]) => {
         this.picarr = data;
-        // for(this.i=0;this.i<this.picarr.length;this.i++)
-        // {
+        for (const img of this.picarr) {
+          let imgPath: string = this.imageUrl + img.photo;
+          this.images.push({ source: imgPath, alt: 'Description for Image ', title: 'Title ' });
+          console.log(imgPath);
+        }
+
+
+
+        // for (this.i = 0; this.i < this.picarr.length; this.i++) {
         //   this.photo = this.picarr[this.i].photo;
         // }
-        console.log(this.picarr);
+        // this.images.push({ source: this.picarr[this.i].photo.toString, alt: 'Description for Image 1', title: 'Title 1' });
+        // }
       });
+    // this.images1.push(this.images.values);
+    // console.log(this.images);
+
+
+
+
+    // });
     // this.fk_cat_id = this.arr[0].fk_cat_id;
-    console.log(this.fk_cat_id);
-    this._proser.getViewmoreRelatedProducts(this.fk_cat_id).subscribe((data: productdisplay[]) => {
-      this.relatedpicarr = data;
-      console.log(this.relatedpicarr);
-      for (this.i = 0; this.i < this.relatedpicarr.length; this.i++) {
-        if (this.pro_id != this.relatedpicarr[this.i].pro_id) {
-          this.relatedpicarr1 = this.relatedpicarr;
-        }
-      }
-      console.log(this.relatedpicarr1);
-    });
+    // console.log(this.fk_cat_id);
+    // this._proser.getViewmoreRelatedProducts(this.fk_cat_id).subscribe((data: productdisplay[]) => {
+    //   this.relatedpicarr = data;
+    //   console.log(this.relatedpicarr);
+    //   for (this.i = 0; this.i < this.relatedpicarr.length; this.i++) {
+    //     if (this.pro_id != this.relatedpicarr[this.i].pro_id) {
+    //       this.relatedpicarr1 = this.relatedpicarr;
+    //     }
+    //   }
+    //   console.log(this.relatedpicarr1);
+    // });
+
 
   }
-
   onwishlist() {
     alert("Product Is Added To Your WishList Table");
     this._rou.navigate(['/wishlist']);

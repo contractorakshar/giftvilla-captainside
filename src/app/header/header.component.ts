@@ -15,9 +15,11 @@ export class HeaderComponent implements OnInit {
   arrcartItems: CartDetails[] = [];
   category: productdisplay[] = [];
   arrwatch: productdisplay[] = [];
+  SearchText: productdisplay[] = [];
   GrandTotal: number = 0;
+  seacrhArray: productdisplay[] = [];
   cart: Maincart = JSON.parse(localStorage.getItem('cart')) as Maincart;
-  constructor(public router: Router, private _cartService: CartoperationsService, private _productData: ProductServiceService) { }
+  constructor(public router: Router, private _cartService: CartoperationsService, private _productData: ProductServiceService, private _router: Router) { }
 
   ngOnInit() {
     // this.arrcartItems = this.cart.CartItems;
@@ -29,8 +31,23 @@ export class HeaderComponent implements OnInit {
         //console.log(data);
       });
   }
+
+  SearchTextBox(txtSearch) {
+    console.log(txtSearch);
+    if (txtSearch != null) {
+      this._router.navigate(['/SearchText', txtSearch]);
+    }
+  }
+  SearchTextBox1(txtSearch) {
+    location.reload();
+    console.log(txtSearch);
+    if (txtSearch != null) {
+      this._router.navigate(['/SearchText', txtSearch]);
+    }
+  }
   onLogout() {
-    localStorage.clear();
+    // localStorage.clear();
+    localStorage.removeItem('u_EmailId');
     this.router.navigate(['/']);
   }
   onWatchClick(cat_id) {

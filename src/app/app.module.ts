@@ -7,7 +7,7 @@ import { FooterComponent } from './footer/footer.component';
 import { GoogleMapsModule } from "@angular/google-maps";
 import { CartComponent } from './cart/cart.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { DialogModule } from 'primeng/dialog';
 // import { SliderModule } from 'angular-image-slider';
 
 import { GalleriaModule } from 'primeng/galleria';
@@ -56,6 +56,9 @@ import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component'
 import { TermsComponent } from './terms/terms.component';
 import { EdituserimageComponent } from './edituserimage/edituserimage.component';
 import { PasswordchangeComponent } from './passwordchange/passwordchange.component';
+import { OfferPageComponent } from './offer-page/offer-page.component';
+import { SerachPageComponent } from './serach-page/serach-page.component';
+import { LeftcategoryComponent } from './leftcategory/leftcategory.component';
 
 @NgModule({
   declarations: [
@@ -88,12 +91,17 @@ import { PasswordchangeComponent } from './passwordchange/passwordchange.compone
     EdituserimageComponent,
     // PaymentComponent,
     PasswordchangeComponent,
+    OfferPageComponent,
+    SerachPageComponent,
+    LeftcategoryComponent,
   ],
   imports: [
+
 
     BrowserModule,
     // SliderModule,
     GalleriaModule,
+    DialogModule,
     routingArr,
     HttpClientModule,
     FormsModule,

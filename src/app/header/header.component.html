@@ -29,7 +29,7 @@
           <ul class="cd-link">
             <li><a href="#">Wishlist</a></li>
             <li><a routerLink="/shoppingcart">My Cart</a></li>
-            <li><a routerLink="/checkout">Checkout</a></li>
+            <!-- <li><a routerLink="/checkout">Checkout</a></li> -->
             <li><a routerLink="/loginpage">Login</a></li>
             <li><a routerLink="/registration">Register</a></li>
             <li><a (click)="onLogout()">LOGOUT</a></li>
@@ -89,23 +89,23 @@
             </a>
           </div>
           <div class="col-sm-7 vertical-align text-center">
-            <form>
-              <div class="header-cat-block">
-                <div class="col-sm-6">
-                  <input type="text" name="keyword" class="form-control input-lg" placeholder="Search">
-                </div>
-                <div class="col-sm-3">
-                  <select class="form-control input-lg" name="fk_cat_id" #fk_cat_id
-                    (change)="onWatchClick(fk_cat_id.value)" placeholder="select">
-                    <!-- <option [selected]="true">All Category</option> -->
-                    <option *ngFor="let item of category" [value]="item.cat_id">{{item.cat_name}}</option>
-                  </select>
-                </div>
-                <div class="col-sm-3">
-                  <input type="submit" class="btn cd-btn top-cat-search btn-block" value="Search">
-                </div>
-              </div>
-            </form>
+            <div class="col-sm-6">
+              <input type="text" name="keyword" class="form-control input-lg" placeholder="Search" #txtSearch
+                (keyup)="SearchTextBox(txtSearch.value)">
+            </div>
+            <div class=" col-sm-3">
+              <select class="form-control input-lg" name="fk_cat_id" #fk_cat_id (change)="onWatchClick(fk_cat_id.value)"
+                placeholder="select" class="form-control input-lg">
+
+                <!-- <option [selected]="true">All Category</option> -->
+                <option selected>Select Category</option>
+                <option *ngFor="let item of category" [value]="item.cat_id">{{item.cat_name}}</option>
+              </select>
+            </div>
+            <div class="col-sm-3">
+              <input type="submit" class="btn cd-btn top-cat-search btn-block" value="Search"
+                (click)="SearchTextBox1(txtSearch.value)">
+            </div>
           </div>
 
         </div>
@@ -113,7 +113,7 @@
     </div>
   </div>
 
-  <div class="navbar cd-navbar navbar-default">
+  <div class=" navbar cd-navbar navbar-default">
     <div class="container">
       <!-- <div class="navbar-header">
         <button type="button" data-toggle="collapse" data-target="#navbar-collapse-3" class="navbar-toggle">
@@ -127,22 +127,18 @@
       </div> -->
       <div id="navbar-collapse-3" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <!-- Home -->
+
           <li><a routerLink="/products">Home</a></li>
+          <li><a routerLink="shoppingcart">Cart</a></li>
+          <li><a routerLink="userinfo">MyAccount</a></li>
+          <!-- <li><a routerLink="help">Help</a></li> -->
+          <li><a routerLink="myorder">Order</a></li>
+          <li><a routerLink="map">ContactUs</a></li>
 
-          <!-- <li class="active"><a href="contact.html">Contact Us</a></li> -->
-          <!-- <li><a href="contact.html">Contact Us</a></li> -->
-          <li><a routerLink="shoppingcart">My Cart</a></li>
-
-          <li><a routerLink="userinfo">My Account</a></li>
-          <li><a routerLink="help">Help</a></li>
-          <li><a routerLink="myorder">MY Order</a></li>
-          <li><a routerLink="map">Contact Us</a></li>
-        </ul><!-- end navbar-nav -->
-
+        </ul>
       </div>
+
     </div>
   </div>
-
 
 </header>

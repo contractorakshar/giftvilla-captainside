@@ -88,7 +88,7 @@
               <div class="form-group">
 
                 <input type="Date" formControlName="u_dob" required name="u_dob" placeholder="Enter Date"
-                  class="form-control input-sm required">
+                  class="form-control input-sm required" value="u_dob">
                 <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                           <mat-datepicker #picker></mat-datepicker> -->
                 <mat-error *ngIf="user_update.get('u_dob').hasError('required') && !user_update.get('u_dob').pristine">

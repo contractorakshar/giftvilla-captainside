@@ -1,0 +1,57 @@
+<!-- <p>offer-page works!</p> -->
+<mat-card style="border-radius: 20px;background-color: gainsboro;">
+  <div>
+    <h1>Offer 1</h1>
+    <h2>Price : 600</h2>
+    <h3>valid For 6 months</h3>
+    <h4>8% discount available till offer valid and free delivery on all orders</h4>
+
+    <input type="button" value="subscribe" (click)="Offer1Slected()">
+
+    <!-- <p-dialog header="Godfather I" [(visible)]="display" [style]="{width: '50vw'}" [baseZIndex]="10000">
+      The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+      His beloved son Michael has just come home from the war, but does not intend to become part of his father's
+      business.
+      Through Michael's life the nature of the family business becomes clear. The business of the family is just like
+      the
+      head of the family,
+      kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the
+      good of the family.
+      <p-footer>
+        <button type="button" pButton icon="pi pi-check" label="Yes" routerLink="/">okk</button> -->
+    <!-- <button type="button" pButton icon="pi pi-times" (click)="display=false" label="No"
+        class="ui-button-secondary">not ok </button> -->
+    <!-- </p-footer>
+    </p-dialog>
+ -->
+  </div>
+</mat-card>
+
+<p-dialog [(visible)]="display" [style]="{width: '50vw'}">
+  <p-header>
+    Alert!!!
+  </p-header>
+  You Have already an offer<br>
+  Details of That Offer Are Given Below :<br>
+  <label>Offers Purchased date  : </label>{{sd}}<br>
+  <label>Offer Valid Till : </label>{{ey}}<br>
+  <label>Offer Price :</label>{{offerSubscribed}} Rs.<br>
+
+  <label>Offer Advantages : </label>{{advantage}}<br>
+
+  <p-footer>
+    <button type="button" pButton icon="pi pi-check" label="Yes" routerLink="/products">OK</button>
+  </p-footer>
+</p-dialog>
+<hr>
+<mat-card style="border-radius: 20px;background-color: gainsboro;">
+  <div>
+    <h1>Offer 2</h1>
+    <h2>Price : 900</h2>
+    <h3>valid For 9 months</h3>
+    <h4>12% discount available till offer valid and free delivery on all orders</h4>
+    <!-- <input type="button" value="subscribe" (click)="Offer2Slected()"> -->
+  </div>
+</mat-card>
+<!-- <button type="button" (click)="showDialog()" pButton icon="pi pi-info-circle" label="Show">abcd</button> -->
+<!-- <button type="button" (click)="showDialog()" pButton icon="pi pi-external-link" label="Show">heloooooo</button> -->

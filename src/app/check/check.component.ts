@@ -19,19 +19,5 @@ export class CheckComponent implements OnInit {
 
 
   ngOnInit(): void {
-    //this.pro_id = this._actRou.snapshot.params['pro_id'];
-    this.pro_id = 3;
-    console.log(this.pro_id);
-    this._proser.getproductphoto(this.pro_id).subscribe((data: productphotodisplay[]) => {
-      this.picarr = data;
-      // for(this.i=0;this.i<this.picarr.length;this.i++)
-      // {
-      //   this.photo = this.picarr[this.i].photo;
-      // }
-      console.log(this.picarr);
-    });
-
   }
-
-
 }

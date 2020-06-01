@@ -27,8 +27,8 @@
     "dateformat": "^3.0.3",
     "dateformate": "^1.1.0",
     "ng-image-slider": "^2.4.1",
-    "primeicons": "^3.0.0-rc.1",
-    "primeng": "^9.0.6",
+    "primeicons": "^2.0.0",
+    "primeng": "^8.1.1",
     "rxjs": "~6.5.5",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.3"

@@ -1,24 +1,9 @@
-<app-slider>
-</app-slider>
-
-<!-- <div style="margin-top: 20px;">
-
-</div>
-
-<div class="header-cat-block" style="align-items: center;margin-left: 300px;">
-  <div class="col-sm-6">
-    <input type="text" style="width: 140%;border-radius: 20px;" name="keyword" class="form-control input-lg"
-      placeholder="Search" #txtSearch (keyup)="SearchTextBox(txtSearch.value)">
-  </div>
-</div> -->
-
-
-
+<app-leftcategory></app-leftcategory>
 <div class="main-contain col-grid-style">
   <div class="container">
     <div class="row clearfix">
 
-      <div *ngFor="let item of arr" class="col-md-3 col-sm-6 col-xs-12">
+      <div *ngFor="let item of searchArray" class="col-md-3 col-sm-6 col-xs-12">
         <div class="item-box item mb30">
           <div class="shop-item">
             <ul class="product-labels">
@@ -44,9 +29,9 @@
                 <h6 class="shop-item-name">{{item.pro_name.toUpperCase()}}</h6>
               </a>
               <ul class="list-inline overflow-h">
-                <!-- <li class="thumb-product-price line-through">$60.00</li> -->
+                <li class="thumb-product-price line-through">$60.00</li>
                 <li class="thumb-product-price">
-                  <!-- {{item.pro_price}} -->
+                  {{item.pro_price}}
                   {{item.pro_price | currency : 'INR'}}
                 </li>
               </ul>

@@ -17,5 +17,8 @@ export class MemberCustomerComponent implements OnInit {
     if (localStorage.getItem('u_EmailId') == null) {
       this._rout.navigate(['/registration']);
     }
+    else {
+      this._rout.navigate(['/registration']);
+    }
   }
 }

@@ -11,5 +11,10 @@ export class SliderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+
+  }
+  clickimg(){
+    alert("alert");
   }
 }

@@ -17,7 +17,7 @@ export class RegistrationFormComponent implements OnInit {
   selectedFile: File = null;
 
   email = new FormControl('');
-  constructor(public _signupser : RegistrationDataService,public _rou:Router) { }
+  constructor(public _signupser: RegistrationDataService, public _rou: Router) { }
 
   onChange(f) {
     this.selectedFile = <File>f.target.files[0];
@@ -26,7 +26,7 @@ export class RegistrationFormComponent implements OnInit {
   ngOnInit(): void {
     this.SignupForm = new FormGroup({
       u_EmailId: new FormControl('', [Validators.required, Validators.email]),
-      u_Name: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.pattern('[a-zA-Z]*')]),
+      u_Name: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.pattern('[a-zA-Z ]*')]),
       u_Address: new FormControl(null, [Validators.required]),
       u_gender: new FormControl(null),
       u_Type: new FormControl('Customer'),
@@ -34,14 +34,13 @@ export class RegistrationFormComponent implements OnInit {
         u_password: new FormControl(null, [Validators.required]),
         u_confirm_password: new FormControl(null)
       }, [this.passwordMatch.bind(this)]),
-      u_mobileno: new FormControl(null,[Validators.required,Validators.maxLength(10),Validators.pattern('[0-9]*')]),
-      u_dob: new FormControl(null,[Validators.required]),
+      u_mobileno: new FormControl(null, [Validators.required, Validators.maxLength(10), Validators.pattern('[0-9]*')]),
+      u_dob: new FormControl(null, [Validators.required]),
       u_img: new FormControl(null),
     });
   }
 
-  onSignup()
-  {
+  onSignup() {
     let userobj = new FormData();
     userobj.append("u_EmailId", this.SignupForm.value.u_EmailId);
     userobj.append("u_Name", this.SignupForm.value.u_Name);
@@ -52,19 +51,20 @@ export class RegistrationFormComponent implements OnInit {
     userobj.append("u_mobileno", this.SignupForm.value.u_mobileno);
     userobj.append("u_dob", this.SignupForm.value.u_dob);
 
-    if(this.selectedFile != null) {
-      userobj.append("image",this.selectedFile,this.selectedFile.name);
+    if (this.selectedFile != null) {
+      userobj.append("image", this.selectedFile, this.selectedFile.name);
     }
-    else
-    {
-      userobj.append("image",new Blob(),null);
+    else {
+      userobj.append("image", new Blob(), null);
     }
     console.log(userobj);
     this._signupser.signup(userobj).subscribe(
       (x: any) => {
         console.log(x)
         alert('Your Detalis Are Saved');
-       this._rou.navigate(['/']);
+        this._rou.navigate(['/']);
+        localStorage.setItem('u_EmailId', this.SignupForm.get('u_EmailId').value);
+        alert('You have successfully log in');
       }
     );
   }
