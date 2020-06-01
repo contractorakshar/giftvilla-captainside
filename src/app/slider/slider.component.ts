@@ -20,4 +20,9 @@ export class SliderComponent implements OnInit {
       '../../assets/img/banner/6.jpg'
     ];
   }
+
+  onClick(){
+    alert("hello");
+  }
+
 }

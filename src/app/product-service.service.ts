@@ -12,9 +12,15 @@ export class ProductServiceService {
   public url3 = environment.url + "category/";
   public url4 = environment.url + "productHome/";
   public url2 = environment.url + "categoryById/";
+  public urlSearch: string = environment.url + "search_Product/";
+
   constructor(private _http: HttpClient) { }
   getAllProducts() {
     return this._http.get(this.url);
+  }
+  getDataByProductName(name: string) {
+    console.log(name);
+    return this._http.get(this.urlSearch + name);
   }
   getAllCategory() {
     return this._http.get(this.url3);

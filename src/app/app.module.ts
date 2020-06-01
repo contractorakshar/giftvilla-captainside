@@ -56,6 +56,7 @@ import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component'
 import { TermsComponent } from './terms/terms.component';
 import { EdituserimageComponent } from './edituserimage/edituserimage.component';
 import { PasswordchangeComponent } from './passwordchange/passwordchange.component';
+import { MenubarComponent } from './menubar/menubar.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import { PasswordchangeComponent } from './passwordchange/passwordchange.compone
     EdituserimageComponent,
     PaymentComponent,
     PasswordchangeComponent,
+    MenubarComponent,
   ],
   imports: [
 

@@ -1,14 +1,11 @@
 <header>
-
   <!-- start topbar -->
   <div class="topbar">
     <div class="container">
       <ul class="list-inline pull-left hidden-sm hidden-xs">
         <li><span class="text-primary color">Have a question?</span> Call 910 4610 020</li>
       </ul>
-
       <ul class="topbarnav pull-right">
-
         <!-- <li class="linkdown">
                     <a href="#">
                         <i class="fa fa-usd mr5"></i>
@@ -47,9 +44,12 @@
             <li><a routerLink="/shoppingcart">My Cart</a></li>
             <li><a routerLink="/checkout">Checkout</a></li>
             <li><a routerLink="/loginpage">Login</a></li>
+            <li><a routerLink="/userinfo">My Account</a></li>
+            <li><a routerLink="/myorder">My Order</a></li>
             <li><a routerLink="/registration">Register</a></li>
+            <li><a (click)="onChangePassword()">Change Password</a></li>
             <li><a (click)="onLogout()">LOGOUT</a></li>
-            <<<<<<< HEAD </ul>
+          </ul>
         </li>
         <li class="linkdown">
           <a href="#" class="cart-item-number">
@@ -84,8 +84,6 @@
                 <a href="#" class="pull-right"><i class="fa fa-shopping-bag mr5"></i>Checkout</a>
               </div>
             </li>
-            =======
-            >>>>>>> d00f303dd76f63e6fa6785721d82fe5f1b22b785
           </ul>
         </li>
       </ul>
@@ -105,17 +103,13 @@
             <form>
               <div class="header-cat-block">
                 <div class="col-sm-6">
-                  <input type="text" name="keyword" class="form-control input-lg" placeholder="Search">
+                  <input [(ngModel)]="searchName" [ngModelOptions]="{standalone: true}" type="text"
+                    class="form-control input-lg" placeholder="search Product" (keydown)="searchProduct()">
                 </div>
                 <div class="col-sm-3">
-                  <select class="form-control input-lg" name="fk_cat_id" #fk_cat_id
-                    (change)="onWatchClick(fk_cat_id.value)" placeholder="select">
-                    <!-- <option [selected]="true">All Category</option> -->
-                    <option *ngFor="let item of category" [value]="item.cat_id">{{item.cat_name}}</option>
-                  </select>
-                </div>
-                <div class="col-sm-3">
-                  <input type="submit" class="btn cd-btn top-cat-search btn-block" value="Search">
+                  <!-- <input type="submit" class="btn cd-btn top-cat-search btn-block" value="Search"> -->
+                  <input type="submit" class="btn cd-btn top-cat-search btn-block">
+                  <!-- (click)="searchProduct()"> -->
                 </div>
               </div>
             </form>
@@ -135,10 +129,16 @@
             </div>
           </div> -->
         </div>
+        <div class="col-sm-3" >
+          <select class="form-control input-lg" name="fk_cat_id" #fk_cat_id (change)="onWatchClick(fk_cat_id.value)"
+            placeholder="select">
+            <!-- <option [selected]="true">All Category</option> -->
+            <option *ngFor="let item of category" [value]="item.cat_id">{{item.cat_name}}</option>
+          </select>
+        </div>
       </div>
     </div>
   </div>
-
   <div class="navbar cd-navbar navbar-default">
     <div class="container">
       <!-- <div class="navbar-header">
@@ -155,20 +155,12 @@
         <ul class="nav navbar-nav">
           <!-- Home -->
           <li><a routerLink="/products">Home</a></li>
-
-          <!-- <li class="active"><a href="contact.html">Contact Us</a></li> -->
-          <!-- <li><a href="contact.html">Contact Us</a></li> -->
-          <li><a routerLink="shoppingcart">My Cart</a></li>
-
-          <li><a routerLink="userinfo">My Account</a></li>
-          <li><a routerLink="help">Help</a></li>
-          <li><a routerLink="myorder">MY Order</a></li>
-          <li><a routerLink="map">Contact Us</a></li>
+          <li><a routerLink="/shoppingcart">MyCart</a></li>
+          <li><a routerLink="/help">Help</a></li>
+          <!-- <li><a routerLink="/myorder">MyOrder</a></li> -->
+          <li><a routerLink="/map">AboutUs</a></li>
         </ul><!-- end navbar-nav -->
-
       </div>
     </div>
   </div>
-
-
 </header>
