@@ -4,7 +4,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { productdisplay } from '../productdisplay';
 import { productphotodisplay } from '../productphotodisplay';
 import { environment } from 'src/environments/environment';
-
+import { WishlistOperationsService } from '../wishlist-operations.service';
+import { Maincart } from '../cart/maincart';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { CartDetails } from '../cart/cart-details';
+import { CartoperationsService } from '../cart/cartoperations.service';
 
 @Component({
   selector: 'app-view-more-product',
@@ -19,6 +23,11 @@ export class ViewMoreProductComponent implements OnInit {
   relatedpicarr: productdisplay[] = [];
   relatedpicarr1: productdisplay[] = [];
   pro_id: number;
+  cartProductItem: productdisplay = null;
+  currentCartItem: CartDetails = null;
+  SubTotal = 0;
+  GrandTotal = 0;
+  UserId: string = localStorage.getItem('u_EmailId');
   fk_pro_id: number;
   fk_cat_id: number;
   pro_img: string;
@@ -30,9 +39,11 @@ export class ViewMoreProductComponent implements OnInit {
   pro_mfg: string;
   pro_info: string;
   i: number;
+  wishlistItems: any[] = [];
+  wishlistFlag: boolean = false;
   imageUrl: string = environment.url;
   images1 = [];
-  constructor(public _proser: ProductServiceService, public _rou: Router, public _actRou: ActivatedRoute) { }
+  constructor(public _proser: ProductServiceService, public _rou: Router, public _actRou: ActivatedRoute, private wishlistService: WishlistOperationsService, private _cartService: CartoperationsService, private _snackBar: MatSnackBar) { }
 
 
   ngOnInit(): void {
@@ -63,10 +74,10 @@ export class ViewMoreProductComponent implements OnInit {
         this.picarr = data;
         for (const img of this.picarr) {
           let imgPath: string = this.imageUrl + img.photo;
-          this.images.push({ source: imgPath, alt: 'Description for Image ', title: 'Title ' });
-          console.log(imgPath);
+          this.images.push({ source: imgPath, alt: '', title: '' });
+          // console.log(imgPath,this.picarr);
         }
-
+        console.log(this.picarr);
 
 
         // for (this.i = 0; this.i < this.picarr.length; this.i++) {
@@ -97,11 +108,99 @@ export class ViewMoreProductComponent implements OnInit {
 
 
   }
-  onwishlist() {
-    alert("Product Is Added To Your WishList Table");
-    this._rou.navigate(['/wishlist']);
+  AddTowishlist() {
 
+    // this._rou.navigate(['/wishlist']);
+    if (localStorage.getItem('u_EmailId') != null) {
+      let wishlistObj = {
+        fk_pro_id: this.pro_id,
+        fk_u_EmailId: this.u_EmailId,
+      };
+      this.wishlistService.getAllwishlistItems(this.u_EmailId).subscribe(
+        (dataproduct: any[]) => {
+          console.log(dataproduct);
+          this.wishlistItems = dataproduct;
+          for (let i = 0; i <= this.wishlistItems.length; i++) {
+            if (this.wishlistItems[i].pro_id == this.pro_id) {
+              console.log(this.pro_id, 'already');
+            }
+          }
+        }
+
+      );
+
+      this.wishlistService.addToWishlist(wishlistObj).subscribe(
+        (dataWislist: any[]) => {
+          this._snackBar.open(this.pro_name + 'Added to Wishlist', 'Close', {
+            duration: 2000,
+            panelClass: ['blue-snackbar']
+          });
+          //          alert('Product Is Added To Your WishList Table');
+          console.log(dataWislist);
+        }
+      );
+    }
+    else {
+      this.wishlistFlag = true;
+    }
   }
+  onAddToCart(item: productdisplay) {
+
+    console.log(item);
+    // if (this.UserId == null) {
+    //   alert('Go to Login');
+    //   console.log(this.UserId);
+    //   this._router.navigate(['/loginpage']);
+    // }
+    // else {
+    this.cartProductItem = item;
+    this.SubTotal = this._cartService.doSubTotal(this.cartProductItem.pro_price, 1);
+    this.currentCartItem = new CartDetails(this.cartProductItem, 1, this.SubTotal);
+    if (localStorage.getItem('cart') == null) {
+      const cartItems: CartDetails[] = [];
+      cartItems.push(this.currentCartItem);
+      this.GrandTotal = this._cartService.doGrandTotal(cartItems);
+      const myCart = new Maincart(cartItems, this.GrandTotal, this.UserId);
+      localStorage.setItem('cart', JSON.stringify(myCart));
+    }
+    else {
+      const cart: Maincart = JSON.parse(localStorage.getItem('cart')) as Maincart;
+      let index: number = -1;
+      if (cart.CartItems.length >= 0) {
+        index = cart.CartItems.map(function (x) {
+          return x.Product.pro_id;
+        }).indexOf(item.pro_id);
+      }
+      if (index == -1) {
+        cart.CartItems.push(this.currentCartItem);
+        cart.GrandTotal = this._cartService.doGrandTotal(cart.CartItems);
+        // cart.u_EmailId = this.UserId;
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+      }
+      else {
+        const cartItem: CartDetails = cart.CartItems[index];
+        cartItem.Quantuty += 1;
+        cartItem.SubTotal = this._cartService.doSubTotal(this.cartProductItem.pro_price, cartItem.Quantuty);
+        cart.CartItems[index] = cartItem;
+
+        cart.GrandTotal = this._cartService.doGrandTotal(cart.CartItems);
+        // cart.u_EmailId = this.UserId;
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+      }
+
+
+    }
+    console.log(localStorage.getItem('cart'));
+
+    this._snackBar.open(this.cartProductItem.pro_name + 'Added to cart', 'Close', {
+      duration: 2000,
+      panelClass: ['blue-snackbar']
+    });
+    //alert(item.pro_name + " added");
+  }
+
 
 }
 

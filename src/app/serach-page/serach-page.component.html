@@ -1,4 +1,4 @@
-<app-leftcategory></app-leftcategory>
+<!-- <app-leftcategory></app-leftcategory> -->
 <div class="main-contain col-grid-style">
   <div class="container">
     <div class="row clearfix">
@@ -10,7 +10,7 @@
               <li>New</li>
             </ul>
             <div class="item-img">
-              <img src="http://localhost:3000/{{item.pro_img}}" alt="" class="img-responsive" id="img200">
+              <img src="http://localhost:3000/images/product_images/{{item.pro_img}}" alt="" class="img-responsive" id="img200">
             </div>
 
             <div class="item-inner">
@@ -29,9 +29,9 @@
                 <h6 class="shop-item-name">{{item.pro_name.toUpperCase()}}</h6>
               </a>
               <ul class="list-inline overflow-h">
-                <li class="thumb-product-price line-through">$60.00</li>
+                <!-- <li class="thumb-product-price line-through">$60.00</li> -->
                 <li class="thumb-product-price">
-                  {{item.pro_price}}
+                  <!-- {{item.pro_price}} -->
                   {{item.pro_price | currency : 'INR'}}
                 </li>
               </ul>

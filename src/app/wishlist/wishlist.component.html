@@ -4,7 +4,7 @@
       <div class="col-sm-12 text-center">
         <h1 class="title"><span>My Wishlist</span></h1>
         <div class="breadcrumb">
-          <a href="index-2.html">Home</a>
+          <a routerLink="/">Home</a>
           <span class="delimeter">/</span>
           <span class="current">Wishlist</span>
         </div>
@@ -15,20 +15,30 @@
 <!-- End Breadcrumb -->
 
 
-<div class="main-contain">
+<div class="main-contain" style="margin-left: 12.5%;">
   <div class="container">
     <div class="row">
       <div class="home-main col-md-9 col-sm-12 clo-xs-12 main-contant-right">
         <div class="widget">
-          <h6 class="text-uppercase bottom-line"><strong>My Wishlist</strong></h6>
+          <h6 class="text-uppercase bottom-line" style="width: 100%;"><strong>My Wishlist</strong></h6>
         </div>
-        <div class="table-responsive">
-          <table class="table table-striped" *ngFor="let item of arr">
-            <tbody>
+        <div class="table-responsive" style="width: 100%;">
+          <table class="table table-striped">
+            <thead>
               <tr>
-                <td>
-                  <a href="#">
-                    <img src="http://localhost:3000/{{item.pro_img}}" alt="product" class="img-resopnsive">
+                <th>Products</th>
+                <th style="width:12.5%;text-align: center;">Name</th>
+                <th>Price</th>
+                <th style="text-align: center;"></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of wishlistarr;let i = index">
+                <td style="width: 400px;">
+                  <a style="width: 400px;height: 200px;">
+                    <img src="http://localhost:3000/images/product_images/{{item.pro_img}}"
+                      style="height:120px;width: 120px;" alt="product" class="img-resopnsive">
                   </a>
                 </td>
                 <td>
@@ -36,23 +46,22 @@
                   <!-- <p>Sed aliquam tincidunt tempus</p> -->
                 </td>
                 <td>
-                  <span>{{item.pro_price | currency : 'INR'}}</span>
+                  <span>{{item.pro_price}}</span>
+                </td>
+                <td colspan="2">
+                  <button type="button" class="btn btn-product">Add to Cart</button>
                 </td>
                 <td>
-                  <a href="#" class="btn cd-btn"><i class="fa fa-cart-plus mr5"></i> Add to cart</a>
-                </td>
-                <td>
-                  <button type="button" class="close">×</button>
+                  <button type="button" class="close" (click)="onRemoveFromWishlist(item.fk_pro_id,i)">×</button>
                 </td>
               </tr>
+
             </tbody>
           </table>
         </div>
+
         <a routerLink="/" class="btn cd-btn pull-left">
           <i class="fa fa-arrow-left mr5"></i> Continue shopping
-        </a>
-        <a routerLink="/checkout" class="btn cd-btn pull-right">
-          Checkout <i class="fa fa-arrow-right ml5"></i>
         </a>
       </div>
       <aside>

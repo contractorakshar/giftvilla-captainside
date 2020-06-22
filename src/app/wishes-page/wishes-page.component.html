@@ -1,0 +1,45 @@
+<!-- <p>wishes-page works!</p> -->
+<div class="page page-heading">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h1 class="title"><span>Wishes</span></h1>
+        <div class="breadcrumb" style="font-size: medium;">
+          <a routerLink="/">Home</a>
+          <span class="delimeter">/</span>
+          <span class="current">Wishes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <section class="main-contain" id="contact" style="margin-left: 33%;">
+    <div class="container">
+      <div class="standard-comments-form clearfix">
+
+        <form [formGroup]="WishDetailsForm" (ngSubmit)="onSubmitMessage()">
+
+          <div>
+            <h2>Your Email</h2>
+            <!-- {{this.em}} --><br>
+            <input style="width: 30%;height: 30px;font-size: medium;" type="email" formControlName="fk_u_EmailId"
+              id="email" [(ngModel)]="em">
+          </div>
+
+          <div>
+            <h2>Friend's Email</h2>
+            <br>
+            <input type="email" style="width: 30%;height: 30px;font-size: medium;" formControlName="friends_email">
+
+          </div>
+          <div>
+            <h2>Friends Date Of Birth</h2><br>
+            <input type="date" style="font-size: medium;width: 30%;" formControlName="friends_dob">
+          </div>
+          <input class="btn btn-product" value="Submit Message" type="submit" style="margin-left: 5%;">
+        </form>
+
+      </div>
+    </div>
+  </section>
+

@@ -27,6 +27,7 @@ import { PasswordchangeComponent } from './passwordchange/passwordchange.compone
 import { OfferPageComponent } from './offer-page/offer-page.component';
 import { SerachPageComponent } from './serach-page/serach-page.component';
 import { LeftcategoryComponent } from './leftcategory/leftcategory.component';
+import { WishesPageComponent } from './wishes-page/wishes-page.component';
 
 
 
@@ -54,12 +55,13 @@ const arr: Routes = [
   { path: 'passwordchange/:u_EmailId', component: PasswordchangeComponent },
   { path: 'searchingproducts/:cat_name', component: SearchingComponent },
   { path: 'help', component: HelppageComponent },
+  { path: 'Wishes', component: WishesPageComponent },
   { path: 'editImage/:u_EmailId', component: EdituserimageComponent },
   { path: 'myorder', component: MyorderComponent },
   // { path: 'slider', component: SliderComponent },
   { path: 'shipping', component: ShippingDetailsComponent },
   { path: 'pagenotfound', component: PagenotfoundComponent },
-  { path: 'payment', component: PaymentComponent },
+  // { path: 'payment', component: PaymentComponent },
   { path: 'offers', component: OfferPageComponent },
   { path: '**', redirectTo: '/pagenotfound' }
 ];
