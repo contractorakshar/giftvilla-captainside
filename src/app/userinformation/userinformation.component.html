@@ -15,14 +15,51 @@
 </div>
 <!-- End Breadcrumb -->
 
+<div *ngFor="let item of WalletDetails"
+  style="float:left;font-size: large;margin-top: 5%;font-weight: bold;width: 250px;margin-left: 3%;">
+  <mat-card>
+    Wallet Details
+    <br>
+    <br>
+    <hr style="border: 1px solid gainsboro;">
+    <h4>Your Wallet Details Are :</h4>
+    <!-- <label>Wallet Id :</label><br>
+    {{item.wallet_id}}<br> -->
+
+    <label>Wallet Amount :</label>
+    <br>
+    {{item.wallet_amount}}
+  </mat-card>
+</div>
+<div *ngFor="let item of OfferDetails"
+  style="float:right;font-size: large;margin-top: 5%;font-weight: bold;width: 250px;margin-right: 3%;">
+  <mat-card>
+    Current Offer Details
+    <br>
+    <br>
+    <hr style="border: 1px solid gainsboro;">
+    <div style="font-size: medium;">
+    <h4>Your Offer Details  :</h4>
+    <!-- <label>Offer ID :</label><br>
+    {{item.member_id}}<br> -->
+    <label>End Date :</label><br>{{item.End_date}}<br>
+    <label>Pucashed Date :</label><br>{{item.Start_date}}<br>
+    <label>Offer Price :</label><br>{{item.offer_Price}}<br>
+
+    <br>
+    </div>
+  </mat-card>
+</div>
 
 <div class="main-contain">
   <div class="container">
     <div class="row">
 
-      <div class="home-main col-md-9 col-sm-12 clo-xs-12 main-contant-right">
+      <div class="home-main col-md-9 col-sm-12 clo-xs-12 main-contant-right" style="margin-left: 30%;width: 800px;">
         <div class="widget">
-          <h6 class="text-uppercase bottom-line"><strong>My personal information</strong></h6>
+          <h6 class="text-uppercase bottom-line" style="margin-right: 52%;"><strong>My personal information</strong>
+          </h6>
+
         </div>
         <form [formGroup]="user_update" (ngSubmit)="onUserUpdate()">
 
@@ -31,8 +68,8 @@
 
               <div class="form-group">
                 <!-- <div *ngFor="let item of list"> -->
-                <img mat-card-image width="50" height="50" src="{{userurl}}">
-                <button mat-button color="primary" (click)="editImageuser(u_EmailId)">Image Update</button>
+                <img mat-card-image style="height: 200px;width: 200px;border-radius: 100px;" src="{{userurl}}">
+                <button mat-button class="btn btn-primary" (click)="editImageuser(u_EmailId)">Change Image </button>
                 <!-- </div> -->
               </div>
 
@@ -57,7 +94,8 @@
                 <mat-error *ngIf="user_update.get('u_Name').hasError('minlength')">Name must be greater than 5
                   characters
                 </mat-error>
-                <mat-error *ngIf="user_update.get('u_Name').hasError('pattern')">Only characters are allowed</mat-error>
+                <mat-error *ngIf="user_update.get('u_Name').hasError('pattern')">Only characters are allowed
+                </mat-error>
               </div>
 
               <div class="form-group">
@@ -111,22 +149,16 @@
 
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <button (click)="changepassword(u_EmailId)" class="btn cd-btn"><i class="fa fa-lock mr5"></i>Change password</button>
+              <button (click)="changepassword(u_EmailId)" style="margin-left: -5%;" class="btn cd-btn"><i class="fa fa-lock mr5"></i>Change
+                password</button>
             </div>
           </div>
 
-          <div class="form-group">
-            <div class="checkbox-input checkbox-primary">
-              <input id="newsletter" class="styled" type="checkbox" checked>
-              <label for="newsletter">
-                Sign up for our newsletter!
-              </label>
-            </div>
-          </div>
 
+          <br><br>
           <div class="form-group">
-            <button type="submit" mat-button color="primary" (click)="onUserUpdate()">UPDATE</button>
-            <button mat-button color="primary" (click)="onUserCancel()">Cancel</button>
+            <button type="submit" class="btn cd-btn" (click)="onUserUpdate()">UPDATE</button>
+            <button style="margin-left: 30%;" class="btn cd-btn" (click)="onUserCancel()">Cancel</button>
           </div>
 
         </form>

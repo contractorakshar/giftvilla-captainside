@@ -4,7 +4,7 @@
       <div class="col-sm-12 text-center">
         <h1 class="title"><span>Order List</span></h1>
         <div class="breadcrumb">
-          <a href="index-2.html">Home</a>
+          <a routerLink="/">Home</a>
           <span class="delimeter">/</span>
           <span class="current">Order List</span>
         </div>
@@ -13,29 +13,30 @@
   </div>
 </div>
 <!-- End Breadcrumb -->
-
-
-<div class="main-contain">
+<!-- <app-leftcategory></app-leftcategory> -->
+<div class="main-contain" style="margin-left: 10%;">
   <div class="container">
     <div class="row">
       <div class="home-main col-md-9 col-sm-12 clo-xs-12 main-contant-right">
         <div class="widget">
-          <h6 class="text-uppercase bottom-line"><strong>My Order</strong></h6>
+          <h6 class="text-uppercase bottom-line" style="width: 100%;"><strong>My Order</strong></h6>
         </div>
-        <div class="table-responsive">
+        <div class="table-responsive" style="width: 100%;">
           <table class="table table-striped">
             <thead>
               <tr>
                 <th colspan="2">Products</th>
                 <th>Price</th>
-                <th>Date</th>
+                <th style="width:12.5%;text-align: center;">Date</th>
+                <th style="text-align: center;">Status</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let item of arr">
-                <td>
-                  <a href="#">
-                    <img src="http://localhost:3000/{{item.pro_img}}" height="50px" width="50px" alt="product" class="img-resopnsive">
+                <td style="width: 400px;">
+                  <a style="width: 400px;height: 200px;">
+                    <img src="http://localhost:3000/{{item.pro_img}}" style="height:30%;width: 100%;" alt="product"
+                      class="img-resopnsive">
                   </a>
                 </td>
                 <td>
@@ -43,10 +44,17 @@
                   <!-- <p>Sed aliquam tincidunt tempus</p> -->
                 </td>
                 <td>
-                  <span>{{item.pro_price}}</span>
+                  <span>{{item.order_amt}}</span>
                 </td>
-                <td >{{item.bill_date}}</td>
+                <td style="align-content: center;">{{item.bill_date}}</td>
+                <td>
+                  <button type="button" class="btn btn-primary" (click)="OnStatusChack(item.order_id)">Check</button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-warning" (click)="OnOrderCancel(item.order_id)">Cancel</button>
+                </td>
               </tr>
+
             </tbody>
           </table>
         </div>
@@ -56,3 +64,35 @@
         </a>
       </div>
       <aside>
+        <p-dialog [(visible)]="Display">
+          <p-header>
+            Order Status
+          </p-header>
+
+          <label> Bill Id :</label> {{od}}<br>
+          <label>Deliver Boy Email Id : </label>{{delId}}<br>
+          <label>Delivery Date :</label>{{delivery_date}}<br>
+          <label>Bill Date :</label>{{bill_date}}
+          <br><label>Status :</label>{{status}}
+
+        </p-dialog>
+
+        <p-dialog [(visible)]="Display2">
+          <p-header>
+            Order Status
+          </p-header>
+
+          {{processing}}
+        </p-dialog>
+        <p-dialog [(visible)]="warncancel">
+          <p-header>
+            Alert!!!
+          </p-header>
+          Are You Sure You Want Cancel Order?
+          <p-footer>
+            <button type="button" pButton icon="pi pi-check" label="Yes" (click)="confirmOrderCancel(od)">Yes</button>
+            <button type="button" pButton icon="pi pi-times" (click)="warncancel=false" label="No"
+                class="ui-button-secondary">No </button>
+
+          </p-footer>
+        </p-dialog>

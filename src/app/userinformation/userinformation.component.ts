@@ -6,6 +6,8 @@ import { User } from '../user';
 import { UserserviceService } from '../userservice.service';
 import { environment } from 'src/environments/environment';
 import { productdisplay } from '../productdisplay';
+import { CancelOrderService } from '../cancel-order.service';
+import { MemberOperationService } from '../member-operation.service';
 
 @Component({
   selector: 'app-userinformation',
@@ -14,17 +16,32 @@ import { productdisplay } from '../productdisplay';
 })
 export class UserinformationComponent implements OnInit {
 
-  list:productdisplay[]=[];
+  list: productdisplay[] = [];
   u_EmailId: string;
   user_update: FormGroup;
   selectedFile: File = null;
   userurl: string = null;
+  WalletDetails: any[];
+  OfferDetails: any[];
 
-  constructor(public _activated_routes: ActivatedRoute, public _route: Router, public ser: UserserviceService) { }
+  constructor(public _activated_routes: ActivatedRoute, public _route: Router, public ser: UserserviceService, public serObj: CancelOrderService, public memberObj: MemberOperationService) { }
 
   ngOnInit() {
     this.u_EmailId = localStorage.getItem('u_EmailId');
     console.log(this.u_EmailId);
+
+    this.serObj.getWalletDetails(this.u_EmailId).subscribe(
+      (dataWallet: any[]) => {
+        console.log(dataWallet);
+        this.WalletDetails = dataWallet;
+      }
+    );
+    this.memberObj.OffersDetails(this.u_EmailId).subscribe(
+      (dataMemberOffers: any[]) => {
+        console.log(dataMemberOffers);
+        this.OfferDetails = dataMemberOffers;
+      }
+    );
     //this.u_EmailId = this._activated_routes.snapshot.params['u_EmailId'];
     //console.log(this.u_EmailId);
     this.user_update = new FormGroup({
@@ -52,6 +69,7 @@ export class UserinformationComponent implements OnInit {
         this._route.navigate(['/']);
       }
     );
+
   }
 
   onUserCancel() {
@@ -59,7 +77,7 @@ export class UserinformationComponent implements OnInit {
   }
 
   editImageuser(u_EmailId) {
-    this._route.navigate(['/editImage',u_EmailId]);
+    this._route.navigate(['/editImage', u_EmailId]);
     console.log("data");
   }
 
@@ -67,9 +85,9 @@ export class UserinformationComponent implements OnInit {
     this.selectedFile = <File>f.target.files[0];
   }
 
-  changepassword(u_EmailId){
+  changepassword(u_EmailId) {
     console.log('page call');
-    this._route.navigate(['/passwordchange',u_EmailId]);
+    this._route.navigate(['/passwordchange', u_EmailId]);
   }
 
   formDataBind(item: User) {

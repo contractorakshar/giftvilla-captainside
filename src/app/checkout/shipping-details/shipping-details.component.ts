@@ -62,7 +62,7 @@ export class ShippingDetailsComponent implements OnInit {
     this.ser.updateShippingDetails(this.u_EmailId, this.user_update.value).subscribe(
       (data: User[]) => {
         console.log(data);
-        //this._route.navigate(['/']);
+        this._route.navigate(['/payment']);
       }
     );
   }

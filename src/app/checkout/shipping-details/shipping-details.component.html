@@ -22,16 +22,16 @@
   <div class="container">
     <div class="row">
 
-      <div class="home-main col-md-9 col-sm-12 clo-xs-12 main-contant-right">
+      <div class="home-main col-md-9 col-sm-12 clo-xs-12 main-contant-right" style="margin-left: 30%;" >
         <div class="widget">
-          <h6 class="text-uppercase bottom-line"><strong>Billing Address</strong></h6>
+          <h6 class="text-uppercase bottom-line" style="margin-right: 50%;"><strong>Billing Address</strong></h6>
         </div>
-        <form [formGroup]="user_update" (ngSubmit)="onUserUpdate()">
+        <form [formGroup]="user_update" (ngSubmit)="onUserUpdate()" >
 
           <div class="row">
             <div class="col-md-6">
 
-              <div class="form-group">
+              <div class="form-group" >
                 <label>Email Address </label>
                 <input type="email" disabled="true" formControlName="u_EmailId" required placeholder="Email Address"
                   name="u_EmailId" class="form-control input-sm required email"><br>
@@ -64,7 +64,7 @@
 
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="btn cd-btn" (click)="onUserUpdate()">
+                  <button type="submit" class="btn cd-btn">
                     <i></i>Proceed to Payment</button>
                 </div>
               </div>

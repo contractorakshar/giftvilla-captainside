@@ -60,6 +60,8 @@ import { MenubarComponent } from './menubar/menubar.component';
 import { OfferPageComponent } from './offer-page/offer-page.component';
 import { SerachPageComponent } from './serach-page/serach-page.component';
 import { LeftcategoryComponent } from './leftcategory/leftcategory.component';
+import { ProMFgSearchComponent } from './pro-mfg-search/pro-mfg-search.component';
+import { WishesPageComponent } from './wishes-page/wishes-page.component';
 
 @NgModule({
   declarations: [
@@ -96,6 +98,8 @@ import { LeftcategoryComponent } from './leftcategory/leftcategory.component';
     OfferPageComponent,
     SerachPageComponent,
     LeftcategoryComponent,
+    ProMFgSearchComponent,
+    WishesPageComponent,
   ],
   imports: [
 

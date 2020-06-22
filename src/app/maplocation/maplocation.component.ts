@@ -41,10 +41,7 @@ export class MaplocationComponent implements OnInit {
     else {
       this.em = localStorage.getItem('u_EmailId');
     }
-    // this.FeedbackForm.controls['fk_u_EmailId'].setValue(this.em);
-    // this.FeedbackForm = this.fb.group({
-    //   fk_u_EmailId: this.em,
-    // });
+
     navigator.geolocation.getCurrentPosition(x => {
       this.center = {
         lat: x.coords.latitude,

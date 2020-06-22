@@ -15,107 +15,110 @@
 </div>
 <!-- End Breadcrumb -->
 
+<div style="align-content: center;align-self: center;align-items: center;width: 100%;margin-left: 12%;">
+  <div class="main-contain">
+    <!-- <app-leftcategory></app-leftcategory> -->
+    <div class="container">
+      <div class="row">
+        <div class="home-main col-md-9 col-sm-12 clo-xs-12 main-contant-right">
+          <div class="widget">
+            <h6 class="text-uppercase bottom-line"><strong>My Cart</strong></h6>
+          </div>
+          <div class="table-responsive">
 
-<div class="main-contain">
-  <div class="container">
-    <div class="row">
-      <div class="home-main col-md-9 col-sm-12 clo-xs-12 main-contant-right">
-        <div class="widget">
-          <h6 class="text-uppercase bottom-line"><strong>My Cart</strong></h6>
-        </div>
-        <div class="table-responsive">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th colspan="2">Products</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th colspan="2">Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let item of arrcartItems ; let i= index">
-                <td>
-                  <a routerLink="#">
-                    <img src="http://localhost:3000/{{item.Product.pro_img}}" height="100px" width="100px" alt="product"
-                      class="img-resopnsive">
-                  </a>
-                </td>
-                <td>
-                  <h6 class="regular"><a href="#">{{item.Product.pro_name.toUpperCase()}}</a></h6>
-                  <!-- <p>Sed aliquam tincidunt tempus</p> -->
-                </td>
-                <td>
-                  <span>{{item.Product.pro_price | currency : 'INR'}}</span>
-                </td>
-                <td>
-                  <!-- <select class="form-control" name="select">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th colspan="3">Products</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th colspan="2">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of arrcartItems ; let i= index">
+                  <td>
+                    <a routerLink="#">
+                      <img src="http://localhost:3000/images/product_images/{{item.Product.pro_img}}" height="100px"
+                        width="100px" alt="product" class="img-resopnsive">
+                    </a>
+                  </td>
+                  <td>
+                    <h6 class="regular"><a href="#">{{item.Product.pro_name.toUpperCase()}}</a></h6>
+                    <!-- <p>Sed aliquam tincidunt tempus</p> -->
+                  </td>
+                  <td>
+                    <span>{{item.Product.pro_price | currency : 'INR'}}</span>
+                  </td>
+                  <td>
+                    <!-- <select class="form-control" name="select">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
                             <option>4</option>
                             <option>5</option>
                           </select> -->
-                  <input type="number" min="1" #txtQuantity [value]="item.Quantuty"
-                    (change)="onQtyChange(item, txtQuantity.value,i)">
-                  <br>
-                  <div *ngIf="flag" style="color: red;font-size: 11px;">Sorry Requested Quantity is Not Availabel
-                  </div>
-                </td>
-                <td>
-                  <span class="text-primary pri-color">{{item.SubTotal | currency : 'INR'}}</span>
-                </td>
-                <td>
-                  <button type="button" class="close" (click)="onRemoveFromCart(item.Product.pro_id, i)">×</button>
-                </td>
+                    <input type="number" min="1" #txtQuantity [value]="item.Quantuty"
+                      (change)="onQtyChange(item, txtQuantity.value,i)">
+                    <br>
+                    <div *ngIf="flag" style="color: red;font-size: 11px;">Sorry Requested Quantity is Not Availabel
+                    </div>
+                  </td>
+                  <td>
+                    <span class="text-primary pri-color">{{item.SubTotal | currency : 'INR'}}</span>
+                  </td>
+                  <td>
+                    <button type="button" class="close" (click)="onRemoveFromCart(item.Product.pro_id, i)">×</button>
+                  </td>
 
 
 
-          </table>
+            </table>
 
-          <hr style="border-color:black;">
-          <!-- <div style="text-align: left;"> -->
-          <label style="font-size: 15px;">Special Instruction</label><br>
-          <textarea row="3" cols="5"
-            style="background-color:white; color: black; border-radius:10px; font-size: 10px; width:200px; height: 100px;"
-            type="text" class="btn cd-btn pull-left" [(ngModel)]="spcl_instruction"></textarea>
-          <!-- </div> -->
-          <label style="background-color:white; color: black; border-radius:10px; font-size: 15px;"
-            class="btn cd-btn pull-right">Grand Total:
-            {{GrandTotal | currency : 'INR'}}</label>
-        </div>
-        <div *ngIf="divMember">
-          <h1>Your Discount is {{this.perDiscount}} % </h1><br>
-          <h1> Your Discounted Amount is {{ansdic}} </h1> <br>
-        </div>
-        <div  *ngIf="!divMember" style="float: right;border: 1px solid black;margin-top: 0px;margin-bottom: 10px;">
-          <p>If you are member customer and to avail discount you must login</p>
-          <div>
-            <label>Shipping Charges :</label>40/- Rs
+            <hr style="border-color:black;">
+            <!-- <div style="text-align: left;"> -->
+            <label style="font-size: 15px;">Special Instruction</label><br>
+            <textarea row="3" cols="5"
+              style="background-color:white; color: black; border-radius:10px; font-size: 10px; width:200px; height: 100px;"
+              type="text" class="btn cd-btn pull-left" [(ngModel)]="spcl_instruction"></textarea>
+            <!-- </div> -->
+            <label style="background-color:white; color: black; border-radius:10px; font-size: 15px;"
+              class="btn cd-btn pull-right">Grand Total:
+              {{GrandTotal | currency : 'INR'}}</label>
+          </div>
+          <div *ngIf="divMember">
+            <h5 style="color:green;margin-top: 2%;">Your Discount is {{this.perDiscount}} % </h5><br>
+            <h5 style="color: green"> Your Discounted Amount is {{ansdic}} </h5> <br>
+          </div>
+          <div *ngIf="customermember" style="float: right;border: 1px solid black;margin-top: 0px;margin-bottom: 10px;">
+            <p>If you are member customer and to avail discount you must login</p>
+            <div>
+              <label>Shipping Charges :</label>40/- Rs
+            </div>
           </div>
         </div>
 
-
         <br><br>
         <hr style="border-color:black;">
-
-        <br />
-        <a routerLink="/products" class="btn cd-btn pull-left">
-          <i class="fa fa-arrow-left mr5"></i> Continue shopping
-        </a>
-        <button routerLink="/shipping" class="btn cd-btn pull-right">Add details
-          <i class="fa fa-arrow-right ml5"></i> </button><br><br><br>
-        <button (click)="btnCheckout()" class="btn cd-btn pull-right" [disabled]="flag">
-          Checkout <i class="fa fa-arrow-right ml5"></i>
-        </button>
       </div>
-      <aside>
-        <!-- END CATEGORIES WIDGET -->
 
+      <br />
+      <a routerLink="/products" class="btn cd-btn pull-left">
+        <i class="fa fa-arrow-left mr5"></i> Continue shopping
+      </a>
+      <button (click)="OnAddDetails()" style="margin-left: 45%;" class="btn cd-btn">Add details
+        <i class="fa fa-arrow-right ml5"></i> </button><br><br><br>
 
-
-
-      </aside>
+      <!-- <button (click)="btnCheckout()" class="btn cd-btn pull-right" [disabled]="flag">
+          Checkout <i class="fa fa-arrow-right ml5"></i>
+        </button> -->
     </div>
+    <aside>
+      <!-- END CATEGORIES WIDGET -->
+
+
+
+
+    </aside>
   </div>
 </div>

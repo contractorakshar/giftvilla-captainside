@@ -17,7 +17,9 @@
 <section class="main-contain shop-product bg-white">
   <div class="container">
     <div class="row">
+
       <!--Image Block-->
+
       <!-- <div class="signal-product-image">
         <div class="col-md-6 col-sm-6 col-sm-12">
           <div class="images cd-post-thumbnail">
@@ -25,34 +27,36 @@
               <div class="flexslider" id="main_slider">
                 <div class="flex-viewport">
                   <ul class="slides">
-                    <li *ngFor="let item of picarr">
-
-                      <a class="cd-lightbox-image cd-lightbox-type-image" href="http://localhost:3000/{{item.photo}}"
-                        alt="not avilable" title="">
-                        <img title="" src="http://localhost:3000/{{item.photo}}" alt="not avilable">
-                        <i itemprop="image" class="fa fa-fw fa-expand"></i>
+                    <li itemtype="https://schema.org/Product" itemscope="" *ngFor="let item of picarr">
+                      <a class="cd-lightbox-image cd-lightbox-type-image"
+                        href="http://localhost:3000/images/product_photo_images/{{item.photo}}" title="">
+                        <img title="" src="http://localhost:3000/images/product_photo_images/{{item.photo}}" alt=""><i
+                          itemprop="image" class="fa fa-fw fa-expand"></i>
                       </a>
                     </li>
                   </ul>
-                   <div *ngFor="let item of picarr">
-                    <img src="http://localhost:3000/{{item.photo}}">
-                  </div>
-
                 </div>
               </div>
             </div>
+
+            <div class="flexslider" id="main_thumbs">
+              <div class="flex-viewport">
+                <ul class="slides">
+                  <li itemtype="https://schema.org/Product" itemscope="" *ngFor="let item of picarr">
+                    <img title="" alt="" src="http://localhost:3000/images/product_photo_images/{{item.photo}}">
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+
+
+
           </div>
         </div>
       </div> -->
+
       <!--Image Block-->
-      <div class="signal-product-image">
-        <div class="col-md-6 col-sm-6 col-sm-12">
-          <div class="images cd-post-thumbnail">
-            <div class="flexslider-wrap product-image-full-size">
-              <div class="flexslider" id="main_slider">
-                <div class="flex-viewport">
-                  <!-- <div > -->
-                  <ul class="slides" *ngFor="let item of picarr">
 
                     <li>
                       <!-- <a class="cd-lightbox-image cd-lightbox-type-image" href="http://localhost:3000/{{item.photo}}"
@@ -66,74 +70,50 @@
 
                     </li>
 
-                  </ul>
-                  <!-- </div> -->
-                </div>
-                <!-- </div> -->
-              </div>
-            </div>
-          </div>
+      <div class="col-md-6 col-sm-6 col-sm-12">
+        <div class="shop-product-heading">
+          <h2>{{pro_name}}</h2>
         </div>
-        <p-galleria [images]="images" panelWidth="500" panelHeight="313" [showCaption]="true"
-          [styleClass]="'homeCarousel'"></p-galleria>
-        <!-- <p-galleria value="images" responsiveOptions="responsiveOptions" containerStyle="{'max-width': '640px'}"
-          numVisible="5">
-          <ng-template pTemplate="item" let-item>
-            <img [src]="item.previewImageSrc" style="width: 100%;" />
-          </ng-template>
-          <ng-template pTemplate="thumbnail" let-item>
-            <div class="p-grid p-nogutter p-justify-center">
-              <img [src]="item.thumbnailImageSrc" />
-            </div>
-          </ng-template>
-        </p-galleria>
- -->
-
-        <div class="col-md-6 col-sm-6 col-sm-12">
-          <div class="shop-product-heading">
-            <h2>{{pro_name}}</h2>
-          </div>
 
 
-          <label>Description</label>
+        <label>Description</label>
 
-          <p class="mb15">{{pro_info}}</p><br>
+        <p class="mb15">{{pro_info}}</p><br>
 
-          <p><b>ManuFatured By : </b> {{pro_mfg}} </p><br>
+        <p><b>ManuFatured By : </b> {{pro_mfg}} </p><br>
 
-          <ul class="list-inline shop-product-prices mb30">
-            <h3>Price: </h3>
-            <li class="shop-red">{{pro_price |  currency:'INR'  }}</li>
+        <ul class="list-inline shop-product-prices mb30">
+          <h3>Price: </h3>
+          <li class="shop-red">{{pro_price |  currency:'INR'  }}</li>
 
-          </ul>
+        </ul>
 
 
 
-          <h3 class="shop-product-title">Quantity</h3>
-          <div class="mb30">
-            <!-- <form name="f1" class="product-quantity">
+        <h3 class="shop-product-title">Quantity</h3>
+        <div class="mb30">
+          <!-- <form name="f1" class="product-quantity">
               <button type='button' class="quantity-button" name='subtract'
                 onclick='javascript: document.getElementById("qty").value--;' value='-'>-</button>
               <input type='text' class="quantity-field" name='qty' value=1 id='qty' />
               <button type='button' class="quantity-button" name='add'
                 onclick='javascript: document.getElementById("qty").value++;' value='+'>+</button>
             </form> -->
-            <td>
-              <input type="number" [value]="1" height="100" min="1" #txtQuantity>
-            </td>
-            <br>
-            <br>
-            <button type="button" class="btn btn-product">Add to Cart</button>
-          </div>
-
-          <!-- <ul class="list-inline add-to-wishlist add-to-wishlist-brd">
-            <li class="wishlist-in">
-              <i class="fa fa-heart"></i>
-              <a href="#">Add to Wishlist</a>
-            </li>
-
-          </ul> -->
+          <td>
+            <input type="number" [value]="1" height="100" min="1" #txtQuantity>
+          </td>
+          <br>
+          <br>
+          <button type="button" class="btn btn-product">Add to Cart</button>
         </div>
+
+        <ul class="list-inline add-to-wishlist add-to-wishlist-brd">
+          <li class="wishlist-in">
+            <i class="fa fa-heart"></i>
+            <a (click)="AddTowishlist()">Add to Wishlist</a>
+          </li>
+
+        </ul>
       </div>
     </div>
     <!-- </section> -->

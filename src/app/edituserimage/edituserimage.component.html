@@ -25,10 +25,10 @@
           <h6 class="text-uppercase bottom-line"><strong>My personal information</strong></h6>
         </div>
         <form [formGroup]="updateuserpic" (ngSubmit)="onuserimageupdate()" >
-          <img mat-card-image width="50" height="50" src="{{userurl}}" >
-          <input type="file" name="u_img" (change)="onChange($event)"  ><br><br>
-          <button type="submit" mat-button  color="primary" > UPDATE </button>
-          <button routerLink="/userinfo"  type="submit" mat-button  color="primary" > Cancel </button>
+          <img mat-card-image style="height: 200px;width: 200px;border-radius: 100px;" src="{{userurl}}" >
+          <input type="file" name="u_img"  (change)="onChange($event)"  ><br><br>
+          <button type="submit"   class="btn cd-btn" > UPDATE </button>
+          <button routerLink="/userinfo"  type="submit" style="margin-left: 2%;" class="btn cd-btn" > Cancel </button>
         </form>
 
       </div>
