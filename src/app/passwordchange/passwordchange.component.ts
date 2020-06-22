@@ -21,28 +21,28 @@ export class PasswordchangeComponent implements OnInit {
 
   ngOnInit(): void {
     this.u_EmailId = localStorage.getItem('u_EmailId');
-    console.log(this.u_EmailId);
-    this.SignupForm = new FormGroup({
-      psd: new FormControl(null, [Validators.required]),
-      password_group: new FormGroup({
-        u_password: new FormControl(null, [Validators.required]),
-        u_confirm_password: new FormControl(null)
-      }, [this.passwordMatch.bind(this)]),
-    });
+    if (this.u_EmailId != null) {
+      console.log(this.u_EmailId);
+      this.SignupForm = new FormGroup({
+        psd: new FormControl(null, [Validators.required]),
+        password_group: new FormGroup({
+          u_password: new FormControl(null, [Validators.required]),
+          u_confirm_password: new FormControl(null)
+        }, [this.passwordMatch.bind(this)]),
+      });
+    }
+    else {
+      alert("please do login...!!");
+    }
   }
 
   onSignup() {
 
     let userobj = {
-      u_password:this.SignupForm.value.password_group.u_password,
-      u_EmailId:this.u_EmailId
+      u_password: this.SignupForm.value.password_group.u_password,
+      u_EmailId: this.u_EmailId
     };
-
-    // userobj.append("u_password", this.SignupForm.value.password_group.u_password);
-    // console.log(userobj);
-    // // let newpswd = userobj.get('u_password');
-    // let z = userobj.get('u_password').toString;
-     this.psdchange.chanagepsd(userobj).subscribe(
+    this.psdchange.chanagepsd(userobj).subscribe(
       (x: any) => {
         console.log(userobj);
         alert('Your Detalis Are Saved');

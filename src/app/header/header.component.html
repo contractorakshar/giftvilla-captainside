@@ -34,7 +34,6 @@
             <li><a routerLink="/registration">Register</a></li>
             <li><a (click)="onChangePassword()">Change Password</a></li>
             <li><a (click)="onLogout()">LOGOUT</a></li>
-            <!-- <<<<<<< HEAD  -->
           </ul>
         </li>
         <!-- <li class="linkdown">
@@ -108,14 +107,6 @@
                 (click)="SearchTextBox1(txtSearch.value)">
             </div>
           </div>
-
-        </div>
-        <div class="col-sm-3" >
-          <select class="form-control input-lg" name="fk_cat_id" #fk_cat_id (change)="onWatchClick(fk_cat_id.value)"
-            placeholder="select">
-            <!-- <option [selected]="true">All Category</option> -->
-            <option *ngFor="let item of category" [value]="item.cat_id">{{item.cat_name}}</option>
-          </select>
         </div>
       </div>
     </div>

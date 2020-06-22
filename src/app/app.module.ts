@@ -7,10 +7,10 @@ import { FooterComponent } from './footer/footer.component';
 import { GoogleMapsModule } from "@angular/google-maps";
 import { CartComponent } from './cart/cart.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-// import { DialogModule } from 'primeng/dialog';
+import { DialogModule } from 'primeng/dialog';
 // import { SliderModule } from 'angular-image-slider';
 
-// import { GalleriaModule } from 'primeng/galleria';
+import { GalleriaModule } from 'primeng/galleria';
 import { ProducthomeComponent } from './producthome/producthome.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
@@ -102,8 +102,8 @@ import { LeftcategoryComponent } from './leftcategory/leftcategory.component';
 
     BrowserModule,
     // SliderModule,
-    // GalleriaModule,
-    // DialogModule,
+    GalleriaModule,
+    DialogModule,
     routingArr,
     HttpClientModule,
     FormsModule,
