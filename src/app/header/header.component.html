@@ -1,3 +1,4 @@
+
 <div style="margin-bottom: 50px;">
   <header>
 
@@ -9,6 +10,8 @@
         </ul>
 
         <ul class="topbarnav pull-right">
+
+
 
 
           <li class="linkdown">
@@ -110,6 +113,13 @@
             </div>
 
           </div>
+        </div>
+        <div class="col-sm-3" >
+          <select class="form-control input-lg" name="fk_cat_id" #fk_cat_id (change)="onWatchClick(fk_cat_id.value)"
+            placeholder="select">
+            <!-- <option [selected]="true">All Category</option> -->
+            <option *ngFor="let item of category" [value]="item.cat_id">{{item.cat_name}}</option>
+          </select>
         </div>
       </div>
     </div>

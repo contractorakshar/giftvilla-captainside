@@ -53,18 +53,20 @@ export class ViewMoreProductComponent implements OnInit {
 
     this.u_EmailId = localStorage.getItem('u_EmailId');
     this.fk_pro_id = this._actRou.snapshot.params['fk_pro_id'];
+    this.fk_cat_id = this._actRou.snapshot.params['fk_cat_id'];
+    // console.log(this.fk_cat_id);
     this.pro_id = this._actRou.snapshot.params['pro_id'];
 
 
     this._proser.getProductById(this.pro_id).subscribe((data: productdisplay[]) => {
       this.arr = data;
-      this.pro_price = data[0].pro_price;
       this.pro_name = data[0].pro_name;
-      this.cat_name = data[0].cat_name;
-      this.pro_info = data[0].pro_info;
+      this.pro_price = data[0].pro_price;
       this.pro_mfg = data[0].pro_mfg;
       this.pro_img = data[0].pro_img;
+      this.pro_info = data[0].pro_info;
       this.fk_cat_id = data[0].fk_cat_id;
+      this.cat_name = data[0].cat_name;
       console.log(this.arr);
     });
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { productdisplay } from '../productdisplay';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { CartoperationsService } from '../cart/cartoperations.service';
 import { Maincart } from '../cart/maincart';
 import { ProductServiceService } from '../product-service.service';
@@ -12,6 +12,7 @@ import { CartDetails } from '../cart/cart-details';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  u_EmailId: string;
   arrcartItems: CartDetails[] = [];
   category: productdisplay[] = [];
   arrwatch: productdisplay[] = [];
@@ -23,8 +24,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     // this.arrcartItems = this.cart.CartItems;
-    // this.GrandTotal = this.cart.GrandTotal;
     this._productData.getAllCategory().subscribe(
+      // this.GrandTotal = this.cart.GrandTotal;
       (data: productdisplay[]) => {
         this.category = data;
         // console.log(data);
@@ -49,6 +50,10 @@ export class HeaderComponent implements OnInit {
     // localStorage.clear();
     localStorage.removeItem('u_EmailId');
     this.router.navigate(['/']);
+  }
+  onChangePassword() {
+    this.u_EmailId = localStorage.getItem['u_EmailId'];
+    this.router.navigate(['/passwordchange', this.u_EmailId]);
   }
   onWatchClick(cat_id) {
     console.log(cat_id);

@@ -12,6 +12,7 @@ export class UserserviceService {
   public deleteUrl: string = environment.url + "user_Delete/";
   public url1: string = environment.url + "edit_img/";
 
+
   constructor(private _http: HttpClient) { }
 
   deleteAll(item: string[]) {
@@ -20,6 +21,8 @@ export class UserserviceService {
     let head = new HttpHeaders().set(environment.header, environment.value);
     return this._http.post(this.deleteUrl, body, { headers: head });
   }
+
+
 
   deleteData(u_EmailId: string) {
     console.log(this.url);

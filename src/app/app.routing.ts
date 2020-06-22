@@ -22,17 +22,20 @@ import { MemberCustomerComponent } from './member-customer/member-customer.compo
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 import { TermsComponent } from './terms/terms.component';
 import { EdituserimageComponent } from './edituserimage/edituserimage.component';
-import { PaymentComponent } from './payment/payment.component';
+// import { PaymentComponent } from './payment/payment.component';
 import { PasswordchangeComponent } from './passwordchange/passwordchange.component';
+import { MenubarComponent } from './menubar/menubar.component';
 import { OfferPageComponent } from './offer-page/offer-page.component';
 import { SerachPageComponent } from './serach-page/serach-page.component';
 import { LeftcategoryComponent } from './leftcategory/leftcategory.component';
 import { WishesPageComponent } from './wishes-page/wishes-page.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 
 const arr: Routes = [
   { path: '', component: ProducthomeComponent, pathMatch: 'full' },
+  { path: 'menu', component: MenubarComponent },
   { path: 'products', component: ProducthomeComponent },
   { path: 'menubar', component: LeftcategoryComponent },
   { path: 'productdrop/:cat_id', component: WatchComponent },
@@ -51,7 +54,6 @@ const arr: Routes = [
   { path: 'terms&condition', component: TermsComponent },
   { path: 'privacypolicy', component: PrivacypolicyComponent },
   { path: 'myorder', component: MyorderComponent },
-  { path: 'payment', component: PaymentComponent },
   { path: 'passwordchange/:u_EmailId', component: PasswordchangeComponent },
   { path: 'searchingproducts/:cat_name', component: SearchingComponent },
   { path: 'help', component: HelppageComponent },

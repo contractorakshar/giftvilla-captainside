@@ -17,4 +17,9 @@ export class SliderComponent implements OnInit {
   clickimg(){
     alert("alert");
   }
+
+  onClick(){
+    alert("hello");
+  }
+
 }
