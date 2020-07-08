@@ -39,14 +39,14 @@
     <br>
     <hr style="border: 1px solid gainsboro;">
     <div style="font-size: medium;">
-    <h4>Your Offer Details  :</h4>
-    <!-- <label>Offer ID :</label><br>
+      <h4>Your Offer Details :</h4>
+      <!-- <label>Offer ID :</label><br>
     {{item.member_id}}<br> -->
-    <label>End Date :</label><br>{{item.End_date}}<br>
-    <label>Pucashed Date :</label><br>{{item.Start_date}}<br>
-    <label>Offer Price :</label><br>{{item.offer_Price}}<br>
+      <label>End Date :</label><br>{{item.End_date}}<br>
+      <label>Pucashed Date :</label><br>{{item.Start_date}}<br>
+      <label>Offer Price :</label><br>{{item.offer_Price}}<br>
 
-    <br>
+      <br>
     </div>
   </mat-card>
 </div>
@@ -146,24 +146,31 @@
 
             </div>
           </div>
-
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <button (click)="changepassword(u_EmailId)" style="margin-left: -5%;" class="btn cd-btn"><i class="fa fa-lock mr5"></i>Change
-                password</button>
-            </div>
-          </div>
-
-
           <br><br>
           <div class="form-group">
             <button type="submit" class="btn cd-btn" (click)="onUserUpdate()">UPDATE</button>
             <button style="margin-left: 30%;" class="btn cd-btn" (click)="onUserCancel()">Cancel</button>
           </div>
-
         </form>
-
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button (click)="changepassword(u_EmailId)" style="margin-left: -5%;" class="btn cd-btn"><i
+                class="fa fa-lock mr5"></i>Change
+              password</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+<p-dialog [(visible)]="Display">
+  <p-header>
+    Alert!!!
+  </p-header>
+  Please do login First for changing password...!!
+  <p-footer>
+    <button type="button" pButton icon="pi pi-check" label="goto login" (click)="onYesClick()">Goto Login</button>
+    <button type="button" pButton icon="pi pi-times" (click)="Display=false"  label="Cancel"
+      class="ui-button-secondary">Cancel</button>
+  </p-footer>
+</p-dialog>

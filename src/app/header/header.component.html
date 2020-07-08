@@ -1,113 +1,85 @@
-
 <div style="margin-bottom: 50px;">
   <header>
-    <!-- start topbar -->
-  <div class="topbar">
-    <div class="container">
-      <ul class="list-inline pull-left hidden-sm hidden-xs">
-        <li><span class="text-primary color">Have a question?</span> Call 910 4610 020</li>
-      </ul>
-
-      <ul class="topbarnav pull-right">
-
-
-
-
-        <li class="linkdown">
-          <a href="#">
-            <img src="assets/img/flags/us.png" class="mr5" alt="">
-            <span class="hidden-xs"> English
-            </span>
-          </a>
-
-        </li>
-        <li class="linkdown">
-          <a href="#">
-            <i class="fa fa-user mr5"></i>
-            <span class="hidden-xs">
-              My Account
-              <i class="fa fa-angle-down ml5"></i>
-            </span>
-          </a>
-          <ul class="cd-link">
-            <li><a routerLink="/wishlist">Wishlist</a></li>
-            <li><a routerLink="/shoppingcart">My Cart</a></li>
-            <!-- <li><a routerLink="/checkout">Checkout</a></li> -->
-            <li><a routerLink="/loginpage">Login</a></li>
-            <li><a routerLink="/registration">Register</a></li>
-            <li><a routerLink="/userinfo">My Account</a></li>
-            <li><a routerLink="/myorder">My Order</a></li>
-            <li><a (click)="onChangePassword()">Change Password</a></li>
-            <li><a (click)="onLogout()">LOGOUT</a></li>
-
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <!-- start middlebar -->
-  <div class="middlebar">
-    <div class="container">
-      <div class="row">
-        <div class="display-table">
-          <div class="col-sm-3 vertical-align text-left hidden-xs">
-            <a routerLink="/">
-              <img width="150px" height="" src="../../assets/img/giftvilla_logo.jpg" alt="" />
+    <div class="topbar">
+      <div class="container">
+        <ul class="list-inline pull-left hidden-sm hidden-xs">
+          <li><span class="text-primary color">Have a question?</span> Call 910 4610 020</li>
+        </ul>
+        <ul class="topbarnav pull-right">
+          <li class="linkdown">
+            <a href="#">
+              <img src="assets/img/flags/us.png" class="mr5" alt="">
+              <span class="hidden-xs"> English
+              </span>
             </a>
-          </div>
-          <div class="col-sm-7 vertical-align text-center">
-            <div class="col-sm-6">
-              <input type="text" name="keyword" class="form-control input-lg" placeholder="Search" #txtSearch
-                (keyup)="SearchTextBox(txtSearch.value)">
-            </div>
-            <div class=" col-sm-3">
-              <select class="form-control input-lg" name="fk_cat_id" #fk_cat_id (change)="onWatchClick(fk_cat_id.value)"
-                placeholder="select" class="form-control input-lg">
-
-                <!-- <option [selected]="true">All Category</option> -->
-                <option selected>Select Category</option>
-                <option *ngFor="let item of category" [value]="item.cat_id">{{item.cat_name}}</option>
-              </select>
-            </div>
-            <div class="col-sm-3">
-              <input type="submit" class="btn cd-btn top-cat-search btn-block" value="Search"
-                (click)="SearchTextBox1(txtSearch.value)">
-            </div>
-          </div>
-           </div>
-
-
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <select class="form-control input-lg" name="fk_cat_id" #fk_cat_id (change)="onWatchClick(fk_cat_id.value)"
-          placeholder="select">
-          <!-- <option [selected]="true">All Category</option> -->
-          <option *ngFor="let item of category" [value]="item.cat_id">{{item.cat_name}}</option>
-        </select>
-        >>>>>>> a21559c05c01cf62e1e5ba4db76d29f92c66fc40
-      </div>
-    </div>
-
-
-  <div class=" navbar cd-navbar navbar-default">
-    <div class="container">
-
-      <br>
-      <div id="navbar-collapse-3" class="navbar-collapse collapse">
-        <ul>
-
-          <li class="li-header"><a routerLink="/products">Home</a></li>
-          <li class="li-header"><a routerLink="/shoppingcart">Cart</a></li>
-          <li class="li-header"><a routerLink="/userinfo">My Account</a></li>
-          <li class="li-header"><a routerLink="help">Help</a></li>
-          <li class="li-header"><a routerLink="/myorder">Order</a></li>
-          <li class="li-header"><a routerLink="/map">ContactUs</a></li>
-          <li class="li-header" style="margin-left: 40%;color: red;"><a routerLink="/Wishes">Send Wishes</a></li>
+          </li>
+          <li class="linkdown">
+            <a routerLink="/">
+              <i class="fa fa-user mr5"></i>
+              <span class="hidden-xs">
+                Home
+                <i class="fa fa-angle-down ml5"></i>
+              </span>
+            </a>
+            <ul class="cd-link">
+              <li><a routerLink="/wishlist">Wishlist</a></li>
+              <li><a routerLink="/shoppingcart">My Cart</a></li>
+              <!-- <li><a routerLink="/checkout">Checkout</a></li> -->
+              <li><a routerLink="/loginpage">Login</a></li>
+              <li><a routerLink="/registration">Register</a></li>
+              <li><a routerLink="/userinfo">My Account</a></li>
+              <li><a routerLink="/myorder">My Order</a></li>
+              <li><a (click)="onLogout()">LOGOUT</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
-
     </div>
-  </div>
-
+    <div class="middlebar">
+      <div class="container">
+        <div class="row">
+          <div class="display-table">
+            <div class="col-sm-3 vertical-align text-left hidden-xs">
+              <a routerLink="/">
+                <img width="150px" height="" src="../../assets/img/giftvilla_logo.jpg" alt="" />
+              </a>
+            </div>
+            <div class="col-sm-7 vertical-align text-center">
+              <div class="col-sm-6">
+                <input type="text" name="keyword" class="form-control input-lg" placeholder="Search" #txtSearch
+                  (keyup)="SearchTextBox(txtSearch.value)">
+              </div>
+              <div class=" col-sm-3">
+                <select class="form-control input-lg" name="fk_cat_id" #fk_cat_id
+                  (change)="onWatchClick(fk_cat_id.value)" placeholder="select" class="form-control input-lg">
+                  <option selected>Select Category</option>
+                  <option *ngFor="let item of category" [value]="item.cat_id">{{item.cat_name}}</option>
+                </select>
+              </div>
+              <div class="col-sm-3">
+                <input type="submit" class="btn cd-btn top-cat-search btn-block" value="Search"
+                  (click)="SearchTextBox1(txtSearch.value)">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=" navbar cd-navbar navbar-default">
+      <div class="container">
+        <div id="navbar-collapse-3" class="navbar-collapse collapse">
+          <ul>
+            <li class="li-header"><a routerLink="/products">Home</a></li>
+            <li class="li-header"><a routerLink="/shoppingcart">Cart</a></li>
+            <li class="li-header"><a routerLink="/userinfo">My Account</a></li>
+            <li class="li-header"><a routerLink="help">Help</a></li>
+            <li class="li-header"><a routerLink="/myorder">Order</a></li>
+            <li class="li-header"><a routerLink="/map">ContactUs</a></li>
+            <li class="li-header"><a routerLink="/member">Buy Membership</a></li>
+            <li class="li-header" style="margin-left: 20%;color: red;"><a routerLink="/Wishes">Send Wishes</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </header>
+</div>

@@ -58,62 +58,268 @@
 
       <!--Image Block-->
 
-                    <li>
-                      <!-- <a class="cd-lightbox-image cd-lightbox-type-image" href="http://localhost:3000/{{item.photo}}"
+      <<<<<<< HEAD <li>
+        <!-- <a class="cd-lightbox-image cd-lightbox-type-image" href="http://localhost:3000/{{item.photo}}"
                         alt="not avilable" title=""> -->
-                      <a class="cd-lightbox-image cd-lightbox-type-image"></a>
-                      <!-- <img title="" src="http://localhost:3000/images/product_images/{{item.photo}}"
+        <a class="cd-lightbox-image cd-lightbox-type-image"></a>
+        <!-- <img title="" src="http://localhost:3000/images/product_images/{{item.photo}}"
                           alt="not avilable"> -->
-                      <p-galleria [images]="images" panelWidth="500" panelHeight="313" [showCaption]="true"
-                        [styleClass]="'homeCarousel'"></p-galleria>
-                      <i itemprop="image" class="fa fa-fw fa-expand"></i>
+        <p-galleria [images]="images" panelWidth="500" panelHeight="313" [showCaption]="true"
+          [styleClass]="'homeCarousel'"></p-galleria>
+        <i itemprop="image" class="fa fa-fw fa-expand"></i>
 
-                    </li>
+        </li>
+        =======
 
-      <div class="col-md-6 col-sm-6 col-sm-12">
-        <div class="shop-product-heading">
-          <h2>{{pro_name}}</h2>
-        </div>
+        >>>>>>> a21559c05c01cf62e1e5ba4db76d29f92c66fc40
 
-
-        <label>Description</label>
-
-        <p class="mb15">{{pro_info}}</p><br>
-
-        <p><b>ManuFatured By : </b> {{pro_mfg}} </p><br>
-
-        <ul class="list-inline shop-product-prices mb30">
-          <h3>Price: </h3>
-          <li class="shop-red">{{pro_price |  currency:'INR'  }}</li>
-
-        </ul>
+        <div class="col-md-6 col-sm-6 col-sm-12">
+          <div class="shop-product-heading">
+            <h2>{{pro_name}}</h2>
+          </div>
 
 
+          <label>Description</label>
 
-        <h3 class="shop-product-title">Quantity</h3>
-        <div class="mb30">
-          <!-- <form name="f1" class="product-quantity">
+          <p class="mb15">{{pro_info}}</p><br>
+
+          <p><b>ManuFatured By : </b> {{pro_mfg}} </p><br>
+
+          <ul class="list-inline shop-product-prices mb30">
+            <h3>Price: </h3>
+            <li class="shop-red">{{pro_price |  currency:'INR'  }}</li>
+
+          </ul>
+
+
+
+          <h3 class="shop-product-title">Quantity</h3>
+          <div class="mb30">
+            <!-- <form name="f1" class="product-quantity">
               <button type='button' class="quantity-button" name='subtract'
                 onclick='javascript: document.getElementById("qty").value--;' value='-'>-</button>
               <input type='text' class="quantity-field" name='qty' value=1 id='qty' />
               <button type='button' class="quantity-button" name='add'
                 onclick='javascript: document.getElementById("qty").value++;' value='+'>+</button>
             </form> -->
-          <td>
-            <input type="number" [value]="1" height="100" min="1" #txtQuantity>
-          </td>
-          <br>
-          <br>
-          <button type="button" class="btn btn-product">Add to Cart</button>
+            <td>
+              <input type="number" [value]="1" height="100" min="1" #txtQuantity>
+            </td>
+            <br>
+            <br>
+            <button type="button" class="btn btn-product">Add to Cart</button>
+          </div>
+
+          <ul class="list-inline add-to-wishlist add-to-wishlist-brd">
+            <li class="wishlist-in">
+              <i class="fa fa-heart"></i>
+              <a (click)="AddTowishlist()">Add to Wishlist</a>
+            </li>
+
+          </ul>
         </div>
-
-        <ul class="list-inline add-to-wishlist add-to-wishlist-brd">
-          <li class="wishlist-in">
-            <i class="fa fa-heart"></i>
-            <a (click)="AddTowishlist()">Add to Wishlist</a>
-          </li>
-
-        </ul>
-      </div>
     </div>
-    <!-- </section> -->
+    <p-dialog [(visible)]="wishlistFlag">
+      <p-header>
+        Please Do Login!!!
+      </p-header>
+      Sorry we can't store your wishlist please login for that.....
+      <p-footer>
+        <button type="button" pButton icon="pi pi-check" label="Yes" routerLink="/loginpage">Go To Login</button>
+      </p-footer>
+    </p-dialog>
+     <!-- </section> -->
+
+  </div>
+  <!-- </section> -->
+
+
+
+  <!-- <section class="main-contain dip-style bg-gray product-page-style">
+      <div class="container">
+        <div class="login-area">
+          <ul class="nav nav-tabs style1 tabs-left">
+            <li class="active"><a href="#description" data-toggle="tab">Additional Info</a></li>
+            <li><a href="#reviews" data-toggle="tab">Reviews (4)</a></li>
+          </ul>
+          <div class="tab-content style1">
+
+            <div class="tab-pane" id="reviews">
+              <h5>4 Review for "Lorem ipsum dolor sit amet"</h5>
+
+              <div class="comments">
+                <div class="comment-image">
+                  <figure>
+                    <img src="assets/img/products/review2.jpg" alt="" class="img-responsive" />
+                  </figure>
+                </div>
+                <div class="comment-content">
+                  <div class="comment-content-head">
+                    <h6 class="comment-title">Lorem ipsum dolor sit</h6>
+                  </div>
+                  <div class="review">
+                    <ul class="list list-inline comment-meta">
+                      <li>
+                        <i class="fa fa-star color-theme"></i>
+                        <i class="fa fa-star color-theme"></i>
+                        <i class="fa fa-star color-theme"></i>
+                        <i class="fa fa-star color-theme"></i>
+                        <i class="fa fa-star-half-o color-theme"></i>
+                      </li>
+                    </ul>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae sequi ipsa fugit officia eos!
+                    Sapiente
+                    laboriosam molestiae praesentium ducimus culpa. Magnam, odit, optio.</p>
+                  <cite>Joe Doe</cite>
+                </div>
+              </div>
+
+              <div class="comments">
+                <div class="comment-image">
+                  <figure>
+                    <img src="assets/img/products/review2.jpg" alt="" class="img-responsive" />
+                  </figure>
+                </div>
+                <div class="comment-content">
+                  <div class="comment-content-head">
+                    <h6 class="comment-title">Lorem ipsum dolor sit</h6>
+                  </div>
+                  <div class="review">
+                    <ul class="list list-inline comment-meta">
+                      <li>
+                        <i class="fa fa-star color-theme"></i>
+                        <i class="fa fa-star color-theme"></i>
+                        <i class="fa fa-star color-theme"></i>
+                        <i class="fa fa-star color-theme"></i>
+                        <i class="fa fa-star-half-o color-theme"></i>
+                      </li>
+                    </ul>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae sequi ipsa fugit officia eos!
+                    Sapiente
+                    laboriosam molestiae praesentium ducimus culpa. Magnam, odit, optio.</p>
+                  <cite>Joe Doe</cite>
+                </div>
+              </div>
+
+              <div class="comments">
+                <div class="comment-image">
+                  <figure>
+                    <img src="assets/img/products/review2.jpg" alt="" class="img-responsive" />
+                  </figure>
+                </div>
+                <div class="comment-content">
+                  <div class="comment-content-head">
+                    <h6 class="comment-title">Lorem ipsum dolor sit</h6>
+                  </div>
+                  <div class="review">
+                    <ul class="list list-inline comment-meta">
+                      <li>
+                        <i class="fa fa-star color-theme"></i>
+                        <i class="fa fa-star color-theme"></i>
+                        <i class="fa fa-star color-theme"></i>
+                        <i class="fa fa-star color-theme"></i>
+                        <i class="fa fa-star-half-o color-theme"></i>
+                      </li>
+                    </ul>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae sequi ipsa fugit officia eos!
+                    Sapiente
+                    laboriosam molestiae praesentium ducimus culpa. Magnam, odit, optio.</p>
+                  <cite>Joe Doe</cite>
+                </div>
+              </div>
+              <div class="comments">
+                <div class="comment-image">
+                  <figure>
+                    <img src="assets/img/products/review2.jpg" alt="" class="img-responsive" />
+                  </figure>
+                </div>
+                <div class="comment-content">
+                  <div class="comment-content-head">
+                    <h6 class="comment-title">Lorem ipsum dolor sit</h6>
+                  </div>
+                  <div class="review">
+                    <ul class="list list-inline comment-meta">
+                      <li>
+                        <i class="fa fa-star color-theme"></i>
+                        <i class="fa fa-star color-theme"></i>
+                        <i class="fa fa-star color-theme"></i>
+                        <i class="fa fa-star color-theme"></i>
+                        <i class="fa fa-star-half-o color-theme"></i>
+                      </li>
+                    </ul>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae sequi ipsa fugit officia eos!
+                    Sapiente
+                    laboriosam molestiae praesentium ducimus culpa. Magnam, odit, optio.</p>
+                  <cite>Joe Doe</cite>
+                </div>
+              </div>
+              <div class="standard-comments-form clearfix">
+                <form>
+                  <div>
+                    <label>Name</label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div>
+                    <label>E-mail</label>
+                    <input type="email" class="form-control">
+                  </div>
+                  <div>
+                    <label>Review</label>
+                    <textarea class="form-control" rows="7"></textarea>
+                  </div>
+                  <input class="btn btn-product" value="Submit Review" type="submit">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+  <!-- <section class="main-contain dip-style bg-white">
+      <div class="container">
+        <div class="related-products-style-in-productp">
+          <div class="widget">
+            <h6 class="text-uppercase bottom-line">Related Product</h6>
+          </div>
+          <div class="row" *ngFor="let relateitem of relatedpicarr1">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="item-box item">
+                <div class="shop-item">
+                  <ul class="product-labels">
+
+                  </ul>
+                  <div class="item-img">
+                    <img src="http://localhost:3000/{{relateitem.pro_img}}" alt="" class="img-responsive">
+                  </div>
+                  <div class="item-inner">
+                    <div class="item-inner-detail">
+                      <div class="item-inner-detail-cart">
+                        <a class="btn btn-line-xs btn-white-line"><i class="fa fa-shopping-cart"></i> Add To Cart</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="shop-item-info small-thumb-proudct">
+                  <a href="shop-detail.html">
+                    <h6 class="shop-item-name">{{relateitem.cat_name}}</h6>
+                  </a>
+                  <ul class="list-inline overflow-h">
+                    <li class="thumb-product-price line-through">{{relateitem.pro_price}}</li>
+                    <li class="thumb-product-price">$30.00</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section> -->
+
+  >>>>>>> a21559c05c01cf62e1e5ba4db76d29f92c66fc40

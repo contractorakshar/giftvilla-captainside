@@ -15,7 +15,7 @@ import { MemberOperationService } from '../member-operation.service';
   styleUrls: ['./userinformation.component.css']
 })
 export class UserinformationComponent implements OnInit {
-
+  Display: boolean = false;
   list: productdisplay[] = [];
   u_EmailId: string;
   user_update: FormGroup;
@@ -84,10 +84,25 @@ export class UserinformationComponent implements OnInit {
   onChange(f) {
     this.selectedFile = <File>f.target.files[0];
   }
-
+  onYesClick() {
+    // this.u_EmailId = localStorage.getItem('u_EmailId');
+    this._route.navigate(['/loginpage']);
+    console.log(this.Display);
+  }
   changepassword(u_EmailId) {
     console.log('page call');
-    this._route.navigate(['/passwordchange', u_EmailId]);
+    this.u_EmailId = localStorage.getItem('u_EmailId');
+    if (localStorage.getItem('u_EmailId') != null) {
+      this._route.navigate(['passwordchange',this.u_EmailId]);
+    }
+    else {
+
+      this.Display = true;
+      console.log(this.Display);
+      // this.Display=false;
+      let stat: string = "please do ligin";
+      this.onYesClick();
+    }
   }
 
   formDataBind(item: User) {
@@ -108,30 +123,4 @@ export class UserinformationComponent implements OnInit {
     });
   }
 
-  // onUserUpdate() {
-  //   let fd = new FormData();
-  //   fd.append('u_Name', this.user_update.get('u_Name').value);
-  //   fd.append('u_Address', this.user_update.get('u_Address').value);
-  //   fd.append('u_gender', this.user_update.get('u_gender').value);
-  //   fd.append('u_mobileno', this.user_update.get('u_mobileno').value);
-  //   fd.append('u_dob', this.user_update.get('u_dob').value);
-  //   if (this.selectedFile != null) {
-  //     fd.append('u_img', this.selectedFile, this.selectedFile.name);
-  //     console.log(this.selectedFile.name);
-  //   }
-  //   else {
-  //     fd.append('u_img', this.user_update.get('u_img').value);
-  //     console.log(this.user_update.get('u_img').value);
-  //   }
-
-  //   this.ser.updateuser(this.u_EmailId, fd).subscribe(
-  //     (data: any) => {
-
-  //       alert("Successfully edited");
-  //       console.log(data);
-  //       this._route.navigate(['/']);
-  //     }
-  //   );
-
-  // }
 }

@@ -45,8 +45,8 @@ export class PasswordchangeComponent implements OnInit {
     this.psdchange.chanagepsd(userobj).subscribe(
       (x: any) => {
         console.log(userobj);
-        alert('Your Detalis Are Saved');
-        this.router.navigate(['/']);
+        // alert('Your Detalis Are Saved');
+        this.router.navigate(['/userinfo']);
       }
     );
   }
