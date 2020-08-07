@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { WishToFriendService } from '../wish-to-friend.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-wishes-page',
@@ -11,7 +12,7 @@ export class WishesPageComponent implements OnInit {
   em: string;
 
   WishDetailsForm: FormGroup;
-  constructor(private wishServiceObj: WishToFriendService) { }
+  constructor(private wishServiceObj: WishToFriendService,public _router:Router) { }
 
   ngOnInit(): void {
 
@@ -40,6 +41,7 @@ export class WishesPageComponent implements OnInit {
     this.wishServiceObj.AddWishDetails(fb).subscribe(
       (dataDetails: any[]) => {
         console.log(dataDetails);
+        this._router.navigate(['/']);
       }
 
     );

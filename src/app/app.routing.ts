@@ -63,7 +63,7 @@ const arr: Routes = [
   // { path: 'slider', component: SliderComponent },
   { path: 'shipping', component: ShippingDetailsComponent },
   { path: 'pagenotfound', component: PagenotfoundComponent },
-  // { path: 'payment', component: PaymentComponent },
+  { path: 'payment', component: PaymentComponent },
   { path: 'offers', component: OfferPageComponent },
   { path: '**', redirectTo: '/pagenotfound' }
 ];

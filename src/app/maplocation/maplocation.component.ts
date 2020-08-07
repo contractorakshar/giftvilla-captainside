@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { MapfeedbackService } from './mapfeedback.service';
+import { Router } from '@angular/router';
 
 const dateFormat = require('dateformat');
 const now = new Date();
@@ -22,7 +23,7 @@ export class MaplocationComponent implements OnInit {
     disableDoubleClickZoom: true,
     mapTypeId: "hybrid"
   };
-  constructor(private fb: FormBuilder, private service_obj: MapfeedbackService) { }
+  constructor(private fb: FormBuilder, private service_obj: MapfeedbackService,public _router:Router) { }
 
   ngOnInit(): void {
 
@@ -64,6 +65,7 @@ export class MaplocationComponent implements OnInit {
     this.service_obj.addFeedback(fb).subscribe(
       (x: any) => {
         console.log(x);
+        this._router.navigate(['/']);
       }
     );
 

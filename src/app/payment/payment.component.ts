@@ -149,7 +149,7 @@ export class PaymentComponent implements AfterViewInit {
                   "Your Order is Received, Thanks for chosing us,Your Product will be deilverd in 1-2 Days"
                 ).subscribe(() => {
                   console.log("mail sent");
-
+                  localStorage.removeItem('cart');
                 });
 
               });

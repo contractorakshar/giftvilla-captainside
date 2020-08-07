@@ -16,7 +16,8 @@ export class PasswordchangeComponent implements OnInit {
   declare psd: string;
   SignupForm: FormGroup;
   u_EmailId: string;
-
+  u_c_password:string;
+  flag:boolean=false;
   constructor(private psdchange: ChangepasswordService, public router: Router) { }
 
   ngOnInit(): void {
@@ -37,7 +38,6 @@ export class PasswordchangeComponent implements OnInit {
   }
 
   onSignup() {
-
     let userobj = {
       u_password: this.SignupForm.value.password_group.u_password,
       u_EmailId: this.u_EmailId
