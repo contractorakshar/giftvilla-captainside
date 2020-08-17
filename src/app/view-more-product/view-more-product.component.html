@@ -74,6 +74,17 @@
         </ul>
       </div>
     </div>
+    <p-dialog [(visible)]="wishlistFlag">
+      <p-header>
+        Please Do Login!!!
+      </p-header>
+      Sorry we can't store your wishlist please login for that.....
+      <p-footer>
+        <button type="button" pButton icon="pi pi-check" label="Yes" routerLink="/loginpage">Go To Login</button>
+      </p-footer>
+    </p-dialog>
+     <!-- </section> -->
+
   </div>
 </section>
 <p-dialog [(visible)]=" wishlistFlag">

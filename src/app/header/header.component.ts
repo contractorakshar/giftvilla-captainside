@@ -51,10 +51,7 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('u_EmailId');
     this.router.navigate(['/']);
   }
-  onChangePassword() {
-    this.u_EmailId = localStorage.getItem['u_EmailId'];
-    this.router.navigate(['/passwordchange', this.u_EmailId]);
-  }
+
   onWatchClick(cat_id) {
     console.log(cat_id);
     this.router.navigate(['/productdrop', cat_id]);

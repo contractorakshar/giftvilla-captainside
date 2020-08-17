@@ -34,7 +34,7 @@ export class RegistrationFormComponent implements OnInit {
         u_password: new FormControl(null, [Validators.required]),
         u_confirm_password: new FormControl(null)
       }, [this.passwordMatch.bind(this)]),
-      u_mobileno: new FormControl(null, [Validators.required, Validators.maxLength(10), Validators.pattern('[0-9]*')]),
+      u_mobileno: new FormControl(null, [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern('[0-9]*')]),
       u_dob: new FormControl(null, [Validators.required]),
       u_img: new FormControl(null),
     });

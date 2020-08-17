@@ -16,7 +16,6 @@ import { CartoperationsService } from '../cart/cartoperations.service';
   styleUrls: ['./view-more-product.component.css']
 })
 export class ViewMoreProductComponent implements OnInit {
-
   u_EmailId: string;
   arr: productdisplay[] = [];
   picarr: productphotodisplay[] = [];
@@ -45,18 +44,11 @@ export class ViewMoreProductComponent implements OnInit {
 
   constructor(public _proser: ProductServiceService, public _rou: Router, public _actRou: ActivatedRoute, private wishlistService: WishlistOperationsService, private _cartService: CartoperationsService, private _snackBar: MatSnackBar) { }
 
-
   ngOnInit(): void {
-
-
-
-
     this._proser.getproductphoto(this.pro_id);
     this.u_EmailId = localStorage.getItem('u_EmailId');
     this.fk_pro_id = this._actRou.snapshot.params['fk_pro_id'];
-    // console.log(this.fk_cat_id);
     this.pro_id = this._actRou.snapshot.params['pro_id'];
-
     this._proser.getProductById(this.pro_id).subscribe((data: productdisplay[]) => {
       this.arr = data;
       this.pro_name = data[0].pro_name;
@@ -66,17 +58,13 @@ export class ViewMoreProductComponent implements OnInit {
       this.pro_info = data[0].pro_info;
       this.fk_cat_id = data[0].fk_cat_id;
       this.cat_name = data[0].cat_name;
-      console.log(this.arr);
+
     });
 
-    // console.log(this.images);
+
     this._proser.getproductphoto(this.pro_id).subscribe(
       (data: productphotodisplay[]) => {
         this.picarr = data;
-
-        console.log(this.picarr);
-
-
 
       });
 
@@ -133,9 +121,7 @@ export class ViewMoreProductComponent implements OnInit {
           }
 
         }
-
       );
-
     }
     else {
       this.wishlistFlag = true;
@@ -143,12 +129,6 @@ export class ViewMoreProductComponent implements OnInit {
   }
   onAddToCart(item: productdisplay) {
     console.log(item);
-    // if (this.UserId == null) {
-    //   alert('Go to Login');
-    //   console.log(this.UserId);
-    //   this._router.navigate(['/loginpage']);
-    // }
-    // else {
     this.cartProductItem = item;
     this.SubTotal = this._cartService.doSubTotal(this.cartProductItem.pro_price, 1);
     this.currentCartItem = new CartDetails(this.cartProductItem, 1, this.SubTotal);
@@ -182,14 +162,10 @@ export class ViewMoreProductComponent implements OnInit {
 
         cart.GrandTotal = this._cartService.doGrandTotal(cart.CartItems);
         // cart.u_EmailId = this.UserId;
-
         localStorage.setItem('cart', JSON.stringify(cart));
       }
-
-
     }
     console.log(localStorage.getItem('cart'));
-
     this._snackBar.open(this.cartProductItem.pro_name + 'Added to cart', 'Close', {
       duration: 2000,
       panelClass: ['blue-snackbar']

@@ -11,12 +11,12 @@
                  <li *ngFor="let item of arr" class="col-md-3 col-sm-6 html bootstrap no-padding">
                      <div class="portfolio-item">
                          <div class="project-item">
-                             <img alt="" src="http://localhost:3000/{{item.pro_img}}" class="img-responsive">
+                             <img alt="" src="http://localhost:3000/images/product_images/{{item.pro_img}}" class="img-responsive">
                              <div class="portfolio-hover">
                                  <div class="overlay-folio">
                                      <div class="hover-box">
                                          <div class="hover-zoom">
-                                             <a href="http://localhost:3000/{{item.pro_img}}" class="mp-lightbox zoom">
+                                             <a href="http://localhost:3000/images/product_images/{{item.pro_img}}" class="mp-lightbox zoom">
                                               <i class="fa fa-search-plus"></i></a>
                                              <!-- <a href="portfolio-single-1.html" class="link"> -->
                                               <a (click)="ImageViewMore(item.pro_id)" class="link">

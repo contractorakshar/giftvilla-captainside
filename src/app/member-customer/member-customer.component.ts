@@ -18,7 +18,7 @@ export class MemberCustomerComponent implements OnInit {
       this._rout.navigate(['/registration']);
     }
     else {
-      this._rout.navigate(['/registration']);
+      this._rout.navigate(['/offers']);
     }
   }
 }

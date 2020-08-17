@@ -16,7 +16,7 @@
 <!-- End Breadcrumb -->
 
 
-<div class="main-contain" style="margin-left: 35%;margin-right: 35%;">
+<div class="main-contain" style="margin-left: 5%;margin-right: 35%;">
   <div class="container">
     <div class="row">
 
@@ -39,7 +39,7 @@
               </div>
 
               <div class="form-group">
-                <label>Email Address <span class="text-danger">*</span></label>
+                <label>Email Id <span class="text-danger">*</span></label>
                 <input type="email" formControlName="u_EmailId" required placeholder="Email Address" name="u_EmailId"
                   class="form-control input-sm required email"><br>
                 <mat-error
@@ -67,11 +67,13 @@
                   mobile number is required
                 </mat-error>
                 <mat-error *ngIf="SignupForm.get('u_mobileno').hasError('maxlength')">mobile number should be 10
-                  characters
+                  numbers
+                </mat-error>
+                <mat-error *ngIf="SignupForm.get('u_mobileno').hasError('minlength')">mobile number should not be < 10
+                  numbers
                 </mat-error>
                 <mat-error *ngIf="SignupForm.get('u_mobileno').hasError('pattern')">Only numbers are allowed</mat-error>
               </div>
-
               <label>Date of Birth</label>
               <div class="form-group">
 
@@ -82,25 +84,25 @@
                   Birthdate is required
                 </mat-error>
               </div>
-
-              <!-- <div class="col-md-6"> -->
-              <div formGroupName="password_group">
+              <div class="example-container" formGroupName="password_group">
                 <div class="form-group">
                   <label>Password <span class="text-danger">*</span></label>
-                  <input type="password" formControlName="u_password" [type]="hide ? 'password' : 'text'"
-                    placeholder="Password" name="u_password" class="form-control input-sm required">
-                  <mat-icon matSuffix style="float: right;" (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  <br />
+                  <input formControlName="u_password" matInput placeholder="Enter your password"
+                    [type]="hide ? 'password' : 'text'" class="form-control input-sm required">
+                  <mat-icon style="margin-left: 95%;" matSuffix (click)="hide = !hide">
+                    {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  <br />
+                  <label>Confirm Password <span class="text-danger">*</span></label><br />
+                  <input matInput formControlName="u_confirm_password" placeholder="Enter confirm password"
+                    [type]="hide1 ? 'password' : 'text'" class="form-control input-sm required">
+                  <mat-icon style="margin-left: 95%;" matSuffix (click)="hide1 = !hide1">
+                    {{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </div>
-
-                <div class="form-group">
-                  <label>Confirm Password</label>
-
-                  <input type="password" formControlName="u_confirm_password" [type]="hide1 ? 'password' : 'text'"
-                    placeholder="Confirm Password" name="u_confirm_password" class="form-control input-sm required">
-                  <mat-icon style="float: right;" matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </div>
+                <mat-error *ngIf="SignupForm.get('password_group').hasError('notSame')">Both password and confirm
+                  password should
+                  be same.</mat-error>
               </div>
-
               <div class="form-group">
                 <label>Gender</label><br>
                 <mat-radio-group aria-label="Select an option" formControlName="u_gender"
@@ -109,28 +111,25 @@
                   <mat-radio-button value="female">Female</mat-radio-button>
                 </mat-radio-group>
               </div>
-
               <div class="form-group">
-
                 <label>Image</label>
                 <input type="file" class="form-control input-sm required" name="u_img" formControlName="u_img"
                   (change)="onChange($event)">
               </div>
             </div>
           </div>
-
-
           <div class="form-group">
-            <button type="submit" value="submit" class="btn cd-btn"><i class="fa fa-save mr5"></i>
+            <button type="submit" [disabled]="!SignupForm.valid" value="submit" class="btn cd-btn"><i class="fa fa-save mr5"></i>
               Save</button>
-            <button style="margin-left: 25%;" type="button" (click)="onSignupCancel()" class="btn cd-btn"><i class="fa fa-save mr5"></i>
+            <button style="margin-left: 25%;" type="button" (click)="onSignupCancel()" class="btn cd-btn"><i
+                class="fa fa-save mr5"></i>
               Cancel</button>
           </div>
           <!-- </div> -->
         </form>
       </div>
-
     </div>
   </div>
 </div>
-<button style="margin-left: 43%;" type="button" routerLink="/loginpage"  class="btn btn-success">Already Have An Account..</button>
+<button style="margin-left: 43%;" type="button" routerLink="/loginpage" class="btn btn-success">Already Have An
+  Account..</button>

@@ -8,9 +8,6 @@ import { GoogleMapsModule } from "@angular/google-maps";
 import { CartComponent } from './cart/cart.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DialogModule } from 'primeng/dialog'
-
-// import { SliderModule } from 'angular-image-slider';
-
 import { GalleriaModule } from 'primeng/galleria';
 import { ProducthomeComponent } from './producthome/producthome.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -113,7 +110,6 @@ import { MyOrderViewMoreComponent } from './my-order-view-more/my-order-view-mor
     // SliderModule,
     GalleriaModule,
     DialogModule,
-    // Dialog,
     routingArr,
     HttpClientModule,
     FormsModule,
