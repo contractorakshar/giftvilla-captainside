@@ -16,7 +16,7 @@ import { CartoperationsService } from '../cart/cartoperations.service';
   styleUrls: ['./view-more-product.component.css']
 })
 export class ViewMoreProductComponent implements OnInit {
-  images: any[];
+
   u_EmailId: string;
   arr: productdisplay[] = [];
   picarr: productphotodisplay[] = [];
@@ -41,22 +41,21 @@ export class ViewMoreProductComponent implements OnInit {
   i: number;
   wishlistItems: any[] = [];
   wishlistFlag: boolean = false;
-  imageUrl: string = environment.url;
-  images1 = [];
+  alredyf: boolean = false;
+
   constructor(public _proser: ProductServiceService, public _rou: Router, public _actRou: ActivatedRoute, private wishlistService: WishlistOperationsService, private _cartService: CartoperationsService, private _snackBar: MatSnackBar) { }
 
 
   ngOnInit(): void {
 
 
-    this.images = [];
 
+
+    this._proser.getproductphoto(this.pro_id);
     this.u_EmailId = localStorage.getItem('u_EmailId');
     this.fk_pro_id = this._actRou.snapshot.params['fk_pro_id'];
-    this.fk_cat_id = this._actRou.snapshot.params['fk_cat_id'];
     // console.log(this.fk_cat_id);
     this.pro_id = this._actRou.snapshot.params['pro_id'];
-
 
     this._proser.getProductById(this.pro_id).subscribe((data: productdisplay[]) => {
       this.arr = data;
@@ -74,27 +73,15 @@ export class ViewMoreProductComponent implements OnInit {
     this._proser.getproductphoto(this.pro_id).subscribe(
       (data: productphotodisplay[]) => {
         this.picarr = data;
-        for (const img of this.picarr) {
-          let imgPath: string = this.imageUrl + img.photo;
-          this.images.push({ source: imgPath, alt: '', title: '' });
-          // console.log(imgPath,this.picarr);
-        }
+
         console.log(this.picarr);
 
 
-        // for (this.i = 0; this.i < this.picarr.length; this.i++) {
-        //   this.photo = this.picarr[this.i].photo;
-        // }
-        // this.images.push({ source: this.picarr[this.i].photo.toString, alt: 'Description for Image 1', title: 'Title 1' });
-        // }
+
       });
-    // this.images1.push(this.images.values);
-    // console.log(this.images);
 
 
 
-
-    // });
     // this.fk_cat_id = this.arr[0].fk_cat_id;
     // console.log(this.fk_cat_id);
     // this._proser.getViewmoreRelatedProducts(this.fk_cat_id).subscribe((data: productdisplay[]) => {
@@ -108,46 +95,53 @@ export class ViewMoreProductComponent implements OnInit {
     //   console.log(this.relatedpicarr1);
     // });
 
-
   }
   AddTowishlist() {
-
     // this._rou.navigate(['/wishlist']);
     if (localStorage.getItem('u_EmailId') != null) {
       let wishlistObj = {
         fk_pro_id: this.pro_id,
         fk_u_EmailId: this.u_EmailId,
       };
-      this.wishlistService.getAllwishlistItems(this.u_EmailId).subscribe(
+      this.wishlistService.getAllwishlistItems(localStorage.getItem('u_EmailId')).subscribe(
         (dataproduct: any[]) => {
-          console.log(dataproduct);
+          // console.log(dataproduct);
           this.wishlistItems = dataproduct;
-          for (let i = 0; i <= this.wishlistItems.length; i++) {
-            if (this.wishlistItems[i].pro_id == this.pro_id) {
-              console.log(this.pro_id, 'already');
+          console.log(dataproduct, localStorage.getItem('u_EmailId'));
+          for (let i = 0; i < dataproduct.length; i++) {
+            if (this.pro_id == dataproduct[i].fk_pro_id) {
+              // console.log(this.pro_id, 'already');
+              this.alredyf = true;
+              this._snackBar.open(this.pro_name + '  Already in your  Wishlist', 'Close', {
+                duration: 2000,
+                panelClass: ['blue-snackbar']
+              });
             }
           }
+          if (this.alredyf == false) {
+
+            this.wishlistService.addToWishlist(wishlistObj).subscribe(
+              (dataWislist: any[]) => {
+                this._snackBar.open(this.pro_name + '  Added to Wishlist', 'Close', {
+                  duration: 2000,
+                  panelClass: ['blue-snackbar']
+                });
+                //          alert('Product Is Added To Your WishList Table');
+                console.log(dataWislist);
+              }
+            );
+          }
+
         }
 
       );
 
-      this.wishlistService.addToWishlist(wishlistObj).subscribe(
-        (dataWislist: any[]) => {
-          this._snackBar.open(this.pro_name + 'Added to Wishlist', 'Close', {
-            duration: 2000,
-            panelClass: ['blue-snackbar']
-          });
-          //          alert('Product Is Added To Your WishList Table');
-          console.log(dataWislist);
-        }
-      );
     }
     else {
       this.wishlistFlag = true;
     }
   }
   onAddToCart(item: productdisplay) {
-
     console.log(item);
     // if (this.UserId == null) {
     //   alert('Go to Login');
@@ -200,9 +194,8 @@ export class ViewMoreProductComponent implements OnInit {
       duration: 2000,
       panelClass: ['blue-snackbar']
     });
-    //alert(item.pro_name + " added");
-  }
 
+  }
 
 }
 

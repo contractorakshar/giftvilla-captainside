@@ -6,8 +6,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CancelOrderService {
-  public urlCancelOrder: string = environment.url + 'CancelOrder/';
   public urlCancelOrderDetails = environment.url + 'CancelOrderDetails/';
+  public urlCancelOrder: string = environment.url + 'CancelOrder/';
   public urlCancelTrack = environment.url + 'cancelTrack/';
   public urlcancelDelieveryDetails = environment.url + 'cancelDelieveryDetails/';
   public urlOrderById = environment.url + 'OrderById/';
@@ -19,6 +19,7 @@ export class CancelOrderService {
     return this._http.delete(this.urlCancelOrder + order_id, { headers: head });
   }
   getWalletDetails(fk_u_EmailId: string) {
+    console.log(fk_u_EmailId);
     return this._http.get(this.urlCancelOrder + fk_u_EmailId);
   }
   getOrderById(od: number) {

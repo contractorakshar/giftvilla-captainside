@@ -6,12 +6,15 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class OrderdataService {
-  public url: string = environment.url + "order/";
+  public urlOrderDetailsById = environment.url + 'orderdetails/';
+  public urlOrderById: string = environment.url + "OrderById/";
   public deleteUrl: string = environment.url + "order_Delete/";
+  public url: string = environment.url + "order/";
   public pastUrl: string = environment.url + "pastOrder/";
   public urlOrderStatus = environment.url + 'UserOrderCheck/';
   public urlOrderCheckedDetails = environment.url + 'DetailsOrderCheck/';
-
+  public urlMyOrder = environment.url + 'MyOrders/';
+  public urlMyOrderNotAssign = environment.url + 'MyOrderNotAssign/';
 
   constructor(private _http: HttpClient) { }
 
@@ -42,5 +45,17 @@ export class OrderdataService {
   }
   getUserOrderCheckedDetails(order_id: number) {
     return this._http.get(this.urlOrderCheckedDetails + order_id);
+  }
+  getOrderById(order_id: number) {
+    return this._http.get(this.urlOrderById + order_id);
+  }
+  getOrderDetailsById(order_id: number) {
+    return this._http.get(this.urlOrderDetailsById + order_id);
+  }
+  getMyOrderById(fk_u_EmailId) {
+    return this._http.get(this.urlMyOrder + fk_u_EmailId);
+  }
+  getMyOrderByIdNotAssign(order_id) {
+    return this._http.get(this.urlMyOrderNotAssign + order_id)
   }
 }

@@ -30,6 +30,8 @@ import { SerachPageComponent } from './serach-page/serach-page.component';
 import { LeftcategoryComponent } from './leftcategory/leftcategory.component';
 import { WishesPageComponent } from './wishes-page/wishes-page.component';
 import { PaymentComponent } from './payment/payment.component';
+import { ThanksOrderComponent } from './thanks-order/thanks-order.component';
+import { MyOrderViewMoreComponent } from './my-order-view-more/my-order-view-more.component';
 
 
 
@@ -48,6 +50,7 @@ const arr: Routes = [
   { path: 'registration', component: RegistrationFormComponent },
   { path: 'sortedproductlist', component: SortedproductshowComponent },
   { path: 'viewMoreProduct/:pro_id', component: ViewMoreProductComponent },
+  { path: 'viewMoreMyOrder/:order_id', component: MyOrderViewMoreComponent },
   { path: 'category', component: CategoryComponent },
   { path: 'SearchText/:txtSearch', component: SerachPageComponent },
   { path: 'help', component: HelppageComponent },
@@ -61,9 +64,10 @@ const arr: Routes = [
   { path: 'editImage/:u_EmailId', component: EdituserimageComponent },
   { path: 'myorder', component: MyorderComponent },
   // { path: 'slider', component: SliderComponent },
+  { path: 'thanksOrder/:OrderID', component: ThanksOrderComponent },
   { path: 'shipping', component: ShippingDetailsComponent },
   { path: 'pagenotfound', component: PagenotfoundComponent },
-  // { path: 'payment', component: PaymentComponent },
+  { path: 'payment', component: PaymentComponent },
   { path: 'offers', component: OfferPageComponent },
   { path: '**', redirectTo: '/pagenotfound' }
 ];

@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { orders } from '../order_bill';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OrderdataService } from '../orderdata.service';
 import { CancelOrderService } from '../cancel-order.service';
+import { orders } from '../order_bill';
 
 @Component({
-  selector: 'app-myorder',
-  templateUrl: './myorder.component.html',
-  styleUrls: ['./myorder.component.css']
+  selector: 'app-my-order-view-more',
+  templateUrl: './my-order-view-more.component.html',
+  styleUrls: ['./my-order-view-more.component.css']
 })
-export class MyorderComponent implements OnInit {
-  arr: orders[] = [];
+export class MyOrderViewMoreComponent implements OnInit {
   fk_u_EmailId: string;
   u_EmailId: string = '';
+  order_id: number;
+  orderAssignarr: any[];
+  OrderNotAssignArr: any[];
   orderDetails: any[];
   processing: string;
   arrMyOrder: any[];
@@ -31,33 +33,76 @@ export class MyorderComponent implements OnInit {
   wallet_amt: number;
   wallet_id: number;
   detail_id: number;
-  constructor(public router: Router, public orederdata: OrderdataService, public act_route: ActivatedRoute, private orderCancel: CancelOrderService) { }
+  btnflag: boolean = false;
+  constructor(public act_route: ActivatedRoute, public orederdata: OrderdataService, private orderCancel: CancelOrderService, private route: Router) { }
 
   ngOnInit(): void {
+    this.order_id = this.act_route.snapshot.params['order_id'];
     this.u_EmailId = localStorage.getItem('u_EmailId');
-    console.log(this.u_EmailId);
-    // this.fk_u_EmailId=this.act_route.snapshot.params[this.u_EmailId];
-    this.orederdata.getPastOrder(this.u_EmailId).subscribe(
-      (data: any) => {
-        this.arr = data;
-        // console.log(data);
-      }
 
-    );
-    this.orederdata.getMyOrderById(this.u_EmailId).subscribe(
-      (dataMyOrder: any[]) => {
-        this.arrMyOrder = dataMyOrder;
+    this.orederdata.getUserOrderCheck(this.order_id).subscribe(
+      (dataOrderCheck: any[]) => {
+
+        // if (dataOrderCheck.length > 0) {
+        //   this.orederdata.getPtroductById(this.order_id).subscribe(
+        //     (dataOrderAssigned: any[]) => {
+        //       this.orderAssignarr = dataOrderAssigned;
+        //     }
+        //   );
+        // }
+
+        this.orederdata.getMyOrderByIdNotAssign(this.order_id).subscribe(
+          (dataOrderNotAssign: any[]) => {
+            console.log(dataOrderNotAssign);
+            this.OrderNotAssignArr = dataOrderNotAssign;
+          }
+        );
       }
     );
-
+    this.orederdata.getPtroductById(this.order_id).subscribe(
+      (databtnCheck: any[]) => {
+        if (databtnCheck.length > 0) {
+          if (databtnCheck[0].status == 'On The Way' || databtnCheck[0].status == 'Delivered') {
+            document.getElementById('btndisplay').style.display = 'none';
+          }
+        }
+      }
+    );
   }
-  OnMyOrderViewMore(order_id: number) {
-    // console.log(order_id);
-    this.router.navigate(['/viewMoreMyOrder', order_id]);
+  OnStatusChack(order_id: number) {
+
+    // alert(order_id);
+    this.orederdata.getUserOrderCheck(order_id).subscribe(
+      (dataOrderCheck: any[]) => {
+
+        console.log(dataOrderCheck);
+        if (dataOrderCheck.length > 0) {
+          this.orederdata.getUserOrderCheckedDetails(order_id).subscribe(
+            (dataOrderCheckedDetails: any[]) => {
+              console.log(dataOrderCheckedDetails);
+              this.orderDetails = dataOrderCheckedDetails;
+              this.Display = true;
+
+              this.od = order_id;
+              this.status = this.orderDetails[0].status;
+              this.delivery_date = this.orderDetails[0].date;
+              this.bill_date = this.orderDetails[0].bill_date;
+              this.delId = this.orderDetails[0].DelIveryBoyId;
+            }
+          );
+        }
+        else {
+          // alert('order under Processing');
+          this.processing = 'Your Order Id ' + order_id + '\n' + 'Is under processing, Order will be delivered Soon';
+          this.Display2 = true;
+
+        }
+      }
+    );
   }
   confirmOrderCancel(od) {
     this.warncancel = false;
-    this.orderCancel.getOrderById(od).subscribe(
+    this.orderCancel.getOrderById(this.order_id).subscribe(
       (dataOrder: orders[]) => {
         console.log(dataOrder);
         this.payment_method = dataOrder[0].order_payment;
@@ -75,14 +120,14 @@ export class MyorderComponent implements OnInit {
       }
     );
 
-    this.orederdata.getUserOrderCheck(od).subscribe(
+    this.orederdata.getPtroductById(this.order_id).subscribe(
       (dataOrderAssigned: any[]) => {
-        console.log(dataOrderAssigned);
 
+
+        // alert('order assigend');
         if (dataOrderAssigned.length > 0) {
-          // alert('order assigend');
-          console.log(dataOrderAssigned[0].status);
-          if (dataOrderAssigned[0].status === 'Packing') {
+
+          if (dataOrderAssigned[0].status == 'Packing') {
             this.detail_id = dataOrderAssigned[0].detail_id;
             console.log(this.detail_id);
             this.orderCancel.cancelTrack(this.detail_id).subscribe(
@@ -94,7 +139,7 @@ export class MyorderComponent implements OnInit {
                     this.orderCancel.cancelOrderDetails(this.od).subscribe(
                       (dataCancelOrderDetails: any[]) => {
                         console.log('data order  details cancel');
-                        this.orderCancel.cancelOrder(this.od).subscribe(
+                        this.orderCancel.cancelOrder(this.order_id).subscribe(
                           (dataOrderCancel: any[]) => {
                             console.log('order data cancel');
                             if (this.payment_method === 'paypal' || this.payment_method == 'wallet') {
@@ -117,7 +162,7 @@ export class MyorderComponent implements OnInit {
                                   fk_u_EmailId: this.u_EmailId,
                                   order_amt: this.order_amt
                                 };
-                                console.log(WallDetailsFirstTime);
+                                // console.log(WallDetailsFirstTime);
                                 this.orderCancel.addWalletAmount(WallDetailsFirstTime).subscribe(
                                   (dataWalletFirst: any[]) => {
                                     console.log('amount 1st time credited to account', dataWalletFirst);
@@ -139,10 +184,10 @@ export class MyorderComponent implements OnInit {
         }
         else {
           // alert('order not assigned');
-          this.orderCancel.cancelOrderDetails(od).subscribe(
+          this.orderCancel.cancelOrderDetails(this.order_id).subscribe(
             (dataOrderDetails: any[]) => {
               console.log('order details mathi delete');
-              this.orderCancel.cancelOrder(od).subscribe(
+              this.orderCancel.cancelOrder(this.order_id).subscribe(
                 (dataOrderBill: any[]) => {
                   console.log('order mthi delete');
                   this.orderDelDialog = true;
@@ -184,41 +229,14 @@ export class MyorderComponent implements OnInit {
       }
     );
     // location.reload();
-  }
-  OnStatusChack(order_id: number) {
-
-    // alert(order_id);
-    this.orederdata.getUserOrderCheck(order_id).subscribe(
-      (dataOrderCheck: any[]) => {
-
-        console.log(dataOrderCheck);
-        if (dataOrderCheck.length > 0) {
-          this.orederdata.getUserOrderCheckedDetails(order_id).subscribe(
-            (dataOrderCheckedDetails: any[]) => {
-              console.log(dataOrderCheckedDetails);
-              this.orderDetails = dataOrderCheckedDetails;
-              this.Display = true;
-
-              this.od = order_id;
-              this.status = this.orderDetails[0].status;
-              this.delivery_date = this.orderDetails[0].date;
-              this.bill_date = this.orderDetails[0].bill_date;
-              this.delId = this.orderDetails[0].DelIveryBoyId;
-            }
-          );
-        }
-        else {
-          // alert('order under Processing');
-          this.processing = 'Your Order Id ' + order_id + '\n' + 'Is under processing, Order will be delivered Soon';
-          this.Display2 = true;
-
-        }
-      }
-    );
+    this.route.navigate(['/']);
   }
   OnOrderCancel(order_id) {
     this.od = order_id;
     this.warncancel = true;
 
   }
+
+
+
 }

@@ -1,0 +1,46 @@
+<!-- <h1>hello</h1> -->
+
+<label style="font-size: 15px;font-style: italic;margin-left: 12%;">Your paymenet has been
+  susscessfully done for Order Id {{this.order_id}} more
+  details are given below and in your bill
+  sent via email
+</label>
+<br><br>
+<table>
+
+  <tr style="height: 50px;">
+    <th>Product</th>
+    <th>Product Name</th>
+    <th>Product Quantity</th>
+    <th>Product Price</th>
+    <th>Sub Total</th>
+  </tr>
+
+  <tr *ngFor="let item of arrcartItems;let i=index">
+    <th><img src="http://localhost:3000/images/product_images/{{item.Product.pro_img}}"
+        style="height: 125px;width: 125px;"></th>
+    <td>
+      {{item.Product.pro_name}}
+    </td>
+    <td>{{item.Quantuty}}</td>
+    <td>{{item.Product.pro_price}}</td>
+    <td>{{item.SubTotal}}</td>
+
+  </tr>
+  <tr style="height: 50px;">
+    <td colspan="4">
+      <p *ngIf="usercategory" style="color: red ;">
+        Your Discount amount is {{ansdic}} <br>
+        And No shipping charges Are Applied
+      </p>
+      <p *ngIf="usercategory==false" style="color: red;">
+
+        Shipping charges Rs 40/- applied
+      </p>
+    </td>
+    <td> {{gt}}</td>
+  </tr>
+</table>
+<div style="margin-left: 37%;margin-top: 5%;">
+  <button class="btn cd-btn pull-left" style="width: 325px;font-size: medium;" (click)="continueshopping()">Continue Shopping</button>
+</div>

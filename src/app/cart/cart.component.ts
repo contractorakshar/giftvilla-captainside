@@ -42,9 +42,15 @@ export class CartComponent implements OnInit {
   cart: Maincart = JSON.parse(localStorage.getItem('cart')) as Maincart;
   constructor(private _cartService: CartoperationsService, private _mail: EmailToUserService, private _router: Router, private memberSerObj: MemberOperationService, private _usersrc: UserserviceService) { }
   OnAddDetails() {
-    localStorage.setItem('Finalamount', this.GrandTotal + "");
-    console.log(this.GrandTotal);
-    this._router.navigate(['/shipping']);
+    if (localStorage.getItem('u_EmailId') == null) {
+      this._router.navigate(['/loginpage']);
+    }
+    else {
+      localStorage.setItem('Finalamount', this.GrandTotal + "");
+      // console.log(this.GrandTotal);
+      this._router.navigate(['/shipping']);
+    }
+
   }
   ngOnInit() {
     // this.flag = true;
@@ -74,7 +80,12 @@ export class CartComponent implements OnInit {
               (dataOfferDetails: any[]) => {
                 let offer_Price = dataOfferDetails[0].offer_Price;
                 console.log(offer_Price);
-                this.perDiscount = 6;
+                if (offer_Price == 600) {
+                  this.perDiscount = 8;
+                }
+                else {
+                  this.perDiscount = 12;
+                }
                 this.ans = this.cart.GrandTotal;
                 this.ansdic = this.ans * this.perDiscount / 100;
                 console.log(Math.round(this.ans - this.ansdic));

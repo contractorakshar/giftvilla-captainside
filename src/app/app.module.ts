@@ -7,10 +7,11 @@ import { FooterComponent } from './footer/footer.component';
 import { GoogleMapsModule } from "@angular/google-maps";
 import { CartComponent } from './cart/cart.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-// import { DialogModule } from 'primeng/dialog';
+import { DialogModule } from 'primeng/dialog'
+
 // import { SliderModule } from 'angular-image-slider';
 
-// import { GalleriaModule } from 'primeng/galleria';
+import { GalleriaModule } from 'primeng/galleria';
 import { ProducthomeComponent } from './producthome/producthome.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
@@ -62,6 +63,8 @@ import { SerachPageComponent } from './serach-page/serach-page.component';
 import { LeftcategoryComponent } from './leftcategory/leftcategory.component';
 import { ProMFgSearchComponent } from './pro-mfg-search/pro-mfg-search.component';
 import { WishesPageComponent } from './wishes-page/wishes-page.component';
+import { ThanksOrderComponent } from './thanks-order/thanks-order.component';
+import { MyOrderViewMoreComponent } from './my-order-view-more/my-order-view-more.component';
 
 @NgModule({
   declarations: [
@@ -100,14 +103,17 @@ import { WishesPageComponent } from './wishes-page/wishes-page.component';
     LeftcategoryComponent,
     ProMFgSearchComponent,
     WishesPageComponent,
+    ThanksOrderComponent,
+    MyOrderViewMoreComponent,
   ],
   imports: [
 
 
     BrowserModule,
     // SliderModule,
-    // GalleriaModule,
-    // DialogModule,
+    GalleriaModule,
+    DialogModule,
+    // Dialog,
     routingArr,
     HttpClientModule,
     FormsModule,

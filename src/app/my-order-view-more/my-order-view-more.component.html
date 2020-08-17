@@ -25,34 +25,46 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>Order Id</th>
-                <th>Bill Price</th>
-                <th>Date</th>
-                <th>Payment Type</th>
-                <th>
-                  Details
-                </th>
+                <th>Product</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Qty</th>
+
               </tr>
             </thead>
             <tbody>
-
-              <tr *ngFor="let item of arrMyOrder">
-                <td>{{item.order_id}}</td>
-                <td>{{item.order_amt}}</td>
-                <td>{{item.bill_date}}</td>
-                <td>{{item.order_payment  | uppercase }}</td>
-                <td>
-                  <button (click)="OnMyOrderViewMore(item.order_id)" style=" border:none;height: 50px;width: 100px;"
-                    class="btn cd-btn pull-left">
-                    View More
-                  </button>
+              <tr *ngFor="let item of OrderNotAssignArr">
+                <td style="width: 400px;">
+                  <a style="width: 400px;height: 200px;">
+                    <img src="http://localhost:3000/images/product_images/{{item.pro_img}}"
+                      style="height:225px;width: 200px;" alt="product" class="img-resopnsive">
+                  </a>
                 </td>
+                <td>
+                  <h6 class="regular">{{item.pro_name}}</h6>
+
+                </td>
+                <td>
+                  <span>{{item.price}}</span>
+                </td>
+                <td style="align-content: center;">{{item.qty}}</td>
+
               </tr>
+
             </tbody>
           </table>
         </div>
 
-        <a href="#" class="btn cd-btn pull-left">
+        <button type="button" class="btn btn-primary" style="width: 150px;height: 30px;margin-left: 25%;"
+          (click)="OnStatusChack(order_id)">Check</button>
+
+        <button id="btndisplay" type="button" class="btn btn-warning"
+          style="width: 150px;height: 30px;margin-left: 15%;" (click)="OnOrderCancel(order_id)">Cancel</button>
+
+        <br>
+        <br>
+        <br>
+        <a class="btn cd-btn pull-left">
           <i class="fa fa-arrow-left mr5" routerLink="/"></i> Continue shopping
         </a>
       </div>
@@ -77,6 +89,7 @@
 
           {{processing}}
         </p-dialog>
+
         <p-dialog [(visible)]="warncancel">
           <p-header>
             Alert!!!
