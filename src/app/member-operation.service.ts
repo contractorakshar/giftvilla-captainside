@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +23,12 @@ export class MemberOperationService {
   }
   updateCtoM(u_EmailId) {
     return this._http.get(this.urlCtoM + u_EmailId);
+  }
+  RemoveMemberCustomer(fk_u_EmailId) {
+
+    let head = new HttpHeaders().set(environment.header, environment.value);
+    console.log(fk_u_EmailId);
+    return this._http.delete(this.url + fk_u_EmailId, { headers: head });
   }
 
 }

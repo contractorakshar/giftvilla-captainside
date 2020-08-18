@@ -78,7 +78,7 @@
             <li class="li-header"><a routerLink="help">Help</a></li>
             <li class="li-header"><a routerLink="/myorder">Order</a></li>
             <li class="li-header"><a routerLink="/map">ContactUs</a></li>
-            <li class="li-header"><a routerLink="/offers">Buy Membership</a></li>
+            <li class="li-header"><a (click)="Checmember()" style="color: red;">Buy Membership</a></li>
             <li class="li-header" style="margin-left: 25%;color: red;"><a routerLink="/Wishes">Send Wishes</a></li>
           </ul>
         </div>
@@ -86,3 +86,12 @@
     </div>
   </header>
 </div>
+<p-dialog [(visible)]="dispalymember">
+  <p-header>
+    Opps!!!
+  </p-header>
+  Your Are already A Giftvilaa member
+  <p-footer>
+    <button (click)="dispalymember=false">OK</button>
+  </p-footer>
+</p-dialog>

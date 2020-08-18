@@ -15,10 +15,7 @@ export class SliderComponent implements OnInit {
 
 
   }
-  clickimg() {
 
-    this.rout.navigate(['/offers']);
-  }
 
   onClick() {
 

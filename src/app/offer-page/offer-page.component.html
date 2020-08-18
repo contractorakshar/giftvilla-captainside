@@ -6,7 +6,7 @@
     <h3>valid For 6 months</h3>
     <h4>8% discount available till offer valid and free delivery on all orders</h4>
 
-    <input type="button" value="subscribe" class="btn btn-success" (click)="Offer1Slected()">
+    <!-- <input type="button" value="subscribe" class="btn btn-success" (click)="Offer1Slected()"> -->
 
   </div>
 </mat-card>
@@ -34,9 +34,26 @@
     <h2>Price : 900</h2>
     <h3>valid For 9 months</h3>
     <h4>12% discount available till offer valid and free delivery on all orders</h4>
-    <input type="button" value="subscribe" class="btn btn-success" (click)="Offer2Slected()">
+    <!-- <input type="button" value="subscribe" class="btn btn-success" (click)="Offer2Slected()"> -->
+
   </div>
 </mat-card>
+<br>
+
+<div style="border:1px solid black;height: 150px;width:100%;">
+  <mat-radio-group>
+    <mat-radio-button value="600" #txt style="font-size: medium;" (click)="abc(txt.value)">Offer 1 (600/-) 8% discount available till offer valid and free delivery on all orders
+    </mat-radio-button>
+    <br>
+  
+    <mat-radio-button value="900" #txt1 style="font-size: medium;margin-top: 5%;" (click)="abc(txt1.value)">Offer 2 (900/-) 12% discount available till offer valid and free delivery on all orders
+    </mat-radio-button>
+  </mat-radio-group>
+</div>
+<br>
+<br>
+
+<div #paypal></div>
 <p-dialog [(visible)]="display2" [style]="{width: '50vw'}">
   <p-header>
     Alert!!!

@@ -5,6 +5,8 @@ import { CartoperationsService } from '../cart/cartoperations.service';
 import { Maincart } from '../cart/maincart';
 import { ProductServiceService } from '../product-service.service';
 import { CartDetails } from '../cart/cart-details';
+import { UserserviceService } from '../userservice.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-header',
@@ -19,8 +21,9 @@ export class HeaderComponent implements OnInit {
   SearchText: productdisplay[] = [];
   GrandTotal: number = 0;
   seacrhArray: productdisplay[] = [];
+  dispalymember: boolean = false;
   cart: Maincart = JSON.parse(localStorage.getItem('cart')) as Maincart;
-  constructor(public router: Router, private _cartService: CartoperationsService, private _productData: ProductServiceService, private _router: Router) { }
+  constructor(public router: Router, private _cartService: CartoperationsService, private _productData: ProductServiceService, private _router: Router, private userobj: UserserviceService) { }
 
   ngOnInit() {
     // this.arrcartItems = this.cart.CartItems;
@@ -44,6 +47,26 @@ export class HeaderComponent implements OnInit {
     console.log(txtSearch);
     if (txtSearch != null) {
       this._router.navigate(['/SearchText', txtSearch]);
+    }
+  }
+  Checmember() {
+
+
+    if (localStorage.getItem('u_EmailId') != null) {
+      console.log(localStorage.getItem('u_EmailId'));
+      this.userobj.getuserbyemailid(localStorage.getItem('u_EmailId')).subscribe(
+        (datall: User[]) => {
+          if (datall[0].u_Type == 'member') {
+            this.dispalymember = true;
+          }
+          else {
+            this._router.navigate(['/offers']);
+          }
+        }
+      );
+    }
+    else {
+      this._router.navigate(['/loginpage']);
     }
   }
   onLogout() {

@@ -76,12 +76,16 @@ export class LoginpageComponent implements OnInit {
                   console.log(dataType);
                   this.memObj.OffersDetails(localStorage.getItem('u_EmailId')).subscribe(
                     (dataMemberDetails: any[]) => {
-                      console.log(dataMemberDetails);
+                      console.log(dataMemberDetails, this.todaysDate, dataMemberDetails[0].End_date);
                       if (this.todaysDate >= dataMemberDetails[0].End_date) {
                         console.log(dataMemberDetails[0].End_date);
                         this.memObj.updateCtoM(localStorage.getItem('u_EmailId')).subscribe(
                           (dataTypeUpdate: any[]) => {
                             console.log(dataTypeUpdate);
+                            this.memObj.RemoveMemberCustomer(localStorage.getItem('u_EmailId')).subscribe(
+                              (dataMemeberremove: any) => {
+                                console.log(dataMemeberremove);
+                              });
                           }
                         );
                       }
