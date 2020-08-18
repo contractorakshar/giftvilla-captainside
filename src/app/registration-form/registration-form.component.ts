@@ -15,7 +15,7 @@ export class RegistrationFormComponent implements OnInit {
   hide1 = true;
   SignupForm: FormGroup;
   selectedFile: File = null;
-
+  dis: boolean = false;
   email = new FormControl('');
   constructor(public _signupser: RegistrationDataService, public _rou: Router) { }
 
@@ -61,10 +61,10 @@ export class RegistrationFormComponent implements OnInit {
     this._signupser.signup(userobj).subscribe(
       (x: any) => {
         console.log(x)
-        alert('Your Detalis Are Saved');
-        this._rou.navigate(['/']);
+
+        this.dis = true;
         localStorage.setItem('u_EmailId', this.SignupForm.get('u_EmailId').value);
-        alert('You have successfully log in');
+
       }
     );
   }
@@ -80,7 +80,6 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   onSignupCancel() {
-    alert("Data Is Not Save...");
     this._rou.navigate(['/']);
   }
 }

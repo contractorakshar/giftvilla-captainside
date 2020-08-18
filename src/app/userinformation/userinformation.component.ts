@@ -97,7 +97,7 @@ export class UserinformationComponent implements OnInit {
     }
     else {
 
-      this.Display = true;
+    this.Display = true;
       console.log(this.Display);
       // this.Display=false;
       let stat: string = "please do ligin";

@@ -24,6 +24,7 @@ export class CartComponent implements OnInit {
   proQty;
   demo = this.proQty;
   ipq;
+  pn: string;
   spcl_instruction: string;
   flag: Boolean = false;
   UserId: string = localStorage.getItem('u_EmailId');
@@ -56,7 +57,7 @@ export class CartComponent implements OnInit {
     // this.flag = true;
     //if (this.demo > this.ipq) {
     //console.log("sorrynot avilable");
-    //alert('Reuested Order Quntity is not availabel');
+
     //this.flag = true;
     //}
     //this.flag = false
@@ -69,7 +70,7 @@ export class CartComponent implements OnInit {
       this.GrandTotal = this.cart.GrandTotal;
     }
     if (localStorage.getItem('u_EmailId') != null) {
-      // alert(localStorage.getItem('u_EmailId'));
+
       this._usersrc.getuserbyemailid(localStorage.getItem('u_EmailId')).subscribe(
         (dataUser: User[]) => {
           console.log(dataUser);
@@ -111,12 +112,12 @@ export class CartComponent implements OnInit {
 
   onQtyChange(item: CartDetails, txtQty: string, index: number) {
     // console.log("selected item ", item);
-    // console.log("latest value ", txtQty);
+    console.log("latest value ", txtQty);
     // item.SubTotal = +txtQty * item.Product.pro_price;
     // let x: CartDetails[] = [item];
     // this.GrandTotal = this._cartService.doGrandTotal(x);
     console.log(item.Product.pro_qty);
-    this.flag = false;
+
     item.Quantuty = +txtQty;
 
     item.SubTotal = this._cartService.doSubTotal(item.Product.pro_price, item.Quantuty);
@@ -129,115 +130,15 @@ export class CartComponent implements OnInit {
     this.ipq = item.Product.pro_qty;
     this.proQty = parseInt(txtQty);
     if (abc > item.Product.pro_qty) {
+
       //console.log("sorrynot avilable");
-      //alert('Reuested Order Quntity is not availabel');
+
       this.flag = true;
+      this.pn = item.Product.pro_name;
       localStorage.setItem('Finalamount', this.GrandTotal + "");
-      console.log(this.GrandTotal);
-      // localStorage.setItem('cart',JSON.stringify(this.cart));
+
+
     }
-    // else {
 
-    //   let productObject = {
-    //   this.proQty: item.Product.pro_qty - abc,
-    //     pro_id: item.Product.pro_id
-
-    //   }
-    // }
   }
-  // navigateTodetails() {
-
-
-
-  // }
-  // btnCheckout() {
-  //   console.log(this.cart);
-  //   if (this.UserId == null) {
-  //     alert('Go to Login');
-  //     // if (this.proQty > this.ipq) {
-  //     console.log(this.UserId);
-  //     this._router.navigate(['/loginpage']);
-  //   }
-  //   else {
-  //     this.cart.u_EmailId = this.UserId;
-  //     //   //console.log("sorrynot avilable");
-  //     //   //alert('Reuested Order Quntity is not availabel');
-  //     //   this.flag = true;
-  //     // }
-
-  //     let OrderID;
-  //     let objOrder = {
-  //       "fk_u_EmailId": this.cart.u_EmailId,
-  //       "bill_date": dateFormat(now, "yyyy-mm-dd"),
-  //       "order_amt": this.GrandTotal,
-  //       "order_payment": 'paypal',
-  //       "order_spc_instruction": this.spcl_instruction,
-  //     };
-  //     console.log(this.spcl_instruction);
-
-
-  //     this._cartService.addOrder(objOrder).subscribe(
-  //       (dataOrder: any) => {
-  //         console.log(objOrder);
-  //         OrderID = dataOrder.insertId;
-  //         console.log(dataOrder.insertId);
-  //       },
-  //       (err) => { },
-  //       () => {
-  //         let objOrderDetail = {
-  //           'fk_order_id': OrderID,
-  //           'cartItems': this.cart.CartItems
-  //         };
-  //         console.log(objOrderDetail);
-
-  //         // let Bill = {
-  //         //   od: OrderID,
-  //         //   gt: this.cart.GrandTotal,
-  //         //   //product_name: this.cart.CartItems[0].Product,
-  //         //   //q: this.cart.CartItems[0].Quantuty,
-
-  //         // }
-  //         for (let i = 0; i < this.cart.CartItems.length; i++) {
-  //           this.productarr.push(this.cart.CartItems[i].Product.pro_name);
-  //           this.quantityarr.push(this.cart.CartItems[i].Quantuty);
-  //         }
-  //         this._cartService.addOrderDetail(objOrderDetail).subscribe(
-  //           (y: any[]) => {
-  //             console.log(y);
-  //             alert("data added");
-  //             this._mail.getUserByEmail(this.cart.u_EmailId).subscribe((data) => {
-
-
-  //               this._mail.passwordMail(this.cart.u_EmailId, "BILL",
-  //                 "\n----------------------------------------------------------------------------------------------" +
-  //                 "\n OrderID " + OrderID +
-  //                 "\n----------------------------------------------------------------------------------------------" +
-  //                 "\nProducts Ordered  " + this.productarr +
-  //                 "\n" +
-  //                 "\nQuantity Ordered " + this.quantityarr +
-  //                 "\n----------------------------------------------------------------------------------------------" +
-  //                 "Total Amount:  " + this.GrandTotal +
-  //                 "\n----------------------------------------------------------------------------------------------" +
-  //                 "Your Order is Received, Thanks for chosing us,Your Product will be deilverd in 1-2 Days"
-  //               ).subscribe(() => {
-  //                 console.log("mail sent");
-
-  //               });
-
-  //             });
-  //           });
-  //       }
-  //     );
-  //     // let productObject = {
-  //     //   pro_id:this.,
-  //     //   pro_qty: this.proQty;
-
-  //     // }
-  //     // this._cartService.updateProductQuantity(productObject).subscribe(
-  //     //   (x: any) => {
-  //     //     console.log(x);
-  //     //   }
-  //     // );
-  //   }
-  // }
 }

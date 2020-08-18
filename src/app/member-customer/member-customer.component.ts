@@ -13,7 +13,7 @@ export class MemberCustomerComponent implements OnInit {
   ngOnInit(): void {
   }
   ApplyMember() {
-    // alert("hi");
+
     if (localStorage.getItem('u_EmailId') == null) {
       this._rout.navigate(['/registration']);
     }

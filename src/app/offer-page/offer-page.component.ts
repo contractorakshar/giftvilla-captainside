@@ -29,6 +29,7 @@ export class OfferPageComponent implements OnInit {
   EmailID;
   UserType: string;
   offerSubscribed;
+  dis1: boolean = false;
   constructor(private _rout: Router, private _memberService: MemberOperationService, private userobj: UserserviceService) { }
 
   ngOnInit(): void {
@@ -73,6 +74,7 @@ export class OfferPageComponent implements OnInit {
             this._memberService.Addmember(memberSubscription).subscribe(
               (dataMemberAdded: any[]) => {
                 console.log(dataMemberAdded);
+                this.dis1 = true;
                 this._memberService.updateCustomerType(this.EmailID).subscribe(
                   (dataTypeUpdated: any[]) => {
                     console.log(dataTypeUpdated);
@@ -162,6 +164,7 @@ export class OfferPageComponent implements OnInit {
 
   }
   Offer2Slected() {
+    console.log('2');
     if (localStorage.getItem('u_EmailId') == null) {
       this._rout.navigate(["/loginpage"]);
     }
@@ -178,7 +181,7 @@ export class OfferPageComponent implements OnInit {
             this.day = dateFormat(now, 'dd');
 
 
-            this.mon = parseInt(this.mon) + 6;
+            this.mon = parseInt(this.mon) + 9;
             if (this.mon > 12) {
 
               this.year = parseInt(this.year) + 1;
@@ -194,13 +197,14 @@ export class OfferPageComponent implements OnInit {
               fk_u_EmailId: this.EmailID,
               start_date: this.d,
               end_date: this.endyear,
-              offer_Price: 600
+              offer_Price: 900
             };
 
             console.log(memberSubscription);
             this._memberService.Addmember(memberSubscription).subscribe(
               (dataMemberAdded: any[]) => {
                 console.log(dataMemberAdded);
+                this.dis1 = true;
                 this._memberService.updateCustomerType(this.EmailID).subscribe(
                   (dataTypeUpdated: any[]) => {
                     console.log(dataTypeUpdated);

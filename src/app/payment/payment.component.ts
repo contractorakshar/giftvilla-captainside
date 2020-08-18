@@ -9,6 +9,8 @@ import { MemberOperationService } from '../member-operation.service';
 import { UserserviceService } from '../userservice.service';
 import { User } from '../user';
 import { CancelOrderService } from '../cancel-order.service';
+import { ProductServiceService } from '../product-service.service';
+import { productdisplay } from '../productdisplay';
 
 declare let paypal: any;
 declare var require: any;
@@ -24,6 +26,7 @@ export class PaymentComponent implements AfterViewInit {
   finalAmount: number = 1;
   arrcartItems: CartDetails[] = [];
   productarr: string[] = [];
+  qty: any[];
   spcl_instruction: string;
   cart: Maincart = JSON.parse(localStorage.getItem('cart')) as Maincart;
   quantityarr: number[] = [];
@@ -36,8 +39,9 @@ export class PaymentComponent implements AfterViewInit {
   walletAmount: number;
   @ViewChild("paypal") paypalele: ElementRef;
 
-  constructor(private _cartService: CartoperationsService, private _mail: EmailToUserService, private _router: Router, private memberSerObj: MemberOperationService, private _usersrc: UserserviceService, private walletSer: CancelOrderService) { }
+  constructor(private _cartService: CartoperationsService, private _mail: EmailToUserService, private _router: Router, private memberSerObj: MemberOperationService, private _usersrc: UserserviceService, private walletSer: CancelOrderService, private proServ: ProductServiceService) { }
   ngOnInit() {
+
     // this.GrandTotal = this.GrandTotal;
     //     var x = "32";
     // var y: number = +x;
@@ -64,7 +68,7 @@ export class PaymentComponent implements AfterViewInit {
   };
   padiFor = false;
   ngAfterViewInit() {
-    // console.log(this.finalAmount);
+
     paypal
       .Buttons({
         createOrder: (data, actions) => {
@@ -73,7 +77,7 @@ export class PaymentComponent implements AfterViewInit {
               {
                 description: this.product.description,
                 amount: {
-                  //currency_code: "USD",
+
                   currency_code: "INR",
                   value: this.GrandTotal,
                 },
@@ -103,9 +107,7 @@ export class PaymentComponent implements AfterViewInit {
             };
             this._cartService.addOrder(objOrder).subscribe(
               (dataOrder: any) => {
-                // console.log(objOrder);
                 OrderID = dataOrder.insertId;
-                // console.log(dataOrder.insertId);
               },
               (err) => { },
               () => {
@@ -113,23 +115,14 @@ export class PaymentComponent implements AfterViewInit {
                   'fk_order_id': OrderID,
                   'cartItems': this.cart.CartItems
                 };
-                // console.log(objOrderDetail);
 
-                // let Bill = {
-                //   od: OrderID,
-                //   gt: this.cart.GrandTotal,
-                //   //product_name: this.cart.CartItems[0].Product,
-                //   //q: this.cart.CartItems[0].Quantuty,
-
-                // }
                 for (let i = 0; i < this.cart.CartItems.length; i++) {
                   this.productarr.push(this.cart.CartItems[i].Product.pro_name);
                   this.quantityarr.push(this.cart.CartItems[i].Quantuty);
                 }
                 this._cartService.addOrderDetail(objOrderDetail).subscribe(
                   (y: any[]) => {
-                    // console.log(y);
-                    // alert("data added");
+                    this.UpadteQty();
                     this._router.navigate(['/thanksOrder', OrderID]);
                     this._mail.getUserByEmail(this.cart.u_EmailId).subscribe((data) => {
 
@@ -146,7 +139,7 @@ export class PaymentComponent implements AfterViewInit {
                         "\n----------------------------------------------------------------------------------------------" +
                         "Your Order is Received, Thanks for chosing us,Your Product will be deilverd in 1-2 Days"
                       ).subscribe(() => {
-                        // console.log("mail sent");
+
 
                       });
 
@@ -167,20 +160,15 @@ export class PaymentComponent implements AfterViewInit {
       .render(this.paypalele.nativeElement);
   }
   onCheckOutCash() {
-    // btnCheckout() {
-    // console.log(this.cart);
+
     if (this.UserId == null) {
-      alert('Go to Login');
-      // console.log(this.UserId);
+
+
       this._router.navigate(['/loginpage']);
     }
     else {
       this.cart.u_EmailId = this.UserId;
-      // if (this.proQty > this.ipq) {
-      //   //console.log("sorrynot avilable");
-      //   //alert('Reuested Order Quntity is not availabel');
-      //   this.flag = true;
-      // }
+
 
       let OrderID;
       let objOrder = {
@@ -190,14 +178,13 @@ export class PaymentComponent implements AfterViewInit {
         "order_payment": 'cash',
         "order_spc_instruction": this.spcl_instruction,
       };
-      // console.log(this.spcl_instruction);
 
 
       this._cartService.addOrder(objOrder).subscribe(
         (dataOrder: any) => {
-          // console.log(objOrder);
+
           OrderID = dataOrder.insertId;
-          // console.log(dataOrder.insertId);
+
         },
         (err) => { },
         () => {
@@ -205,40 +192,32 @@ export class PaymentComponent implements AfterViewInit {
             'fk_order_id': OrderID,
             'cartItems': this.cart.CartItems
           };
-          // console.log(objOrderDetail);
 
-          // let Bill = {
-          //   od: OrderID,
-          //   gt: this.cart.GrandTotal,
-          //   //product_name: this.cart.CartItems[0].Product,
-          //   //q: this.cart.CartItems[0].Quantuty,
-
-          // }
           for (let i = 0; i < this.cart.CartItems.length; i++) {
             this.productarr.push(this.cart.CartItems[i].Product.pro_name);
             this.quantityarr.push(this.cart.CartItems[i].Quantuty);
           }
+
           this._cartService.addOrderDetail(objOrderDetail).subscribe(
             (y: any[]) => {
-              // console.log(y);
-              // alert("data added");
+
+              this.UpadteQty();
               this._router.navigate(['/thanksOrder', OrderID]);
               this._mail.getUserByEmail(this.cart.u_EmailId).subscribe((data) => {
 
 
                 this._mail.passwordMail(this.cart.u_EmailId, "BILL",
                   "\n----------------------------------------------------------------------------------------------" +
-                  "\n OrderID " + OrderID +
+                  "\n Order Id " + OrderID +
                   "\n----------------------------------------------------------------------------------------------" +
-                  "\nProducts Ordered  " + this.productarr +
+                  "\nProducts Ordered ::: \n" + this.productarr.join("\n") +
                   "\n" +
-                  "\nQuantity Ordered " + this.quantityarr +
+                  "\n Quantity Ordered ::: \n" + this.quantityarr.join("\n") +
                   "\n----------------------------------------------------------------------------------------------" +
                   "Total Amount:  " + this.GrandTotal +
                   "\n----------------------------------------------------------------------------------------------" +
                   "Your Order is Received, Thanks for chosing us,Your Product will be deilverd in 1-2 Days"
                 ).subscribe(() => {
-                  // console.log("mail sent");
 
                 });
 
@@ -253,14 +232,13 @@ export class PaymentComponent implements AfterViewInit {
     }
   }
   onCheckOutWallet() {
-    // console.log(this.walletDetails);
-    // console.log(this.walletDetails[0].wallet_amount);
+
     if (this.GrandTotal > this.walletDetails[0].wallet_amount) {
       this.insuff = true;
     }
     else {
       this.cart.u_EmailId = this.UserId;
-      // console.log(order, this.padiFor);
+
       let OrderID: number;
       let objOrder = {
         "fk_u_EmailId": this.cart.u_EmailId,
@@ -271,9 +249,9 @@ export class PaymentComponent implements AfterViewInit {
       };
       this._cartService.addOrder(objOrder).subscribe(
         (dataOrder: any) => {
-          // console.log(objOrder);
+
           OrderID = dataOrder.insertId;
-          // console.log(dataOrder.insertId);
+
         },
         (err) => { },
         () => {
@@ -281,23 +259,15 @@ export class PaymentComponent implements AfterViewInit {
             'fk_order_id': OrderID,
             'cartItems': this.cart.CartItems
           };
-          // console.log(objOrderDetail);
 
-          // let Bill = {
-          //   od: OrderID,
-          //   gt: this.cart.GrandTotal,
-          //   //product_name: this.cart.CartItems[0].Product,
-          //   //q: this.cart.CartItems[0].Quantuty,
-
-          // }
           for (let i = 0; i < this.cart.CartItems.length; i++) {
             this.productarr.push(this.cart.CartItems[i].Product.pro_name);
             this.quantityarr.push(this.cart.CartItems[i].Quantuty);
           }
           this._cartService.addOrderDetail(objOrderDetail).subscribe(
             (y: any[]) => {
-              // console.log(y);
-              // alert("data added");
+
+              this.UpadteQty();
               this._router.navigate(['/thanksOrder', OrderID]);
               let total: number = this.walletDetails[0].wallet_amount - this.GrandTotal;
               console.log(total);
@@ -324,7 +294,7 @@ export class PaymentComponent implements AfterViewInit {
                   "\n----------------------------------------------------------------------------------------------" +
                   "Your Order is Received, Thanks for chosing us,Your Product will be deilverd in 1-2 Days"
                 ).subscribe(() => {
-                  // console.log("mail sent");
+
 
                 });
 
@@ -337,7 +307,28 @@ export class PaymentComponent implements AfterViewInit {
       );
     }
   }
+  UpadteQty() {
 
+    console.log(this.cart.CartItems.length);
+    for (let i = 0; i < this.cart.CartItems.length; i++) {
+
+      this.proServ.getProductById(this.cart.CartItems[i].Product.pro_id).subscribe(
+        (dataqty: productdisplay[]) => {
+          this.qty = dataqty;
+          for (let j = 0; j < this.cart.CartItems.length; j++) {
+            let objQty = {
+              pro_id: this.cart.CartItems[i].Product.pro_id,
+              pro_qty: this.qty[j].pro_qty - this.cart.CartItems[i].Quantuty,
+            };
+            // console.log(objQty);
+            this.proServ.updateProductQty(objQty).subscribe(
+              (datachng: any[]) => {
+
+              }
+            );
+          }
+        });
+    }
+  }
 }
-
 

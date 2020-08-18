@@ -28,7 +28,7 @@
     Wallet
   </button>
   <br><br>
-  <label style="font-size: large;margin-left: 27%;" class="btn btn-light">
+  <label *ngIf="walltetFlag" style="font-size: large;margin-left: 27%;" class="btn btn-light">
     Wallet Balance :- {{walletAmount | currency:"INR"}}
   </label>
 </div>

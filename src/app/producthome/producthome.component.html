@@ -20,10 +20,11 @@
         <div class="item-box item mb30">
           <div class="shop-item">
             <ul class="product-labels">
-              <li>New</li>
+              <!-- <li>New</li> -->
             </ul>
             <div class="item-img">
-              <img src="http://localhost:3000/images/product_images/{{item.pro_img}}" alt="" class="img-responsive" id="img200">
+              <img src="http://localhost:3000/images/product_images/{{item.pro_img}}" alt="" class="img-responsive"
+                id="img200">
             </div>
 
             <div class="item-inner">
@@ -58,3 +59,28 @@
     </div>
   </div>
 </div>
+<p-carousel [value]="TopSellingProducts" [numVisible]="4" [numScroll]="1" circular="true" [autoplayInterval]="6000"
+  [responsiveOptions]="responsiveOptions">
+  <p-header>
+    <h3 class="h3 text-center">Top Selling Products</h3>
+    <br>
+  </p-header>
+  <ng-template let-pro pTemplate="item">
+    <div style="margin-left: 2%;">
+      <a>
+        <img src="http://localhost:3000/images/product_images/{{pro.pro_img}}" alt="Product"
+          style="height: 250px;width: 175px;" (click)="ImageViewMore(pro.fk_pro_id)">
+      </a>
+      <div>
+        <h3>
+          <a>{{pro.pro_name | titlecase}}</a>
+        </h3>
+        <div>
+          <div class="shop-red">
+            <span>{{pro.pro_price | currency : 'INR'}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>

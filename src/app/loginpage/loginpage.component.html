@@ -1,5 +1,5 @@
 <!-- <div class="page"> -->
-<div  class="page-heading">
+<div class="page-heading">
   <div class="container">
     <div class="row">
       <div class="col-sm-12 text-center">
@@ -42,7 +42,8 @@
 
               <input type="password" formControlName="u_password" [type]="hide ? 'password' : 'text'"
                 placeholder="Password" name="u_password" class="form-control input-sm required">
-              <mat-icon matSuffix style="float: right;" (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <mat-icon matSuffix style="float: right;" (click)="hide = !hide">
+                {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </div>
           </div>
           <div class="form-group">
@@ -70,3 +71,24 @@
     </div>
   </div>
 </div>
+<button style="margin-left: 25%;" class="btn cd-btn" (click)="DontAcc()">Don't have Account</button>
+<p-dialog [(visible)]="display123">
+  <p-header>
+    Alert!!!
+  </p-header>
+  Your Enter Details Are Invalid!!!
+  <p-footer>
+    <button (click)="display123=false">OK</button>
+
+  </p-footer>
+</p-dialog>
+<p-dialog [(visible)]="display1">
+  <p-header>
+    Alert!!!
+  </p-header>
+  Please Enter Valid Details!!!
+  <p-footer>
+    <button (click)="display1=false">OK</button>
+
+  </p-footer>
+</p-dialog>

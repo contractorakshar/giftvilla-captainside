@@ -27,6 +27,8 @@ export class LoginpageComponent implements OnInit {
   loginForm: FormGroup;
   error: string;
   userType: string;
+  display123: boolean = false;
+  display1: boolean = false;
   constructor(private _loginser: LogindataService, private _rou: Router, private _mail: EmailToUserService, private _userService: UserserviceService, private memObj: MemberOperationService) { }
 
   ngOnInit(): void {
@@ -49,7 +51,7 @@ export class LoginpageComponent implements OnInit {
     let a = this.loginForm.get('u_EmailId').value;
     this._mail.getUserByEmail(a).subscribe((data) => {
       console.log(data[0].u_password);
-      this._mail.passwordMail(a, "Forgotten Password", data[0].u_password + "this is giftvilla service").subscribe((data) => {
+      this._mail.passwordMail(a, "Forgotten Password", " Forgot password request maid for your account .Your Password is   " + data[0].u_password + "this is Giftvilla service").subscribe((data) => {
         console.log("mail sent");
       });
     });
@@ -66,7 +68,7 @@ export class LoginpageComponent implements OnInit {
             console.log(x);
             this.userType = x[0].u_Type;
             localStorage.setItem('u_EmailId', this.loginForm.get('u_EmailId').value);
-            alert("You have successfully log in");
+
             if (this.userType == 'member') {
               console.log('member');
               this._userService.getuserbyemailid(localStorage.getItem('u_EmailId')).subscribe(
@@ -89,16 +91,20 @@ export class LoginpageComponent implements OnInit {
               );
             }
 
-            this._rou.navigate(['']);
+            this._rou.navigate(['/']);
           }
           else {
-            alert("invalid id & password");
+
+            this.display123 = true;
           }
         }
       );
     }
     else {
-      alert("id password should not be empty.");
+      this.display1 = true;
     }
+  }
+  DontAcc() {
+    this._rou.navigate(['/registration']);
   }
 }

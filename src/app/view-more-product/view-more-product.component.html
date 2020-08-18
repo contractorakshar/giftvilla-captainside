@@ -15,8 +15,8 @@
 
 <section class="main-contain shop-product bg-white">
   <div class="container">
-    <div *ngFor="let item of picarr" style="float: left;">
-      <img mat-card-image style="height: 300px;width: 225px;"
+    <div *ngFor="let item of picarr" style="float: left;margin-left: 1%;">
+      <img mat-card-image style="height: 300px;width: 225px;border: 1px solid black;"
         src="http://localhost:3000/images/product_images/{{item.photo}}">
     </div>
     <div *ngFor="let item of arr" class="row" style="float: left;margin-top: 7%;width: 100%;">
@@ -83,10 +83,11 @@
         <button type="button" pButton icon="pi pi-check" label="Yes" routerLink="/loginpage">Go To Login</button>
       </p-footer>
     </p-dialog>
-     <!-- </section> -->
+    <!-- </section> -->
 
   </div>
 </section>
+
 <p-dialog [(visible)]=" wishlistFlag">
   <p-header>
     Login Fisrt!
@@ -94,3 +95,29 @@
   Please!
   <br> Do login first to store product in your wishlist
 </p-dialog>
+
+<p-carousel [value]="relatedProduct" [numVisible]="4" [numScroll]="1" circular="true" [autoplayInterval]="6000"
+  [responsiveOptions]="responsiveOptions">
+  <p-header>
+    <h3 class="h3 text-center">Similar Products</h3>
+    <br>
+  </p-header>
+  <ng-template let-pro pTemplate="item">
+    <div style="margin-left: 2%;">
+      <a>
+        <img src="http://localhost:3000/images/product_images/{{pro.pro_img}}" alt="Product"
+          style="height: 250px;width: 175px;" (click)="onViewMore(pro.pro_id)">
+      </a>
+      <div>
+        <h3>
+          <a>{{pro.pro_name | titlecase}}</a>
+        </h3>
+        <div>
+          <div class="shop-red">
+            <span>{{pro.pro_price | currency : 'INR'}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>

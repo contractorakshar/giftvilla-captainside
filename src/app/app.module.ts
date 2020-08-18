@@ -7,7 +7,8 @@ import { FooterComponent } from './footer/footer.component';
 import { GoogleMapsModule } from "@angular/google-maps";
 import { CartComponent } from './cart/cart.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { DialogModule } from 'primeng/dialog'
+import { DialogModule } from 'primeng/dialog';
+import { CarouselModule } from 'primeng/carousel';
 import { GalleriaModule } from 'primeng/galleria';
 import { ProducthomeComponent } from './producthome/producthome.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -111,6 +112,7 @@ import { MyOrderViewMoreComponent } from './my-order-view-more/my-order-view-mor
     GalleriaModule,
     DialogModule,
     routingArr,
+    CarouselModule,
     HttpClientModule,
     FormsModule,
     MatSnackBarModule,

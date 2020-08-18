@@ -50,18 +50,11 @@
                     <span>{{item.Product.pro_price | currency : 'INR'}}</span>
                   </td>
                   <td>
-                    <!-- <select class="form-control" name="select">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                          </select> -->
                     <input type="number" min="1" #txtQuantity [value]="item.Quantuty"
                       (change)="onQtyChange(item, txtQuantity.value,i)">
                     <br>
-                    <div *ngIf="flag" style="color: red;font-size: 11px;">Sorry Requested Quantity is Not Availabel
-                    </div>
+                    <!-- <div *ngIf="flag" style="color: red;font-size: 11px;">Sorry Requested Quantity is Not Available
+                    </div> -->
                   </td>
                   <td>
                     <span class="text-primary pri-color">{{item.SubTotal | currency : 'INR'}}</span>
@@ -121,3 +114,12 @@
     </aside>
   </div>
 </div>
+<p-dialog [(visible)]="flag">
+  <p-header>
+    OOPPS!!
+  </p-header>
+  Requested Qty is not Available for {{pn}}
+  <p-footer>
+    <button (click)="flag=false">OK</button>
+  </p-footer>
+</p-dialog>

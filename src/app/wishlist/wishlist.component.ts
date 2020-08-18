@@ -53,7 +53,7 @@ export class WishlistComponent implements OnInit {
   onAddToCart(item: productdisplay) {
     console.log(item);
     // if (this.UserId == null) {
-    //   alert('Go to Login');
+
     //   console.log(this.UserId);
     //   this._router.navigate(['/loginpage']);
     // }

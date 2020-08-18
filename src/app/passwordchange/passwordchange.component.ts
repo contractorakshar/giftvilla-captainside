@@ -16,8 +16,9 @@ export class PasswordchangeComponent implements OnInit {
   declare psd: string;
   SignupForm: FormGroup;
   u_EmailId: string;
-  u_c_password:string;
-  flag:boolean=false;
+  u_c_password: string;
+  flag: boolean = false;
+  dis1: boolean = false;
   constructor(private psdchange: ChangepasswordService, public router: Router) { }
 
   ngOnInit(): void {
@@ -33,7 +34,7 @@ export class PasswordchangeComponent implements OnInit {
       });
     }
     else {
-      alert("please do login...!!");
+
     }
   }
 
@@ -45,7 +46,7 @@ export class PasswordchangeComponent implements OnInit {
     this.psdchange.chanagepsd(userobj).subscribe(
       (x: any) => {
         console.log(userobj);
-        // alert('Your Detalis Are Saved');
+
         this.router.navigate(['/userinfo']);
       }
     );

@@ -18,20 +18,47 @@ export class ProducthomeComponent implements OnInit {
   currentCartItem: CartDetails = null;
   SubTotal = 0;
   GrandTotal = 0;
+  responsiveOptions;
   seacrhArray: productdisplay[] = [];
+  TopSellingProducts: any[] = [];
   UserId: string = localStorage.getItem('u_EmailId');
-  constructor(private _productData: ProductServiceService, private _cartService: CartoperationsService, private _router: Router, private _snackBar: MatSnackBar) { }
+  dataTopsell: any[];
+  constructor(private _productData: ProductServiceService, private _cartService: CartoperationsService, private _router: Router, private _snackBar: MatSnackBar) {
+    this.responsiveOptions = [
+      {
+        breakpoint: '1024px',
+        numVisible: 3,
+        numScroll: 3
+      },
+      {
+        breakpoint: '768px',
+        numVisible: 2,
+        numScroll: 2
+      },
+      {
+        breakpoint: '560px',
+        numVisible: 1,
+        numScroll: 1
+      }
+    ];
+  }
 
   ngOnInit() {
-    this._productData.getHomeProduct().subscribe((data: productdisplay[]) => {
-      this.arr = data;
-    });
+    this._productData.getHomeProduct().subscribe(
+      (data: productdisplay[]) => {
+        this.arr = data;
+      });
+    this._productData.getTopSellingProducts().subscribe(
+      (dataTopSelling: any) => {
+        this.TopSellingProducts = dataTopSelling;
+      }
+    );
   }
   onAddToCart(item: productdisplay) {
 
     console.log(item);
     // if (this.UserId == null) {
-    //   alert('Go to Login');
+
     //   console.log(this.UserId);
     //   this._router.navigate(['/loginpage']);
     // }
@@ -81,7 +108,7 @@ export class ProducthomeComponent implements OnInit {
       duration: 2000,
       panelClass: ['blue-snackbar']
     });
-    //alert(item.pro_name + " added");
+
   }
   onRemoveFromCart(SelectedProductID) {
     if (this.UserId != null) {
@@ -90,7 +117,7 @@ export class ProducthomeComponent implements OnInit {
     }
   }
   ImageViewMore(pro_id) {
-    console.log(pro_id);
+    // console.log(pro_id);
     this._router.navigate(['/viewMoreProduct', pro_id]);
   }
 

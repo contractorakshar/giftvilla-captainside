@@ -80,7 +80,7 @@ export class MyorderComponent implements OnInit {
         console.log(dataOrderAssigned);
 
         if (dataOrderAssigned.length > 0) {
-          // alert('order assigend');
+          //order assigend
           console.log(dataOrderAssigned[0].status);
           if (dataOrderAssigned[0].status === 'Packing') {
             this.detail_id = dataOrderAssigned[0].detail_id;
@@ -138,7 +138,7 @@ export class MyorderComponent implements OnInit {
           }
         }
         else {
-          // alert('order not assigned');
+          // order not assigned
           this.orderCancel.cancelOrderDetails(od).subscribe(
             (dataOrderDetails: any[]) => {
               console.log('order details mathi delete');
@@ -187,7 +187,7 @@ export class MyorderComponent implements OnInit {
   }
   OnStatusChack(order_id: number) {
 
-    // alert(order_id);
+
     this.orederdata.getUserOrderCheck(order_id).subscribe(
       (dataOrderCheck: any[]) => {
 
@@ -208,7 +208,7 @@ export class MyorderComponent implements OnInit {
           );
         }
         else {
-          // alert('order under Processing');
+          // order under Processing
           this.processing = 'Your Order Id ' + order_id + '\n' + 'Is under processing, Order will be delivered Soon';
           this.Display2 = true;
 

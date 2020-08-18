@@ -13,12 +13,16 @@ export class ProductServiceService {
   public url4 = environment.url + "productHome/";
   public url2 = environment.url + "categoryById/";
   public urlSearch: string = environment.url + "search_Product/";
-
+  public urlQty: string = environment.url + 'ProQuantity/';
   public urlTextBox = environment.url + 'SerachText/';
   public urlMfgCat = environment.url + 'MfgCat/';
+  public urlTopSelling = environment.url + 'TopSellingHomeUser/';
   constructor(private _http: HttpClient) { }
   getAllProducts() {
     return this._http.get(this.url);
+  }
+  getTopSellingProducts() {
+    return this._http.get(this.urlTopSelling);
   }
   getDataByProductName(name: string) {
     console.log(name);
@@ -51,6 +55,10 @@ export class ProductServiceService {
   getViewmoreRelatedProducts(fk_cat_id: number) {
     return this._http.get(this.url21 + fk_cat_id);
   }
+  updateProductQty(item) {
+    // console.log(pro_id, item);
+    return this._http.put(this.urlQty, item);
+  }
   addproduct(item: FormData) {
     //let body=JSON.stringify(item.pro_id);
     //let head=new HttpHeaders ().set(environment.header,environment.value);
@@ -76,11 +84,5 @@ export class ProductServiceService {
     return this._http.get(this.url1 + pro_id);
 
   }
-  // getproductphoto123(pro_id) {
-  //   return this._http.get<any>(this.url1 + pro_id).toPromise().then(res => res.data).then(data => { return data; });
 
-  // }
-  // getproductphoto(fk_pro_id) {
-  //   return this._http.get(this.url1 + fk_pro_id);
-  //}
 }

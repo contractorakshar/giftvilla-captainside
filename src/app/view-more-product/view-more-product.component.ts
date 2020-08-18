@@ -41,48 +41,61 @@ export class ViewMoreProductComponent implements OnInit {
   wishlistItems: any[] = [];
   wishlistFlag: boolean = false;
   alredyf: boolean = false;
-
-  constructor(public _proser: ProductServiceService, public _rou: Router, public _actRou: ActivatedRoute, private wishlistService: WishlistOperationsService, private _cartService: CartoperationsService, private _snackBar: MatSnackBar) { }
+  relatedProduct: any[] = [];
+  responsiveOptions;
+  constructor(public _proser: ProductServiceService, public _rou: Router, public _actRou: ActivatedRoute, private wishlistService: WishlistOperationsService, private _cartService: CartoperationsService, private _snackBar: MatSnackBar) {
+    this.responsiveOptions = [
+      {
+        breakpoint: '1024px',
+        numVisible: 3,
+        numScroll: 3
+      },
+      {
+        breakpoint: '768px',
+        numVisible: 2,
+        numScroll: 2
+      },
+      {
+        breakpoint: '560px',
+        numVisible: 1,
+        numScroll: 1
+      }
+    ];
+  }
 
   ngOnInit(): void {
-    this._proser.getproductphoto(this.pro_id);
+
     this.u_EmailId = localStorage.getItem('u_EmailId');
-    this.fk_pro_id = this._actRou.snapshot.params['fk_pro_id'];
+
     this.pro_id = this._actRou.snapshot.params['pro_id'];
-    this._proser.getProductById(this.pro_id).subscribe((data: productdisplay[]) => {
-      this.arr = data;
-      this.pro_name = data[0].pro_name;
-      this.pro_price = data[0].pro_price;
-      this.pro_mfg = data[0].pro_mfg;
-      this.pro_img = data[0].pro_img;
-      this.pro_info = data[0].pro_info;
-      this.fk_cat_id = data[0].fk_cat_id;
-      this.cat_name = data[0].cat_name;
+    this._actRou.params.subscribe((dataid) => {
+      this.pro_id = dataid.pro_id;
 
-    });
+      this._proser.getProductById(this.pro_id).subscribe((data: productdisplay[]) => {
+        this.arr = data;
+        this.pro_name = data[0].pro_name;
+        this.pro_price = data[0].pro_price;
+        this.pro_mfg = data[0].pro_mfg;
+        this.pro_img = data[0].pro_img;
+        this.pro_info = data[0].pro_info;
+        this.fk_cat_id = data[0].fk_cat_id;
+        this.cat_name = data[0].cat_name;
 
-
-    this._proser.getproductphoto(this.pro_id).subscribe(
-      (data: productphotodisplay[]) => {
-        this.picarr = data;
+        this._proser.getproductBycategory(this.fk_cat_id).subscribe(
+          (dataSuggested: any) => {
+            this.relatedProduct = dataSuggested;
+          }
+        );
 
       });
 
 
+      this._proser.getproductphoto(this.pro_id).subscribe(
+        (data: productphotodisplay[]) => {
+          this.picarr = data;
 
-    // this.fk_cat_id = this.arr[0].fk_cat_id;
-    // console.log(this.fk_cat_id);
-    // this._proser.getViewmoreRelatedProducts(this.fk_cat_id).subscribe((data: productdisplay[]) => {
-    //   this.relatedpicarr = data;
-    //   console.log(this.relatedpicarr);
-    //   for (this.i = 0; this.i < this.relatedpicarr.length; this.i++) {
-    //     if (this.pro_id != this.relatedpicarr[this.i].pro_id) {
-    //       this.relatedpicarr1 = this.relatedpicarr;
-    //     }
-    //   }
-    //   console.log(this.relatedpicarr1);
-    // });
-
+        });
+    });
   }
   AddTowishlist() {
     // this._rou.navigate(['/wishlist']);
@@ -114,8 +127,8 @@ export class ViewMoreProductComponent implements OnInit {
                   duration: 2000,
                   panelClass: ['blue-snackbar']
                 });
-                //          alert('Product Is Added To Your WishList Table');
-                console.log(dataWislist);
+
+                // console.log(dataWislist);
               }
             );
           }
@@ -170,6 +183,10 @@ export class ViewMoreProductComponent implements OnInit {
       duration: 2000,
       panelClass: ['blue-snackbar']
     });
+
+  }
+  onViewMore(id) {
+    this._rou.navigate(['/viewMoreProduct', id]);
 
   }
 

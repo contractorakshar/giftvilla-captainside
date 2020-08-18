@@ -41,7 +41,7 @@ export class LeftcategoryComponent implements OnInit {
     // this.router.navigate(['/productdrop', cat_id]);
   }
   OnMfgClick(pro_mfg) {
-    // alert(pro_mfg);
+
     // this.MfgObj.getProductByMfg(pro_mfg).subscribe(
     //   (dataMfg: any[]) => {
     //     // console.log(dataMfg);

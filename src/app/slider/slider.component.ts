@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-slider',
@@ -8,18 +9,19 @@ import { Component, OnInit } from '@angular/core';
 export class SliderComponent implements OnInit {
   public imagesUrl;
 
-  constructor() { }
+  constructor(private rout: Router) { }
 
   ngOnInit(): void {
 
 
   }
-  clickimg(){
-    alert("alert");
+  clickimg() {
+
+    this.rout.navigate(['/offers']);
   }
 
-  onClick(){
-    alert("hello");
+  onClick() {
+
   }
 
 }

@@ -47,7 +47,7 @@ export class SerachPageComponent implements OnInit {
 
     console.log(item);
     // if (this.UserId == null) {
-    //   alert('Go to Login');
+
     //   console.log(this.UserId);
     //   this._router.navigate(['/loginpage']);
     // }
@@ -97,7 +97,7 @@ export class SerachPageComponent implements OnInit {
       duration: 2000,
       panelClass: ['blue-snackbar']
     });
-    //alert(item.pro_name + " added");
+
   }
   // onRemoveFromCart(SelectedProductID) {
   //   if (this.UserId != null) {

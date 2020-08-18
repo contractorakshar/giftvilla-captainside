@@ -3,7 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { OrderdataService } from '../orderdata.service';
 import { CancelOrderService } from '../cancel-order.service';
 import { orders } from '../order_bill';
-
+import { productdisplay } from '../productdisplay';
+import { Maincart } from '../cart/maincart';
+import { ProductServiceService } from '../product-service.service';
 @Component({
   selector: 'app-my-order-view-more',
   templateUrl: './my-order-view-more.component.html',
@@ -11,11 +13,15 @@ import { orders } from '../order_bill';
 })
 export class MyOrderViewMoreComponent implements OnInit {
   fk_u_EmailId: string;
+  len: number;
   u_EmailId: string = '';
   order_id: number;
+  qty: any[];
+  cart: Maincart = JSON.parse(localStorage.getItem('cart')) as Maincart;
   orderAssignarr: any[];
   OrderNotAssignArr: any[];
   orderDetails: any[];
+  dataproqty: any[];
   processing: string;
   arrMyOrder: any[];
   Display: boolean = false;
@@ -34,7 +40,8 @@ export class MyOrderViewMoreComponent implements OnInit {
   wallet_id: number;
   detail_id: number;
   btnflag: boolean = false;
-  constructor(public act_route: ActivatedRoute, public orederdata: OrderdataService, private orderCancel: CancelOrderService, private route: Router) { }
+  orderDetailsarr: orders[];
+  constructor(public act_route: ActivatedRoute, public orederdata: OrderdataService, private orderCancel: CancelOrderService, private route: Router, private proServ: ProductServiceService) { }
 
   ngOnInit(): void {
     this.order_id = this.act_route.snapshot.params['order_id'];
@@ -53,7 +60,7 @@ export class MyOrderViewMoreComponent implements OnInit {
 
         this.orederdata.getMyOrderByIdNotAssign(this.order_id).subscribe(
           (dataOrderNotAssign: any[]) => {
-            console.log(dataOrderNotAssign);
+            // console.log(dataOrderNotAssign);
             this.OrderNotAssignArr = dataOrderNotAssign;
           }
         );
@@ -68,10 +75,41 @@ export class MyOrderViewMoreComponent implements OnInit {
         }
       }
     );
+
+  }
+  UpadteQty() {
+
+    this.orederdata.getOrderDetailsById(this.order_id).subscribe(
+      (dataorderdetails: orders[]) => {
+        this.qty = dataorderdetails;
+        this.len = dataorderdetails.length;
+
+        for (let i = 0; i < this.len; i++) {
+
+          console.log(this.len);
+          this.proServ.getProductById(this.qty[i].fk_pro_id).subscribe(
+            (dataproqty: productdisplay[]) => {
+              this.dataproqty = dataproqty;
+              for (let j = 0; j < this.len; j++) {
+                let objQty = {
+                  pro_id: this.dataproqty[j].pro_id,
+                  pro_qty: this.dataproqty[j].pro_qty + this.qty[i].qty,
+                };
+                console.log(objQty);
+                this.proServ.updateProductQty(objQty).subscribe(
+                  (datachng: any[]) => {
+
+                  });
+              }
+            });
+        }
+      }
+    );
+
+
   }
   OnStatusChack(order_id: number) {
 
-    // alert(order_id);
     this.orederdata.getUserOrderCheck(order_id).subscribe(
       (dataOrderCheck: any[]) => {
 
@@ -92,7 +130,7 @@ export class MyOrderViewMoreComponent implements OnInit {
           );
         }
         else {
-          // alert('order under Processing');
+          // 'order under Processing';
           this.processing = 'Your Order Id ' + order_id + '\n' + 'Is under processing, Order will be delivered Soon';
           this.Display2 = true;
 
@@ -124,9 +162,9 @@ export class MyOrderViewMoreComponent implements OnInit {
       (dataOrderAssigned: any[]) => {
 
 
-        // alert('order assigend');
+        //order assigend
         if (dataOrderAssigned.length > 0) {
-
+          this.UpadteQty();
           if (dataOrderAssigned[0].status == 'Packing') {
             this.detail_id = dataOrderAssigned[0].detail_id;
             console.log(this.detail_id);
@@ -136,11 +174,15 @@ export class MyOrderViewMoreComponent implements OnInit {
                 this.orderCancel.cancelDeliveryDetails(this.od).subscribe(
                   (dataDeliveryDetailsCancel: any[]) => {
                     console.log('data delivery details cancel');
+
                     this.orderCancel.cancelOrderDetails(this.od).subscribe(
                       (dataCancelOrderDetails: any[]) => {
+
                         console.log('data order  details cancel');
                         this.orderCancel.cancelOrder(this.order_id).subscribe(
                           (dataOrderCancel: any[]) => {
+
+
                             console.log('order data cancel');
                             if (this.payment_method === 'paypal' || this.payment_method == 'wallet') {
                               if (this.walletDetails.length > 0) {
@@ -171,8 +213,7 @@ export class MyOrderViewMoreComponent implements OnInit {
                               }
                             }
 
-                          }
-                        );
+                          });
                       }
                     );
 
@@ -183,12 +224,16 @@ export class MyOrderViewMoreComponent implements OnInit {
           }
         }
         else {
-          // alert('order not assigned');
+          // order not assigned
+          this.UpadteQty();
           this.orderCancel.cancelOrderDetails(this.order_id).subscribe(
             (dataOrderDetails: any[]) => {
+
               console.log('order details mathi delete');
+
               this.orderCancel.cancelOrder(this.order_id).subscribe(
                 (dataOrderBill: any[]) => {
+
                   console.log('order mthi delete');
                   this.orderDelDialog = true;
                   if (this.payment_method === 'paypal' || this.payment_method == 'wallet') {
@@ -219,8 +264,8 @@ export class MyOrderViewMoreComponent implements OnInit {
                       );
                     }
                   }
-                }
-              );
+
+                });
 
             }
           );

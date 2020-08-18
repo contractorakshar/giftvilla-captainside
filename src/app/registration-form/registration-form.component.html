@@ -16,13 +16,14 @@
 <!-- End Breadcrumb -->
 
 
-<div class="main-contain" style="margin-left: 5%;margin-right: 35%;">
+<div class="main-contain" style="margin-left: 35%;margin-right: 35%;">
   <div class="container">
     <div class="row">
 
       <div class="home-main col-md-9 col-sm-12 clo-xs-12 main-contant-right">
         <div class="widget">
-          <h6 class="text-uppercase bottom-line"><strong>My personal information</strong></h6>
+          <h6 class="text-uppercase bottom-line" style="margin-right: 52%;"><strong>My personal information</strong>
+          </h6>
         </div>
         <form [formGroup]="SignupForm" (ngSubmit)="onSignup()">
           <div class="row">
@@ -70,9 +71,9 @@
                   numbers
                 </mat-error>
                 <mat-error *ngIf="SignupForm.get('u_mobileno').hasError('minlength')">mobile number should not be < 10
-                  numbers
-                </mat-error>
-                <mat-error *ngIf="SignupForm.get('u_mobileno').hasError('pattern')">Only numbers are allowed</mat-error>
+                    numbers </mat-error>
+                    <mat-error *ngIf="SignupForm.get('u_mobileno').hasError('pattern')">Only numbers are allowed
+                    </mat-error>
               </div>
               <label>Date of Birth</label>
               <div class="form-group">
@@ -119,7 +120,8 @@
             </div>
           </div>
           <div class="form-group">
-            <button type="submit" [disabled]="!SignupForm.valid" value="submit" class="btn cd-btn"><i class="fa fa-save mr5"></i>
+            <button type="submit" [disabled]="!SignupForm.valid" value="submit" class="btn cd-btn"><i
+                class="fa fa-save mr5"></i>
               Save</button>
             <button style="margin-left: 25%;" type="button" (click)="onSignupCancel()" class="btn cd-btn"><i
                 class="fa fa-save mr5"></i>
@@ -133,3 +135,13 @@
 </div>
 <button style="margin-left: 43%;" type="button" routerLink="/loginpage" class="btn btn-success">Already Have An
   Account..</button>
+<p-dialog [(visible)]="dis">
+  <p-header>
+    WELCOME TO GIFTVILLA
+  </p-header>
+  Your details are succesfully saved...!
+  <p-footer>
+    <button routerLink="/">OK</button>
+
+  </p-footer>
+</p-dialog>
