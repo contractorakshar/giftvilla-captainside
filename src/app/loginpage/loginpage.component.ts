@@ -79,12 +79,22 @@ export class LoginpageComponent implements OnInit {
                       console.log(dataMemberDetails, this.todaysDate, dataMemberDetails[0].End_date);
                       if (this.todaysDate >= dataMemberDetails[0].End_date) {
                         console.log(dataMemberDetails[0].End_date);
+                        if (dataMemberDetails[0].End_date == this.todaysDate) {
+                          // console.log('datatodays!!!!');
+                          this._mail.getUserByEmail(localStorage.getItem('u_EmailId')).subscribe((data) => {
+                            console.log(data[0].u_password);
+                            this._mail.passwordMail(localStorage.getItem('u_EmailId'), "Subscription Ended", "Your Membership Offer Ennded Today! To enjoy more offers and discount Buy new offer today!" + "\n" + "Hurry up" + "this is Giftvilla service").subscribe((data) => {
+                              alert("Please Check Your mail");
+                            });
+                          });
+                        }
                         this.memObj.updateCtoM(localStorage.getItem('u_EmailId')).subscribe(
                           (dataTypeUpdate: any[]) => {
                             console.log(dataTypeUpdate);
                             this.memObj.RemoveMemberCustomer(localStorage.getItem('u_EmailId')).subscribe(
                               (dataMemeberremove: any) => {
                                 console.log(dataMemeberremove);
+
                               });
                           }
                         );
